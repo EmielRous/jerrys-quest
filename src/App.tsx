@@ -10,7 +10,7 @@ const levelMap = {
         visible: true,
         onClick: nextLevel(2),
         size: {
-          w: 50,
+          w: 3000,
           h: 50,
         },
         location: {
