@@ -7,7 +7,7 @@ const levelMap = {
     images: [
       {
         path: "/wikipedia_level/Desk-lampOFF.png",
-        visible: false,
+        visible: true,
         onClick: nextLevel(2),
         size: {
           w: 50,
