@@ -1,9 +1,12 @@
 import * as React from "react";
-import { Button, Tooltip } from "antd";
-import { useState } from "react";
 
 interface ClickableImageProps {
   path: string;
+  clickable?: boolean;
+  onClick?: (e: any) => void;
+  onMouseEnter?: (e: any) => void;
+  onMouseLeave?: (e: any) => void;
+  visible?: boolean;
   size: {
     w: number;
     h: number;
@@ -17,11 +20,19 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
   path,
   location,
   size,
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+  clickable = false,
+  visible = true,
 }) => {
   return (
     <img
       src={path}
-      className={`absolute hover:scale-110 top-100 left-40 size-20 `}
+      className={`absolute  top-100 left-40 size-20 ${visible ? "" : "hidden"} ${clickable ? "hover:scale-105" : ""}`}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       style={{
         top: location.y + "px",
         left: location.x + "px",
