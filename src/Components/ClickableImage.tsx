@@ -29,7 +29,7 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
   return (
     <img
       src={path}
-      className={`absolute  top-100 left-40 size-20 ${visible ? "" : "hidden"} ${clickable ? "hover:scale-105" : ""}`}
+      className={`absolute ${visible ? "" : "hidden"} ${clickable ? "hover:scale-105" : ""}`}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
