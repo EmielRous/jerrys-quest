@@ -35,15 +35,16 @@ const WikipediaLevel: React.FC = ({}) => {
         onClick={() => setLampOn(!lampOn)}
         location={{ x: 609, y: 444 }}
       />
-      {stackHover ? (
+
         <ClickableImage
+          visible={stackHover}
           path="/wikipedia_level/Desk-papers.gif"
           onMouseLeave={() => setStackHover(false)}
           size={{ w: 230, h: 300 }}
           location={{ x: 120, y: 360 }}
         />
-      ) : (
         <ClickableImage
+          visible={!stackHover}
           path="/wikipedia_level/Desk-papers.png"
           onMouseEnter={() => setStackHover(true)}
           size={{ w: 230, h: 120 }}
