@@ -1,4 +1,6 @@
 import * as React from "react";
+import { Button, Tooltip } from "antd";
+import { useState } from "react";
 
 interface ClickableImageProps {
   path: string;
@@ -19,7 +21,13 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
   return (
     <img
       src={path}
-      className={`absolute top-100 left-40 size-20 top-${location.y} left-${location.x} w-${size.w} h-${size.h} `}
+      className={`absolute hover:scale-110 top-100 left-40 size-20 `}
+      style={{
+        top: location.y + "px",
+        left: location.x + "px",
+        height: size.h + "px",
+        width: size.w + "px",
+      }}
     />
   );
 };
