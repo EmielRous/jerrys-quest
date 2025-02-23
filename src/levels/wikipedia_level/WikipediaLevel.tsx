@@ -16,19 +16,18 @@ const WikipediaLevel: React.FC = ({}) => {
         location={{ x: 230, y: 267 }}
       />
 
-      {lampOn ? (
-        <ClickableImage
-          path="/wikipedia_level/Desk-lampON.png"
-          size={{ w: 400, h: 230 }}
-          location={{ x: 258, y: 256 }}
-        />
-      ) : (
-        <ClickableImage
-          path="/wikipedia_level/Desk-lampOFF.png"
-          size={{ w: 152, h: 196 }}
-          location={{ x: 505, y: 255 }}
-        />
-      )}
+      <ClickableImage
+        visible={lampOn}
+        path="/wikipedia_level/Desk-lampON.png"
+        size={{ w: 400, h: 230 }}
+        location={{ x: 258, y: 256 }}
+      />
+      <ClickableImage
+        visible={!lampOn}
+        path="/wikipedia_level/Desk-lampOFF.png"
+        size={{ w: 152, h: 196 }}
+        location={{ x: 505, y: 255 }}
+      />
       <ClickableImage
         path="/wikipedia_level/Desk-lampToggle.png"
         size={{ w: 80, h: 65 }}
