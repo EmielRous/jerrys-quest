@@ -8,7 +8,6 @@ const levelMap = {
       {
         path: "/wikipedia_level/Desk-lampOFF.png",
         visible: true,
-        onClick: nextLevel(2),
         size: {
           w: 50,
           h: 50,
@@ -44,7 +43,47 @@ const levelMap = {
       },
     ],
   },
-  2: {},
+  2: {
+    backgroundImage: "/wikipedia_level/Desk-background.png",
+    images: [
+      {
+        path: "/wikipedia_level/Desk-lampOFF.png",
+        visible: true,
+        size: {
+          w: 50,
+          h: 50,
+        },
+        location: {
+          x: 100,
+          y: 100,
+        },
+      },
+      {
+        path: "/wikipedia_level/Desk-lampON.png",
+        visible: false,
+        size: {
+          w: 50,
+          h: 50,
+        },
+        location: {
+          x: 100,
+          y: 100,
+        },
+      },
+      {
+        path: "/wikipedia_level/Desk-lampToggle.png",
+        visible: true,
+        size: {
+          w: 50,
+          h: 50,
+        },
+        location: {
+          x: 100,
+          y: 100,
+        },
+      },
+    ],
+  },
 };
 
 function App() {
