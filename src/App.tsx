@@ -4,7 +4,6 @@ import "./App.css";
 import WikipediaLevel from "./levels/wikipedia_level/WikipediaLevel.tsx";
 import NavigationBar from "./components/NavigationBar.tsx";
 import DeskLevel from "./levels/desk_level/DeskLevel.tsx";
-import AnimatedCursor from "react-animated-cursor";
 import CustomCursor from "./components/CustomCursor.tsx";
 
 function App() {
