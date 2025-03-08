@@ -51,4 +51,11 @@ export enum DeskLevelPaths {
   BureauLevel = "bureau-level",
   RaamLevel = "raam-level",
   TafelLevel = "tafel-level",
+  KastLevel = "kast-level",
+}
+
+export enum BureauLevelPaths {
+  KaartLevel = "kaart-level",
+  SchilderijLevel = "schilderij-level",
+  WikiLevel = "wiki-level",
 }

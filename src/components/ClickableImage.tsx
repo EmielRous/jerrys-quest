@@ -14,8 +14,8 @@ interface ClickableImageProps {
   onMouseEnter?: (e: any) => void;
   onMouseLeave?: (e: any) => void;
   visible?: boolean;
-  isInventoriable: boolean;
-  redirect: string;
+  isInventoriable?: boolean;
+  redirect?: string;
   size: {
     w: number;
     h: number;

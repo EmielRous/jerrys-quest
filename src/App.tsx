@@ -9,11 +9,15 @@ import TapijtLevel from "./levels/deur_level/tapijt_level/TapijtLevel.tsx";
 import NavigationBar from "./components/NavigationBar.tsx";
 import Inventory from "./components/Inventory.tsx";
 import {
+  BureauLevelPaths,
   DeskLevelPaths,
   Levels,
   saveArrayToStorage,
   STORAGE_KEY,
 } from "./utils.tsx";
+import KaartLevel from "./levels/desk_level/bureau_level/kaart_level/KaartLevel.tsx";
+import WikiLevel from "./levels/desk_level/bureau_level/wiki_level/WikiLevel.tsx";
+import SchilderijLevel from "./levels/desk_level/bureau_level/schilderij_level/SchilderijLevel.tsx";
 
 function App() {
   return (
@@ -21,6 +25,7 @@ function App() {
       <div>
         <div className={"border border-red-100 h-[768px] w-[1024px]"}>
           <Routes>
+            {/**DESK LEVEL**/}
             <Route path={`/${Levels.DeskLevel}`} element={<DeskLevel />} />
             <Route
               path={`/${Levels.DeskLevel}/${DeskLevelPaths.BureauLevel}`}
@@ -34,7 +39,26 @@ function App() {
               path={`/${Levels.DeskLevel}/${DeskLevelPaths.TafelLevel}`}
               element={<TafelLevel />}
             />
-            <Route path={`/${Levels.TapijtLevel}`} element={<TapijtLevel />} />
+            <Route
+              path={`/${Levels.DeskLevel}/${DeskLevelPaths.KastLevel}`}
+              element={<TafelLevel />}
+            />
+            {/*****BUREAU LEVEL********/}
+            <Route
+              path={`/${Levels.DeskLevel}/${DeskLevelPaths.BureauLevel}/${BureauLevelPaths.KaartLevel}`}
+              element={<KaartLevel />}
+            />
+            <Route
+              path={`/${Levels.DeskLevel}/${DeskLevelPaths.BureauLevel}/${BureauLevelPaths.SchilderijLevel}`}
+              element={<SchilderijLevel />}
+            />
+            <Route
+              path={`/${Levels.DeskLevel}/${DeskLevelPaths.BureauLevel}/${BureauLevelPaths.WikiLevel}`}
+              element={<WikiLevel />}
+            />
+
+            {/**DEUR LEVEL**/}
+            {/*<Route path={`/${Levels.Deur}`} element={<TapijtLevel />} />*/}
           </Routes>
         </div>
         <NavigationBar />
