@@ -14,14 +14,28 @@ const NavigationBar = () => {
       <Link to="/desk-level">
         <img
           src="wikipedia_level/Wiki-background.png"
-          alt="Level Two"
+          alt="Desk Level"
           className="h-16 w-16"
         />
       </Link>
-      <Link to="/level-three">
+      <Link to="/raam-level">
         <img
-          src="wikipedia_level/Wiki-background.png"
-          alt="Level Three"
+          src="raam_level/RaamView.png"
+          alt="Raam Level"
+          className="h-16 w-16"
+        />
+      </Link>
+      <Link to="/tafel-level">
+        <img
+          src="tafel_level/TroepTafelView.png"
+          alt="Tafel Level"
+          className="h-16 w-16"
+        />
+      </Link>
+      <Link to="/tapijt-level">
+        <img
+          src="tapijt_level/TapijtView.png"
+          alt="Tapijt Level"
           className="h-16 w-16"
         />
       </Link>

@@ -2,9 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import WikipediaLevel from "./levels/wikipedia_level/WikipediaLevel.tsx";
-import NavigationBar from "./components/NavigationBar.tsx";
 import DeskLevel from "./levels/desk_level/DeskLevel.tsx";
-import CustomCursor from "./components/CustomCursor.tsx";
+import RaamLevel from "./levels/raam_level/RaamLevel.tsx";
+import TafelLevel from "./levels/tafel_level/TafelLevel.tsx";
+import TapijtLevel from "./levels/tapijt_level/TapijtLevel.tsx";
+import NavigationBar from "./components/NavigationBar.tsx";
 document.body.style.cursor = "url('/Cursor.png'), default";
 
 function App() {
@@ -15,11 +17,12 @@ function App() {
           <Routes>
             <Route path="/wikipedia-level" element={<WikipediaLevel />} />
             <Route path="/desk-level" element={<DeskLevel />} />
-            <Route path="/level-three" element={<WikipediaLevel />} />
+            <Route path="/raam-level" element={<RaamLevel />} />
+            <Route path="/tafel-level" element={<TafelLevel />} />
+            <Route path="/tapijt-level" element={<TapijtLevel />} />
           </Routes>
         </div>
         <NavigationBar />
-        {/*<CustomCursor />*/}
       </div>
     </Router>
   );
