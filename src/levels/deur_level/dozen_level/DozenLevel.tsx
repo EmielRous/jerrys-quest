@@ -1,5 +1,6 @@
 import React from "react";
 import ClickableImage from "../../../components/ClickableImage.tsx";
+import BackButton from "../../../components/BackButton.tsx";
 
 const DozenLevel: React.FC = () => {
   return (
@@ -8,6 +9,8 @@ const DozenLevel: React.FC = () => {
         className={"relative h-[768px] w-[1024px]"}
         src={"/deur_level/dozen_level/DozenView.png"}
       />
+      <BackButton />
+
       <ClickableImage
         path="/deur_level/dozen_level/Doos1.png"
         size={{ w: 100, h: 100 }}

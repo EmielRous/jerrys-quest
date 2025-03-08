@@ -1,8 +1,10 @@
 import ClickableImage from "../../../components/ClickableImage.tsx";
+import BackButton from "../../../components/BackButton.tsx";
 
 const TapijtLevel: React.FC = () => {
   return (
     <div>
+      <BackButton />
       <img
         className="relative h-[768px] w-[1024px]"
         src="/deur_level/tapijt_level/TapijtView.png"
