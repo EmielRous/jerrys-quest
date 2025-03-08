@@ -14,7 +14,7 @@ const NavigationBar = () => {
 
       <Link to="/tapijt-level">
         <img
-          src="tapijt_level/TapijtView.png"
+          src="../../public/deur_level/tapijt_level/TapijtView.png"
           alt="Tapijt Level"
           className="h-16 w-16"
         />

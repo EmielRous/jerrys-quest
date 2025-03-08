@@ -15,8 +15,6 @@ import {
   STORAGE_KEY,
 } from "./utils.tsx";
 
-document.body.style.cursor = "url('/Cursor.png'), default";
-
 function App() {
   return (
     <Router>
