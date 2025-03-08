@@ -36,21 +36,21 @@ const WikipediaLevel: React.FC = ({}) => {
         location={{ x: 609, y: 444 }}
       />
 
-        <ClickableImage
-          visible={stackHover}
-          path="/wikipedia_level/Desk-papers.gif"
-          onMouseLeave={() => setStackHover(false)}
-          size={{ w: 230, h: 300 }}
-          location={{ x: 120, y: 360 }}
-        />
-        <ClickableImage
-          visible={!stackHover}
-          path="/wikipedia_level/Desk-papers.png"
-          onMouseEnter={() => setStackHover(true)}
-          size={{ w: 230, h: 120 }}
-          location={{ x: 120, y: 550 }}
-        />
-      )}
+      <ClickableImage
+        visible={stackHover}
+        path="/wikipedia_level/Desk-papers.gif"
+        onMouseLeave={() => setStackHover(false)}
+        size={{ w: 230, h: 300 }}
+        location={{ x: 120, y: 360 }}
+      />
+      <ClickableImage
+        visible={!stackHover}
+        path="/wikipedia_level/Desk-papers.png"
+        onMouseEnter={() => setStackHover(true)}
+        size={{ w: 230, h: 120 }}
+        location={{ x: 120, y: 550 }}
+      />
+
       <ClickableImage
         path="/wikipedia_level/Desk-PC.png"
         size={{ w: 330, h: 300 }}
