@@ -6,7 +6,7 @@ const NavigationBar = () => {
     <div className="flex justify-around bg-gray-200 p-4">
       <Link to="/wikipedia-level">
         <img
-          src="wikipedia_level/Wiki-background.png"
+          src="../../public/bureau_level/Wiki-background.png"
           alt="Wikipedia Level"
           className="h-16 w-16"
         />

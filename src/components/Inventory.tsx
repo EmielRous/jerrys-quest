@@ -34,7 +34,7 @@ const Inventory: React.FC = () => {
         </a>
       </div>
       <div className={"flex flex-row "}>
-        {Array.from({ length: Math.min(5, items.length) }).map((_, index) => (
+        {Array.from({ length: 5 }).map((_, index) => (
           <div
             key={index}
             className="size-12 border-2 border-white flex items-center justify-center bg-gray-600"
