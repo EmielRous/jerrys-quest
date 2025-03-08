@@ -1,14 +1,19 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import WikipediaLevel from "./levels/wikipedia_level/WikipediaLevel.tsx";
+import BureauLevel from "./levels/desk_level/bureau_level/BureauLevel.tsx";
 import DeskLevel from "./levels/desk_level/DeskLevel.tsx";
-import RaamLevel from "./levels/raam_level/RaamLevel.tsx";
-import TafelLevel from "./levels/tafel_level/TafelLevel.tsx";
+import RaamLevel from "./levels/desk_level/raam_level/RaamLevel.tsx";
+import TafelLevel from "./levels/desk_level/tafel_level/TafelLevel.tsx";
 import TapijtLevel from "./levels/tapijt_level/TapijtLevel.tsx";
 import NavigationBar from "./components/NavigationBar.tsx";
 import Inventory from "./components/Inventory.tsx";
-import { saveArrayToStorage, STORAGE_KEY } from "./utils.tsx";
+import {
+  DeskLevelPaths,
+  Levels,
+  saveArrayToStorage,
+  STORAGE_KEY,
+} from "./utils.tsx";
 
 document.body.style.cursor = "url('/Cursor.png'), default";
 
@@ -18,11 +23,20 @@ function App() {
       <div>
         <div className={"border border-red-100 h-[768px] w-[1024px]"}>
           <Routes>
-            <Route path="/wikipedia-level" element={<WikipediaLevel />} />
-            <Route path="/desk-level" element={<DeskLevel />} />
-            <Route path="/raam-level" element={<RaamLevel />} />
-            <Route path="/tafel-level" element={<TafelLevel />} />
-            <Route path="/tapijt-level" element={<TapijtLevel />} />
+            <Route path={`/${Levels.DeskLevel}`} element={<DeskLevel />} />
+            <Route
+              path={`/${Levels.DeskLevel}/${DeskLevelPaths.BureauLevel}`}
+              element={<BureauLevel />}
+            />
+            <Route
+              path={`/${Levels.DeskLevel}/${DeskLevelPaths.RaamLevel}`}
+              element={<RaamLevel />}
+            />
+            <Route
+              path={`/${Levels.DeskLevel}/${DeskLevelPaths.TafelLevel}`}
+              element={<TafelLevel />}
+            />
+            <Route path={`/${Levels.TapijtLevel}`} element={<TapijtLevel />} />
           </Routes>
         </div>
         <NavigationBar />

@@ -1,12 +1,15 @@
-import ClickableImage from "../../components/ClickableImage.tsx";
+import ClickableImage from "../../../components/ClickableImage.tsx";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const RaamLevel: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <img
         className="relative h-[768px] w-[1024px]"
-        src="/raam_level/RaamView.png"
+        src="/desk_level/raam_level/RaamView.png"
       />
       <ClickableImage
         path="/raam_level/65.png"

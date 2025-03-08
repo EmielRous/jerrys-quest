@@ -41,3 +41,14 @@ export const removeItemFromStorage = (key: STORAGE_KEY, item: string): void => {
 export const getAllItemsFromStorage = (key: STORAGE_KEY): any[] => {
   return getArrayFromStorage(key);
 };
+
+export enum Levels {
+  DeskLevel = "desk-level",
+  TapijtLevel = "tapijt-level",
+}
+
+export enum DeskLevelPaths {
+  BureauLevel = "bureau-level",
+  RaamLevel = "raam-level",
+  TafelLevel = "tafel-level",
+}

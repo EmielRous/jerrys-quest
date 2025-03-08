@@ -5,6 +5,7 @@ import {
   STORAGE_KEY,
 } from "../utils.tsx";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface ClickableImageProps {
   path: string;
@@ -14,6 +15,7 @@ interface ClickableImageProps {
   onMouseLeave?: (e: any) => void;
   visible?: boolean;
   isInventoriable: boolean;
+  redirect: string;
   size: {
     w: number;
     h: number;
@@ -33,17 +35,23 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
   clickable = false,
   visible = true,
   isInventoriable = false,
+  redirect = "",
 }) => {
-  const _onClick = () => {
+  const navigate = useNavigate();
+  const _onClick = (e) => {
+    if (redirect.length > 0) {
+      navigate(redirect);
+    }
     if (isInventoriable) {
       addItemToStorage(STORAGE_KEY.Inventory, path);
     }
+    onClick?.(e);
   };
 
   return (
     <img
       src={path}
-      className={`absolute ${visible ? "" : "hidden"} ${clickable ? "hover:scale-105" : ""}`}
+      className={`absolute ${visible ? "" : "hidden"} ${clickable ? "hover:scale-105 hover:cursor-pointer" : ""}`}
       onClick={_onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

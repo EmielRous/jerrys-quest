@@ -1,11 +1,14 @@
-import ClickableImage from "../../components/ClickableImage.tsx";
+import ClickableImage from "../../../components/ClickableImage.tsx";
+import { useNavigate } from "react-router-dom";
 
 const TafelLevel: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <img
         className="relative h-[768px] w-[1024px]"
-        src="/tafel_level/TroepTafelView.png"
+        src="/desk_level/tafel_level/TroepTafelView.png"
       />
       <ClickableImage
         path="/tafel_level/Blikje1.png"

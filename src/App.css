@@ -1,7 +1,1 @@
 @import "tailwindcss";
-
-*,
-*:before,
-*:after {
-    @apply cursor-default;
-}

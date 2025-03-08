@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import ClickableImage from "../../components/ClickableImage.tsx";
+import { useNavigate } from "react-router-dom";
+import { DeskLevelPaths } from "../../utils.tsx";
 
 const DeskLevel: React.FC = () => {
   const [lampOn, setLampOn] = useState(false);
   const [stackHover, setStackHover] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -26,6 +29,8 @@ const DeskLevel: React.FC = () => {
         path="/desk_level/Desk.png"
         size={{ w: 500, h: 250 }}
         location={{ x: 250, y: 500 }}
+        clickable={true}
+        redirect={DeskLevelPaths.BureauLevel}
       />
       <ClickableImage
         path="/desk_level/Kast.png"
@@ -60,18 +65,18 @@ const DeskLevel: React.FC = () => {
 
       <ClickableImage
         visible={lampOn}
-        path="/wikipedia_level/Desk-lampON.png"
+        path="/desk_level/bureau_level/Desk-lampON.png"
         size={{ w: 400, h: 230 }}
         location={{ x: 258, y: 256 }}
       />
       <ClickableImage
         visible={!lampOn}
-        path="/wikipedia_level/Desk-lampOFF.png"
+        path="/desk_level/bureau_level/Desk-lampOFF.png"
         size={{ w: 152, h: 196 }}
         location={{ x: 505, y: 255 }}
       />
       <ClickableImage
-        path="/wikipedia_level/Desk-lampToggle.png"
+        path="/desk_level/bureau_level/Desk-lampToggle.png"
         size={{ w: 80, h: 65 }}
         clickable={true}
         onClick={() => setLampOn(!lampOn)}
@@ -80,21 +85,21 @@ const DeskLevel: React.FC = () => {
 
       <ClickableImage
         visible={stackHover}
-        path="/wikipedia_level/Desk-papers.gif"
+        path="/desk_level/bureau_level/Desk-papers.gif"
         onMouseLeave={() => setStackHover(false)}
         size={{ w: 230, h: 300 }}
         location={{ x: 120, y: 360 }}
       />
       <ClickableImage
         visible={!stackHover}
-        path="/wikipedia_level/Desk-papers.png"
+        path="/desk_level/bureau_level/Desk-papers.png"
         onMouseEnter={() => setStackHover(true)}
         size={{ w: 230, h: 120 }}
         location={{ x: 120, y: 550 }}
       />
 
       <ClickableImage
-        path="/wikipedia_level/Desk-PC.png"
+        path="/desk_level/bureau_level/Desk-PC.png"
         size={{ w: 330, h: 300 }}
         location={{ x: 660, y: 290 }}
       />
