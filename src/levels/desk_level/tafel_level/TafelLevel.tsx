@@ -2,6 +2,7 @@ import ClickableImage from "../../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 
 const TafelLevel: React.FC = () => {
+  const [damsetOpen, setDamsetOpen] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -11,32 +12,48 @@ const TafelLevel: React.FC = () => {
         src="/desk_level/tafel_level/TroepTafelView.png"
       />
       <ClickableImage
-        path="/tafel_level/Blikje1.png"
+        path="/desk_level/tafel_level/Blikje1.png"
         size={{ w: 50, h: 50 }}
         location={{ x: 100, y: 200 }}
       />
       <ClickableImage
-        path="/tafel_level/Blikje2.png"
+        path="/desk_level/tafel_level/Blikje2.png"
         size={{ w: 50, h: 50 }}
         location={{ x: 150, y: 200 }}
       />
       <ClickableImage
-        path="/tafel_level/Blikje3.png"
+        path="/desk_level/tafel_level/Blikje3.png"
         size={{ w: 50, h: 50 }}
         location={{ x: 200, y: 200 }}
       />
       <ClickableImage
-        path="/tafel_level/DamsetDicht.png"
+        visible={!damsetOpen}
+        path="/desk_level/tafel_level/DamsetDicht.png"
+        size={{ w: 152, h: 196 }}
+        location={{ x: 505, y: 255 }}
+        clickable={true}
+        onClick={() => setDamsetOpen(!damsetOpen)}
+      />
+      <ClickableImage
+        visible={damsetOpen}
+        path="/desk_level/tafel_level/DamsetOpen.png"
+        size={{ w: 80, h: 65 }}
+        location={{ x: 609, y: 444 }}
+        clickable={true}
+        onClick={() => setDamsetOpen(!damsetOpen)}
+      />
+      <ClickableImage
+        path="/desk_level/tafel_level/DamsetDicht.png"
         size={{ w: 120, h: 120 }}
         location={{ x: 250, y: 300 }}
       />
       <ClickableImage
-        path="/tafel_level/DamsetOpen.png"
+        path="/desk_level/tafel_level/DamsetOpen.png"
         size={{ w: 120, h: 120 }}
         location={{ x: 350, y: 300 }}
       />
       <ClickableImage
-        path="/tafel_level/Envelop.png"
+        path="/desk_level/tafel_level/Envelop.png"
         size={{ w: 80, h: 50 }}
         location={{ x: 400, y: 400 }}
       />
