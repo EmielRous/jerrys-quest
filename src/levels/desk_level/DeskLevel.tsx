@@ -17,91 +17,52 @@ const DeskLevel: React.FC = () => {
 
       <ClickableImage
         path="/desk_level/Augurken.png"
-        size={{ w: 100, h: 100 }}
-        location={{ x: 200, y: 300 }}
+        size={{ w: 94, h: 100 }}
+        location={{ x: 125, y: 161 }}
       />
       <ClickableImage
         path="/desk_level/Bril.png"
         size={{ w: 80, h: 50 }}
-        location={{ x: 350, y: 400 }}
+        location={{ x: 317, y: 709 }}
       />
       <ClickableImage
         path="/desk_level/Desk.png"
-        size={{ w: 500, h: 250 }}
-        location={{ x: 250, y: 500 }}
+        size={{ w: 351, h: 133 }}
+        location={{ x: 509, y: 415 }}
         clickable={true}
         redirect={DeskLevelPaths.BureauLevel}
       />
       <ClickableImage
         path="/desk_level/Kast.png"
-        size={{ w: 250, h: 400 }}
-        location={{ x: 700, y: 200 }}
+        size={{ w: 157, h: 513 }}
+        location={{ x: 100, y: 211 }}
       />
       <ClickableImage
         path="/desk_level/MontBlanche.png"
-        size={{ w: 150, h: 100 }}
-        location={{ x: 500, y: 550 }}
+        size={{ w: 94, h: 124 }}
+        location={{ x: 234, y: 525 }}
       />
       <ClickableImage
         path="/desk_level/Prop.png"
-        size={{ w: 100, h: 100 }}
-        location={{ x: 600, y: 600 }}
+        size={{ w: 31, h: 34 }}
+        location={{ x: 438, y: 670 }}
       />
       <ClickableImage
         path="/desk_level/Sphinx.png"
-        size={{ w: 120, h: 120 }}
-        location={{ x: 450, y: 450 }}
+        size={{ w: 120, h: 154 }}
+        location={{ x: 913, y: 401 }}
+        redirect={DeskLevelPaths.RaamLevel}
       />
       <ClickableImage
         path="/desk_level/Stoel.png"
-        size={{ w: 200, h: 300 }}
-        location={{ x: 300, y: 550 }}
+        size={{ w: 167, h: 224 }}
+        location={{ x: 582, y: 564 }}
       />
       <ClickableImage
         path="/desk_level/TroepTafel.png"
-        size={{ w: 400, h: 200 }}
-        location={{ x: 250, y: 650 }}
-      />
-
-      <ClickableImage
-        visible={lampOn}
-        path="/desk_level/bureau_level/Desk-lampON.png"
-        size={{ w: 400, h: 230 }}
-        location={{ x: 258, y: 256 }}
-      />
-      <ClickableImage
-        visible={!lampOn}
-        path="/desk_level/bureau_level/Desk-lampOFF.png"
-        size={{ w: 152, h: 196 }}
-        location={{ x: 505, y: 255 }}
-      />
-      <ClickableImage
-        path="/desk_level/bureau_level/Desk-lampToggle.png"
-        size={{ w: 80, h: 65 }}
-        clickable={true}
-        onClick={() => setLampOn(!lampOn)}
-        location={{ x: 609, y: 444 }}
-      />
-
-      <ClickableImage
-        visible={stackHover}
-        path="/desk_level/bureau_level/Desk-papers.gif"
-        onMouseLeave={() => setStackHover(false)}
-        size={{ w: 230, h: 300 }}
-        location={{ x: 120, y: 360 }}
-      />
-      <ClickableImage
-        visible={!stackHover}
-        path="/desk_level/bureau_level/Desk-papers.png"
-        onMouseEnter={() => setStackHover(true)}
-        size={{ w: 230, h: 120 }}
-        location={{ x: 120, y: 550 }}
-      />
-
-      <ClickableImage
-        path="/desk_level/bureau_level/Desk-PC.png"
-        size={{ w: 330, h: 300 }}
-        location={{ x: 660, y: 290 }}
+        size={{ w: 164, h: 163 }}
+        location={{ x: 40, y: 465 }}
+        redirect={DeskLevelPaths.TafelLevel}
       />
     </div>
   );

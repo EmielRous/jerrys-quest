@@ -51,4 +51,5 @@ export enum DeskLevelPaths {
   BureauLevel = "bureau-level",
   RaamLevel = "raam-level",
   TafelLevel = "tafel-level",
+  KastLevel = "kast-level",
 }
