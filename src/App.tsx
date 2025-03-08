@@ -5,7 +5,7 @@ import BureauLevel from "./levels/desk_level/bureau_level/BureauLevel.tsx";
 import DeskLevel from "./levels/desk_level/DeskLevel.tsx";
 import RaamLevel from "./levels/desk_level/raam_level/RaamLevel.tsx";
 import TafelLevel from "./levels/desk_level/tafel_level/TafelLevel.tsx";
-import TapijtLevel from "./levels/tapijt_level/TapijtLevel.tsx";
+import TapijtLevel from "./levels/deur_level/tapijt_level/TapijtLevel.tsx";
 import NavigationBar from "./components/NavigationBar.tsx";
 import Inventory from "./components/Inventory.tsx";
 import {

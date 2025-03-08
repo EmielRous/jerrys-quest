@@ -1,4 +1,4 @@
-import ClickableImage from "../../components/ClickableImage.tsx";
+import ClickableImage from "../../../components/ClickableImage.tsx";
 
 const TapijtLevel: React.FC = () => {
   return (
@@ -8,17 +8,17 @@ const TapijtLevel: React.FC = () => {
         src="/deur_level/tapijt_level/TapijtView.png"
       />
       <ClickableImage
-        path="/tapijt_level/Lamp.png"
+        path="/deur_level/tapijt_level/Lamp.png"
         size={{ w: 100, h: 100 }}
         location={{ x: 300, y: 100 }}
       />
       <ClickableImage
-        path="/tapijt_level/TapijtQR.png"
+        path="/deur_level/tapijt_level/TapijtQR.png"
         size={{ w: 150, h: 150 }}
         location={{ x: 500, y: 200 }}
       />
       <ClickableImage
-        path="/tapijt_level/TapijtSolved.png"
+        path="/deur_level/tapijt_level/TapijtSolved.png"
         size={{ w: 200, h: 200 }}
         location={{ x: 400, y: 300 }}
       />
