@@ -44,7 +44,7 @@ export const getAllItemsFromStorage = (key: STORAGE_KEY): any[] => {
 
 export enum Levels {
   DeskLevel = "desk-level",
-  TapijtLevel = "tapijt-level",
+  DeurLevel = "deur-level",
 }
 
 export enum DeskLevelPaths {
@@ -58,4 +58,9 @@ export enum BureauLevelPaths {
   KaartLevel = "kaart-level",
   SchilderijLevel = "schilderij-level",
   WikiLevel = "wiki-level",
+}
+
+export enum DeurLevelPaths {
+  DozenLevel = "dozen-level",
+  TapijtLevel = "tapijt-level",
 }

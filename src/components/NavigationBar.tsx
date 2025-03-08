@@ -6,7 +6,7 @@ const NavigationBar = () => {
     <div className="flex justify-around bg-gray-200 p-4">
       <Link to="/desk-level">
         <img
-          src="/desk_level/DeskView.png"
+          src="/desk_level/Desk-background.png"
           alt="Desk Level"
           className="h-16 w-16"
         />

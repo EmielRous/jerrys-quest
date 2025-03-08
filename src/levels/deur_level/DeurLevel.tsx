@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ClickableImage from "../../components/ClickableImage.tsx";
-import { BureauLevelPaths } from "../../utils.tsx";
+import { BureauLevelPaths, DeurLevelPaths } from "../../utils.tsx";
 
 const BureauLevel: React.FC = ({}) => {
   const [lampOn, setLampOn] = useState(false);
@@ -17,8 +17,6 @@ const BureauLevel: React.FC = ({}) => {
         path="/deur_level/BankAfter.png"
         size={{ w: 300, h: 250 }}
         location={{ x: 230, y: 267 }}
-        clickable={true}
-        redirect={BureauLevelPaths.SchilderijLevel}
       />
 
       <ClickableImage
@@ -35,8 +33,8 @@ const BureauLevel: React.FC = ({}) => {
         path="/deur_level/Dozen.png"
         size={{ w: 80, h: 65 }}
         clickable={true}
-        onClick={() => setLampOn(!lampOn)}
         location={{ x: 609, y: 444 }}
+        redirect={DeurLevelPaths.DozenLevel}
       />
 
       <ClickableImage
@@ -54,32 +52,24 @@ const BureauLevel: React.FC = ({}) => {
         path="/deur_level/Lamp.png"
         size={{ w: 330, h: 300 }}
         location={{ x: 660, y: 290 }}
-        clickable
-        redirect={BureauLevelPaths.WikiLevel}
       />
 
       <ClickableImage
         path="/deur_level/Plank.png"
         size={{ w: 200, h: 100 }}
         location={{ x: 660, y: 290 }}
-        clickable
-        redirect={BureauLevelPaths.KaartLevel}
       />
 
       <ClickableImage
         path="/deur_level/Poef.png"
         size={{ w: 200, h: 100 }}
         location={{ x: 660, y: 290 }}
-        clickable
-        redirect={BureauLevelPaths.KaartLevel}
       />
 
       <ClickableImage
         path="/deur_level/Projector.png"
         size={{ w: 200, h: 100 }}
         location={{ x: 660, y: 290 }}
-        clickable
-        redirect={BureauLevelPaths.KaartLevel}
       />
 
       <ClickableImage
@@ -87,7 +77,7 @@ const BureauLevel: React.FC = ({}) => {
         size={{ w: 200, h: 100 }}
         location={{ x: 660, y: 290 }}
         clickable
-        redirect={BureauLevelPaths.KaartLevel}
+        redirect={DeurLevelPaths.TapijtLevel}
       />
     </div>
   );

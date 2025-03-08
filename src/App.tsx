@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import "./App.css";
 import BureauLevel from "./levels/desk_level/bureau_level/BureauLevel.tsx";
 import DeskLevel from "./levels/desk_level/DeskLevel.tsx";
@@ -11,6 +16,7 @@ import Inventory from "./components/Inventory.tsx";
 import {
   BureauLevelPaths,
   DeskLevelPaths,
+  DeurLevelPaths,
   Levels,
   saveArrayToStorage,
   STORAGE_KEY,
@@ -18,6 +24,9 @@ import {
 import KaartLevel from "./levels/desk_level/bureau_level/kaart_level/KaartLevel.tsx";
 import WikiLevel from "./levels/desk_level/bureau_level/wiki_level/WikiLevel.tsx";
 import SchilderijLevel from "./levels/desk_level/bureau_level/schilderij_level/SchilderijLevel.tsx";
+import DeurLevel from "./levels/deur_level/DeurLevel.tsx";
+import DozenLevel from "./levels/deur_level/dozen_level/DozenLevel.tsx";
+import KastLevel from "./levels/desk_level/kast_level/KastLevel.tsx";
 
 function App() {
   return (
@@ -25,6 +34,10 @@ function App() {
       <div>
         <div className={"border border-red-100 h-[768px] w-[1024px]"}>
           <Routes>
+            <Route
+              path="/"
+              element={<Navigate to={`/${Levels.DeskLevel}`} />}
+            />
             {/**DESK LEVEL**/}
             <Route path={`/${Levels.DeskLevel}`} element={<DeskLevel />} />
             <Route
@@ -41,7 +54,7 @@ function App() {
             />
             <Route
               path={`/${Levels.DeskLevel}/${DeskLevelPaths.KastLevel}`}
-              element={<TafelLevel />}
+              element={<KastLevel />}
             />
             {/*****BUREAU LEVEL********/}
             <Route
@@ -58,7 +71,15 @@ function App() {
             />
 
             {/**DEUR LEVEL**/}
-            {/*<Route path={`/${Levels.Deur}`} element={<TapijtLevel />} />*/}
+            <Route path={`/${Levels.DeurLevel}`} element={<DeurLevel />} />
+            <Route
+              path={`/${Levels.DeurLevel}/${DeurLevelPaths.DozenLevel}`}
+              element={<DozenLevel />}
+            />
+            <Route
+              path={`/${Levels.DeurLevel}/${DeurLevelPaths.TapijtLevel}`}
+              element={<TapijtLevel />}
+            />
           </Routes>
         </div>
         <NavigationBar />
