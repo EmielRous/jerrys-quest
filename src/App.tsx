@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import WikipediaLevel from "./levels/wikipedia_level/WikipediaLevel.tsx";
@@ -7,6 +7,9 @@ import RaamLevel from "./levels/raam_level/RaamLevel.tsx";
 import TafelLevel from "./levels/tafel_level/TafelLevel.tsx";
 import TapijtLevel from "./levels/tapijt_level/TapijtLevel.tsx";
 import NavigationBar from "./components/NavigationBar.tsx";
+import Inventory from "./components/Inventory.tsx";
+import { saveArrayToStorage, STORAGE_KEY } from "./utils.tsx";
+
 document.body.style.cursor = "url('/Cursor.png'), default";
 
 function App() {
@@ -23,6 +26,7 @@ function App() {
           </Routes>
         </div>
         <NavigationBar />
+        <Inventory />
       </div>
     </Router>
   );

@@ -1,4 +1,10 @@
 import * as React from "react";
+import {
+  addItemToStorage,
+  getArrayFromStorage,
+  STORAGE_KEY,
+} from "../utils.tsx";
+import { useEffect } from "react";
 
 interface ClickableImageProps {
   path: string;
@@ -7,6 +13,7 @@ interface ClickableImageProps {
   onMouseEnter?: (e: any) => void;
   onMouseLeave?: (e: any) => void;
   visible?: boolean;
+  isInventoriable: boolean;
   size: {
     w: number;
     h: number;
@@ -25,12 +32,19 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
   onMouseLeave,
   clickable = false,
   visible = true,
+  isInventoriable = false,
 }) => {
+  const _onClick = () => {
+    if (isInventoriable) {
+      addItemToStorage(STORAGE_KEY.Inventory, path);
+    }
+  };
+
   return (
     <img
       src={path}
       className={`absolute ${visible ? "" : "hidden"} ${clickable ? "hover:scale-105" : ""}`}
-      onClick={onClick}
+      onClick={_onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       style={{

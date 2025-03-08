@@ -22,6 +22,7 @@ const RaamLevel: React.FC = () => {
         path="/raam_level/Sphinx.png"
         size={{ w: 200, h: 200 }}
         location={{ x: 400, y: 400 }}
+        isInventoriable={true}
       />
     </div>
   );

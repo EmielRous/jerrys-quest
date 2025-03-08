@@ -9,6 +9,9 @@ export default {
           return acc;
         }, {}),
       },
+      cursor: {
+        custom: "url('/Cursor.png'), default",
+      },
     },
   },
   safelist: [
