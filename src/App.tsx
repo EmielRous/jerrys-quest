@@ -5,6 +5,7 @@ import WikipediaLevel from "./levels/wikipedia_level/WikipediaLevel.tsx";
 import NavigationBar from "./components/NavigationBar.tsx";
 import DeskLevel from "./levels/desk_level/DeskLevel.tsx";
 import CustomCursor from "./components/CustomCursor.tsx";
+document.body.style.cursor = "url('/Cursor.png'), default";
 
 function App() {
   return (

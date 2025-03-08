@@ -1,5 +1,5 @@
 @import "tailwindcss";
 
-.cursor {
-    cursor: url("/Cursor.png");
+body {
+    cursor: url('/Cursor.png') , default;
 }
