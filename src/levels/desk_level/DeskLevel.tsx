@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ClickableImage from "../../Components/ClickableImage.tsx";
+import ClickableImage from "../../components/ClickableImage.tsx";
 
 const DeskLevel: React.FC = () => {
   const [lampOn, setLampOn] = useState(false);
