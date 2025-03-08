@@ -5,10 +5,10 @@ frontend:
       commands:
         - nvm install 20
         - nvm use 20
-        - npm install
+        - yarn install
     build:
       commands:
-        - npm run build
+        - yarn build
   artifacts:
     baseDirectory: build
     files:
@@ -16,4 +16,3 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
-

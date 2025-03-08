@@ -1,16 +1,61 @@
 import React, { useState } from "react";
 import ClickableImage from "../../Components/ClickableImage.tsx";
 
-const DeskLevel: React.FC = ({}) => {
+const DeskLevel: React.FC = () => {
   const [lampOn, setLampOn] = useState(false);
   const [stackHover, setStackHover] = useState(false);
+
   return (
     <div>
-      <img className={"relative h-[768px] w-[1024px]"} src={"/DeskView.png"} />
+      <img
+        className="relative h-[768px] w-[1024px]"
+        src="/desk_level/DeskView.png"
+      />
+
       <ClickableImage
-        path="/wikipedia_level/Desk-painting.png"
-        size={{ w: 300, h: 250 }}
-        location={{ x: 230, y: 267 }}
+        path="/desk_level/Augurken.png"
+        size={{ w: 100, h: 100 }}
+        location={{ x: 200, y: 300 }}
+      />
+      <ClickableImage
+        path="/desk_level/Bril.png"
+        size={{ w: 80, h: 50 }}
+        location={{ x: 350, y: 400 }}
+      />
+      <ClickableImage
+        path="/desk_level/Desk.png"
+        size={{ w: 500, h: 250 }}
+        location={{ x: 250, y: 500 }}
+      />
+      <ClickableImage
+        path="/desk_level/Kast.png"
+        size={{ w: 250, h: 400 }}
+        location={{ x: 700, y: 200 }}
+      />
+      <ClickableImage
+        path="/desk_level/MontBlanche.png"
+        size={{ w: 150, h: 100 }}
+        location={{ x: 500, y: 550 }}
+      />
+      <ClickableImage
+        path="/desk_level/Prop.png"
+        size={{ w: 100, h: 100 }}
+        location={{ x: 600, y: 600 }}
+      />
+      <ClickableImage
+        path="/desk_level/Sphinx.png"
+        size={{ w: 120, h: 120 }}
+        location={{ x: 450, y: 450 }}
+      />
+      <ClickableImage
+        path="/desk_level/Stoel.png"
+        size={{ w: 200, h: 300 }}
+        location={{ x: 300, y: 550 }}
+      />
+      <ClickableImage
+        path="/desk_level/TroepTafel.png"
+        size={{ w: 400, h: 200 }}
+        location={{ x: 250, y: 650 }}
       />
 
       <ClickableImage
@@ -57,4 +102,4 @@ const DeskLevel: React.FC = ({}) => {
   );
 };
 
-export default WikipediaLevel;
+export default DeskLevel;
