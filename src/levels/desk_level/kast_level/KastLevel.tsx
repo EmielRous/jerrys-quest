@@ -3,7 +3,7 @@ import ClickableImage from "../../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../../../components/BackButton.tsx";
 
-const BureauLevel: React.FC = ({}) => {
+const KastLevel: React.FC = ({}) => {
     const navigate = useNavigate();
     return (
         <div>
@@ -27,4 +27,4 @@ const BureauLevel: React.FC = ({}) => {
     );
 };
 
-export default BureauLevel;
+export default KastLevel;
