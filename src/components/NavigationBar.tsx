@@ -13,7 +13,7 @@ const NavigationBar = () => {
       </Link>
       <Link to="/desk-level">
         <img
-          src="wikipedia_level/Wiki-background.png"
+          src="desk_level/DeskView.png.png"
           alt="Desk Level"
           className="h-16 w-16"
         />
