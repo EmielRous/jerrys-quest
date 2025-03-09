@@ -61,8 +61,6 @@ const DeskLevel: React.FC = () => {
         path="/desk_level/Kast.png"
         size={{ w: 157, h: 513 }}
         location={{ x: 77, y: 248 }}
-        clickable={true}
-        onClick={() => addRuby()}
       />
       <ClickableImage
         path="/desk_level/Prop.png"
