@@ -1,5 +1,7 @@
 import ClickableImage from "../../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import BackButton from "../../../components/BackButton.tsx";
 
 const TafelLevel: React.FC = () => {
   const [damsetOpen, setDamsetOpen] = useState(false);
@@ -7,6 +9,7 @@ const TafelLevel: React.FC = () => {
 
   return (
     <div>
+      <BackButton />
       <img
         className="relative h-[768px] w-[1024px]"
         src="/desk_level/tafel_level/TroepTafelView.png"
@@ -37,25 +40,12 @@ const TafelLevel: React.FC = () => {
       <ClickableImage
         visible={damsetOpen}
         path="/desk_level/tafel_level/DamsetOpen.png"
-        size={{ w: 80, h: 65 }}
-        location={{ x: 609, y: 444 }}
+        // size={{ w: 80, h: 65 }}
+        size={{ w: 120, h: 120 }}
+        // location={{ x: 609, y: 444 }}
+        location={{ x: 505, y: 255 }}
         clickable={true}
         onClick={() => setDamsetOpen(!damsetOpen)}
-      />
-      <ClickableImage
-        path="/desk_level/tafel_level/DamsetDicht.png"
-        size={{ w: 120, h: 120 }}
-        location={{ x: 250, y: 300 }}
-      />
-      <ClickableImage
-        path="/desk_level/tafel_level/DamsetOpen.png"
-        size={{ w: 120, h: 120 }}
-        location={{ x: 350, y: 300 }}
-      />
-      <ClickableImage
-        path="/desk_level/tafel_level/Envelop.png"
-        size={{ w: 80, h: 50 }}
-        location={{ x: 400, y: 400 }}
       />
     </div>
   );
