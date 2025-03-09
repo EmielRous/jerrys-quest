@@ -6,6 +6,8 @@ import { DeskLevelPaths } from "../../utils.tsx";
 const DeskLevel: React.FC = () => {
   const [lampOn, setLampOn] = useState(false);
   const [stackHover, setStackHover] = useState(false);
+  const [popupBril, setPopupBril] = useState(false);
+  const [popupProp, setPopupProp] = useState(fasle):
   const navigate = useNavigate();
 
   return (
@@ -30,6 +32,8 @@ const DeskLevel: React.FC = () => {
         path="/desk_level/Bril.png"
         size={{ w: 80, h: 50 }}
         location={{ x: 343, y: 682 }}
+        clickable={true}
+        onClick={() => setPopupBril(true)}
       />
       <ClickableImage
         path="/desk_level/Desk.png"
@@ -72,6 +76,14 @@ const DeskLevel: React.FC = () => {
         size={{ w: 215, h: 150 }}
         location={{ x: 137, y: 669 }}
       />
+        <ClickableImage
+            path="/desk_level/popups/Leestest.png"
+            visible={popupBril}
+            size={{ w: 600, h: 600 }}
+            location={{ x: 50, y: 50 }}
+            clickable={true}
+            onClick={() => setPopupBril(false)}
+        />
     </div>
   );
 };
