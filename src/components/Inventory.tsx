@@ -43,7 +43,7 @@ const Inventory: React.FC = () => {
       </div>
       <div className={"flex flex-row "}>
         <div className="relative size-12 border-2 border-red-950 bg-gray-600 mr-4">
-          <p className={"absolute -top-1"}>{rubys}</p>
+          <p className={"absolute -top-1"}>{rubys}/10</p>
 
           <DiRuby className={"size-11 text-red-600"} />
         </div>
