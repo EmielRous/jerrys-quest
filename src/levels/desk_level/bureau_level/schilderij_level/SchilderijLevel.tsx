@@ -12,12 +12,12 @@ const SchilderijLevel: React.FC = () => {
       <img
         onClick={() => setVis(!vis)}
         className={`relative h-[768px] w-[1024px] ${vis ? "hidden" : ""}`}
-        src="/desk_level/bureau_level/schilderij_level/SchilderijBefore.png"
+        src="/desk_level/bureau_level/schilderij_level/Schilderij1.png"
       />
       <img
         onClick={() => setVis(!vis)}
         className={`relative h-[768px] w-[1024px] ${!vis ? "hidden" : ""}`}
-        src="/desk_level/bureau_level/schilderij_level/SchilderijAfter.png"
+        src="/desk_level/bureau_level/schilderij_level/Schilderij3.png"
       />
     </div>
   );
