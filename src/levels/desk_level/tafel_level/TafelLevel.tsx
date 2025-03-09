@@ -1,5 +1,7 @@
+import React, { useState } from "react";
 import ClickableImage from "../../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
+import BackButton from "../../../components/BackButton.tsx";
 
 const TafelLevel: React.FC = () => {
   const [damsetOpen, setDamsetOpen] = useState(false);
@@ -7,6 +9,7 @@ const TafelLevel: React.FC = () => {
 
   return (
     <div>
+        <BackButton />
       <img
         className="relative h-[768px] w-[1024px]"
         src="/desk_level/tafel_level/TroepTafelView.png"
