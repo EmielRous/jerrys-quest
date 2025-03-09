@@ -10,11 +10,11 @@ const DeskLevel: React.FC = () => {
 
   return (
     <div>
-      <img
-        className="relative t-[0px] l-[0px] h-[768px] w-[1024px]"
-        src="/desk_level/Desk-background.png"
+      <ClickableImage
+        path="/desk_level/Desk-background.png"
+        size={{ w: 1024, h: 768 }}
+        location={{ x: 0, y: 0 }}
       />
-
       <ClickableImage
         path="/desk_level/Augurken.png"
         size={{ w: 94, h: 100 }}
