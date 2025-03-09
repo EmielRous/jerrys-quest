@@ -70,13 +70,22 @@ const DozenLevel: React.FC = () => {
             onClick={() => setPaddoTrip(true)}
         />
         {paddoTrip && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75">
+            <div>
                 <video
                     ref={videoRef}
-                    className="w-[800px] h-auto"
                     src="/deur_level/dozen_level/PaddoTrip.mp4"
                     autoPlay
                     onEnded={handleTripEnd} // Hide when video ends
+                    width="320"
+                    height="240"
+                    controls
+                    className={"absolute"}
+                    style={{
+                        top: 0 + "px",
+                        left: 0 + "px",
+                        height: 768 + "px",
+                        width: 1024 + "px",
+                    }}
                 />
             </div>
         )}
