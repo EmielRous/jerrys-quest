@@ -53,8 +53,8 @@ const SchilderijLevel: React.FC = () => {
       {augurenInSchilderij.map((src, index) => (
         <ClickableImage
           path={src}
-          size={{ w: 100, h: 100 }} // Adjust positioning as needed
-          location={{ x: 300, y: 500 }}
+          size={{ w: 70, h: 70 }} // Adjust positioning as needed
+          location={{ x: 391, y: 541 }}
         />
       ))}
       <img
