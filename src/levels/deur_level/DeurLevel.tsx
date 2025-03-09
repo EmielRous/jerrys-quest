@@ -7,6 +7,7 @@ const BureauLevel: React.FC = ({}) => {
   const [lampOn, setLampOn] = useState(false);
   const [stackHover, setStackHover] = useState(false);
   const [bankSteal, setBankSteal] = useState(false);
+  const [kaartVis, setKaartVis] = useState(false);
   const navigate = useNavigate();
   return (
     <div>
@@ -20,7 +21,10 @@ const BureauLevel: React.FC = ({}) => {
         size={{ w: 400, h: 200 }}
         location={{ x: 14, y: 600 }}
         clickable={true}
-        onClick={() => setBankSteal(true)}
+        onClick={() => {
+            setBankSteal(true);
+            setKaartVis(true);
+        }}
       />
         <ClickableImage
             visible={bankSteal}
@@ -76,6 +80,14 @@ const BureauLevel: React.FC = ({}) => {
             path="/deur_level/Lamp.png"
             size={{ w: 100, h: 100 }}
             location={{ x: 110, y: 434 }}
+        />
+        <ClickableImage
+            visible={kaartVis}
+            path="/deur_level/popups/KaartKussen.png"
+            size={{ w: 850, h: 600 }}
+            location={{ x: 100, y: 50 }}
+            clickable={true}
+            onClick={() => setKaartVis(false)}
         />
     </div>
   );
