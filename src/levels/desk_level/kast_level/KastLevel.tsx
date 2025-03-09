@@ -8,17 +8,29 @@ const KastLevel: React.FC = ({}) => {
   return (
     <div>
       <BackButton />
-      <img
-        className={"relative h-[768px] w-[1024px]"}
-        src={"/desk_level/kast_level/KastView.png"}
-      />
-
+        <ClickableImage
+            path="/desk_level/kast_level/KastView.png"
+            size={{ w: 1024, h: 768 }}
+            location={{ x: 0, y: 0 }}
+        />
       <ClickableImage
         path="/desk_level/kast_level/Augurken.png"
         size={{ w: 174, h: 143 }}
         location={{ x: 140, y: 133 }}
         isInventoriable={true}
       />
+        <ClickableImage
+            path="/desk_level/kast_level/Augurk1.png"
+            size={{ w: 174, h: 143 }}
+            location={{ x: 140, y: 133 }}
+            isInventoriable={true}
+        />
+        <ClickableImage
+            path="/desk_level/kast_level/Augurk2.png"
+            size={{ w: 174, h: 143 }}
+            location={{ x: 140, y: 133 }}
+            isInventoriable={true}
+        />
       <ClickableImage
         path="/desk_level/kast_level/Kast.png"
         size={{ w: 1023, h: 543 }}

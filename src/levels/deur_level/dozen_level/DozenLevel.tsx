@@ -11,10 +11,11 @@ const DozenLevel: React.FC = () => {
 
   return (
     <div>
-      <img
-        className={"relative h-[768px] w-[1024px]"}
-        src={"/deur_level/dozen_level/DozenView.png"}
-      />
+        <ClickableImage
+            path="/deur_level/dozen_level/DozenView.png"
+            size={{ w: 1024, h: 768 }}
+            location={{ x: 0, y: 0 }}
+        />
       <BackButton />
         <ClickableImage
             path="/deur_level/dozen_level/Koning.png"

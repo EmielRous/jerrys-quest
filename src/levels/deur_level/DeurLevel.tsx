@@ -16,10 +16,11 @@ const BureauLevel: React.FC = ({}) => {
     };
   return (
     <div>
-      <img
-        className={"relative h-[768px] w-[1024px]"}
-        src={"/deur_level/DeurView.png"}
-      />
+        <ClickableImage
+            path="/deur_level/DeurView.png"
+            size={{ w: 1024, h: 768 }}
+            location={{ x: 0, y: 0 }}
+        />
 
       <ClickableImage
         path="/deur_level/BankBefore.png"
@@ -53,6 +54,7 @@ const BureauLevel: React.FC = ({}) => {
         path="/deur_level/Kleren.png"
         size={{ w: 230, h: 120 }}
         location={{ x: 349, y: 475 }}
+        clickable={true}
       />
       <ClickableImage
         path="/deur_level/Poef.png"

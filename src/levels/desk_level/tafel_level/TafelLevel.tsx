@@ -18,10 +18,11 @@ const TafelLevel: React.FC = () => {
   return (
     <div>
       <BackButton />
-      <img
-        className="relative h-[768px] w-[1024px]"
-        src="/desk_level/tafel_level/TroepTafelView.png"
-      />
+        <ClickableImage
+            path="/desk_level/tafel_level/TroepTafelView.png"
+            size={{ w: 1024, h: 768 }}
+            location={{ x: 0, y: 0 }}
+        />
       <RaadWoordComponent
         correctWord={"1989 TDDSZ/ART"}
         onCorrect={() => console.log("doe hier dingen")}

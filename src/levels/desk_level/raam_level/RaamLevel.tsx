@@ -25,11 +25,12 @@ const RaamLevel: React.FC = () => {
   return (
     <div>
       <BackButton />
-      <img
-        className="relative h-[768px] w-[1024px]"
-        src="/desk_level/raam_level/RaamView.png"
-        onClick={() => setRaadselActive(false)}
-      />
+        <ClickableImage
+            path="/desk_level/raam_level/RaamView.png"
+            size={{ w: 1024, h: 768 }}
+            location={{ x: 0, y: 0 }}
+            onClick={() => setRaadselActive(false)}
+        />
       <div
         className={`absolute z-10 flex gap-2  justify-center drop-shadow-2xl ${!raadselGoedGeraaie && "hidden"} text-green-500 text-4xl font-bold`}
         style={{ top: 250, left: 300, width: 400 }}
