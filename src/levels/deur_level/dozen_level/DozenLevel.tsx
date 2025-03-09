@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import ClickableImage from "../../../components/ClickableImage.tsx";
 import BackButton from "../../../components/BackButton.tsx";
 
 const DozenLevel: React.FC = () => {
+    const [paddoTrip, setPaddoTrip] = useState(false);
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const handleVideoEnd = () => {
+        setPaddoTrip(false);
+    }
+
   return (
     <div>
       <img
@@ -19,6 +25,8 @@ const DozenLevel: React.FC = () => {
             path="/deur_level/dozen_level/Paddos.png"
             size={{ w: 152, h: 143 }}
             location={{ x: 821, y: 455 }}
+            clickable={true}
+            onClick={() => setPaddoTrip(true)}
         />
 
       <ClickableImage
@@ -61,6 +69,17 @@ const DozenLevel: React.FC = () => {
         size={{ w: 320, h: 268 }}
         location={{ x: 158, y: 35 }}
       />
+        {paddoTrip && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75">
+                <video
+                    ref={videoRef}
+                    className="w-[800px] h-auto"
+                    src="/deur_level/dozen_level/paddoTrip.mp4"
+                    autoPlay
+                    onEnded={handleVideoEnd} // Hide when video ends
+                />
+            </div>
+        )}
     </div>
   );
 };
