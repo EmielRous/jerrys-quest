@@ -22,7 +22,7 @@ const TapijtLevel: React.FC = () => {
       <ClickableImage
         path="/deur_level/tapijt_level/Lamp.png"
         size={{ w: 130, h: 130 }}
-        location={{ x: 594, y: 374 }}
+        location={{ x: 374, y: 594 }}
       />
     </div>
   );
