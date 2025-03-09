@@ -6,13 +6,17 @@ interface GuessWordProps {
   correctWord: string;
 }
 
-const RaadWoordComponent: React.FC<GuessWordProps> = ({ correctWord }) => {
+const RaadWoordComponent: React.FC<GuessWordProps> = ({
+  correctWord,
+  onCorrect,
+}) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleGuess = () => {
     if (inputValue.trim().toLowerCase() === correctWord.toLowerCase()) {
       addRuby();
       alert("Good job! You deserve a ruby.");
+      onCorrect();
     } else {
       alert("Try again!");
     }

@@ -25,7 +25,10 @@ const DeskLevel: React.FC = () => {
         className="relative h-[768px] w-[1024px]"
         src="/desk_level/Desk-background.png"
       />
-      <RaadWoordComponent correctWord={"kaas"} />
+      <RaadWoordComponent
+        correctWord={"kaas"}
+        onCorrect={() => console.log("hier component hiden")}
+      />
       <ClickableImage
         path="/desk_level/Augurken.png"
         size={{ w: 87, h: 71 }}
