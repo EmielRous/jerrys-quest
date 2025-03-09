@@ -20,7 +20,7 @@ const TafelLevel: React.FC = () => {
         <div>
             <BackButton />
             <img className="relative h-[768px] w-[1024px]" src="/desk_level/tafel_level/TroepTafelView.png" />
-            <RaadWoordComponent correctWord={"1989"} />
+            <RaadWoordComponent correctWord={"1989 TDDSZ/ART"} />
 
             <ClickableImage
                 path="/desk_level/tafel_level/Envelop.png"
