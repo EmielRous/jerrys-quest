@@ -1,6 +1,7 @@
 // Key for local storage
 export enum STORAGE_KEY {
   Inventory = "inventory",
+  Ruby = "ruby",
 }
 
 const update = (key) => {
@@ -42,6 +43,20 @@ export const getAllItemsFromStorage = (key: STORAGE_KEY): any[] => {
   return getArrayFromStorage(key);
 };
 
+export const getRubys = () => {
+  return localStorage.getItem(STORAGE_KEY.Ruby) * 1;
+};
+
+export const resetRubyes = () => {
+  localStorage.setItem(STORAGE_KEY.Ruby, 0 + "");
+  update(STORAGE_KEY.Ruby);
+};
+
+export const addRuby = () => {
+  let n = localStorage.getItem(STORAGE_KEY.Ruby) * 1 + 1;
+  localStorage.setItem(STORAGE_KEY.Ruby, n + "");
+  update(STORAGE_KEY.Ruby);
+};
 export enum Levels {
   DeskLevel = "desk-level",
   DeurLevel = "deur-level",
