@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Input } from "antd";
 import LingoGame from "./LingoGame.tsx";
 import BackButton from "../../../components/BackButton.tsx";
+import { addRuby } from "../../../utils.tsx";
 
 const RaamLevel: React.FC = () => {
   const navigate = useNavigate();
@@ -41,20 +42,12 @@ const RaamLevel: React.FC = () => {
         location={{ x: 913, y: 408 }}
       />
       <ClickableImage
-        visible={raadselGoedGeraaie}
         path="/desk_level/raam_level/Sphinx.png"
         size={{ w: 200, h: 200 }}
         location={{ x: 400, y: 400 }}
         clickable={true}
         isInventoriable={true}
-      />
-      <ClickableImage
-        visible={!raadselActive}
-        path="/desk_level/raam_level/Raadsel.png"
-        size={{ w: 791, h: 681 }}
-        location={{ x: 126, y: 28 }}
-        clickable={true}
-        onClick={() => setRaadselActive(!raadselActive)}
+        onClick={() => setRaadselActive(true)}
       />
       {/*Grote versie*/}
       <ClickableImage
