@@ -67,7 +67,7 @@ const BureauLevel: React.FC = ({}) => {
       />
 
       <ClickableImage
-        path="/desk_level/bureau_level/kaart_level/KaartMason.png"
+        path="/desk_level/bureau_level/KaartMasonFoto.png"
         size={{ w: 200, h: 100 }}
         location={{ x: 660, y: 290 }}
         clickable
