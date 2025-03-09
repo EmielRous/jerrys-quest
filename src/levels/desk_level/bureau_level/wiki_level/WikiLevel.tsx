@@ -8,10 +8,6 @@ const WikiLevel: React.FC = () => {
   return (
     <div>
       <BackButton />
-      <img
-        className={`relative h-[768px] w-[1024px]`}
-        src="/desk_level/bureau_level/wiki_level/Wiki-background.png"
-      />
       <video
         width="320"
         height="240"
