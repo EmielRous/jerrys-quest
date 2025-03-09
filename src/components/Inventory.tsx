@@ -3,6 +3,7 @@ import {
   addRuby,
   getArrayFromStorage,
   getRubys,
+  resetAugurken,
   resetRubyes,
   saveArrayToStorage,
   STORAGE_KEY,
@@ -36,6 +37,7 @@ const Inventory: React.FC = () => {
           onClick={() => {
             saveArrayToStorage(STORAGE_KEY.Inventory, []);
             resetRubyes();
+            resetAugurken();
           }}
         >
           clear

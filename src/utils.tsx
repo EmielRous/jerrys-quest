@@ -2,6 +2,7 @@
 export enum STORAGE_KEY {
   Inventory = "inventory",
   Ruby = "ruby",
+  SchilderijAugurken = "schilderij-augurken", // New storage key
 }
 
 const update = (key) => {
@@ -9,6 +10,7 @@ const update = (key) => {
   const event = new CustomEvent("storageChange", { detail: { key } });
   window.dispatchEvent(event);
 };
+
 // Function to get the array from local storage
 export const getArrayFromStorage = (key: STORAGE_KEY): any[] => {
   const storedArray = localStorage.getItem(key);
@@ -21,6 +23,7 @@ export const saveArrayToStorage = (key: STORAGE_KEY, array: any[]): void => {
   update(key);
 };
 
+// Function to add an item to the array in local storage
 export const addItemToStorage = (key: STORAGE_KEY, item: string): void => {
   const array = getArrayFromStorage(key);
   if (!array.includes(item)) {
@@ -43,6 +46,16 @@ export const getAllItemsFromStorage = (key: STORAGE_KEY): any[] => {
   return getArrayFromStorage(key);
 };
 
+// New function to add augurken to the schilderij storage
+export const addAugurkToSchilderij = (augurk: string): void => {
+  addItemToStorage(STORAGE_KEY.SchilderijAugurken, augurk);
+};
+
+// New function to get augurken from the schilderij storage
+export const getAugurkenFromSchilderij = (): any[] => {
+  return getArrayFromStorage(STORAGE_KEY.SchilderijAugurken);
+};
+
 export const getRubys = () => {
   return localStorage.getItem(STORAGE_KEY.Ruby) * 1;
 };
@@ -51,12 +64,17 @@ export const resetRubyes = () => {
   localStorage.setItem(STORAGE_KEY.Ruby, 0 + "");
   update(STORAGE_KEY.Ruby);
 };
+export const resetAugurken = () => {
+  localStorage.setItem(STORAGE_KEY.SchilderijAugurken, []);
+  update(STORAGE_KEY.Ruby);
+};
 
 export const addRuby = () => {
   let n = localStorage.getItem(STORAGE_KEY.Ruby) * 1 + 1;
   localStorage.setItem(STORAGE_KEY.Ruby, n + "");
   update(STORAGE_KEY.Ruby);
 };
+
 export enum Levels {
   DeskLevel = "desk-level",
   DeurLevel = "deur-level",
