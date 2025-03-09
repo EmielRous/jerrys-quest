@@ -18,10 +18,10 @@ const WikiLevel: React.FC = () => {
         controls
         className={"absolute"}
         style={{
-          top: 96 + "px",
-          left: 376 + "px",
-          height: 376 + "px",
-          width: 552 + "px",
+          top: 0 + "px",
+          left: 0 + "px",
+          height: 768 + "px",
+          width: 1024 + "px",
         }}
       >
         <source
