@@ -16,8 +16,8 @@ const BureauLevel: React.FC = ({}) => {
 
       <ClickableImage
         path="/deur_level/TapijtBefore.png"
-        size={{ w: 200, h: 100 }}
-        location={{ x: 660, y: 290 }}
+        size={{ w: 105, h: 256 }}
+        location={{ x: 109, y: 239 }}
         clickable
         redirect={DeurLevelPaths.TapijtLevel}
       />
