@@ -68,8 +68,8 @@ const DeskLevel: React.FC = () => {
             />
             <ClickableImage
                 path="/desk_level/Dreft.png"
-                size={{ w: 50, h: 100 }}
-                location={{ x: 300, y: 400 }}
+                size={{ w: 39, h: 80 }}
+                location={{ x: 380, y: 450 }}
                 clickable={true}
             />
             <ClickableImage
