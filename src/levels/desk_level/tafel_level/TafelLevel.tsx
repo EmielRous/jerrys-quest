@@ -9,7 +9,7 @@ const TafelLevel: React.FC = () => {
   const navigate = useNavigate();
   const [damsetOpen, setDamsetOpen] = useState(false);
   const [pipeHover, setPipeHover] = useState(false);
-  const [blikjeIndex, setBlikjeIndex] = useState(1); // 1 to 4
+  const [blikjeIndex, setBlikjeIndex] = useState(1);
 
   const cycleBlikje = () => {
     setBlikjeIndex((prevIndex) => (prevIndex % 4) + 1); // Cycles from 1 → 2 → 3 → 4 → 1
@@ -26,6 +26,7 @@ const TafelLevel: React.FC = () => {
       <RaadWoordComponent
         correctWord={"1989 TDDSZ/ART"}
         onCorrect={() => console.log("doe hier dingen")}
+        visible={blikjeIndex === 3}
       />
 
       <ClickableImage

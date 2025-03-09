@@ -12,7 +12,7 @@ const BureauLevel: React.FC = ({}) => {
   const [rotation, setRotation] = useState(0);
 
     const handleRotate = () => {
-        setRotation(prev => prev + 10); // Rotate by 10 degrees on each click
+        setRotation(prev => prev + 50); // Rotate by 10 degrees on each click
     };
   return (
     <div>
@@ -88,8 +88,11 @@ const BureauLevel: React.FC = ({}) => {
             size={{ w: 100, h: 100 }}
             location={{ x: 110, y: 434 }}
             clickable={true}
-            onClick={handleRotate} // Rotate on click
-            style={{ transform: `rotate(${rotation}deg)`, transition: "transform 0.3s ease" }}
+            onClick={handleRotate}
+            style={{
+                transform: `rotate(${rotation}deg)`,
+                transition: "transform 0.3s ease",
+            }}
         />
         <ClickableImage
             visible={kaartVis}

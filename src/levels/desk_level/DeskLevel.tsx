@@ -26,10 +26,6 @@ const DeskLevel: React.FC = () => {
             size={{ w: 1024, h: 768 }}
             location={{ x: 0, y: 0 }}
         />
-      <RaadWoordComponent
-        correctWord={"kaas"}
-        onCorrect={() => console.log("hier component hiden")}
-      />
       <ClickableImage
         path="/desk_level/Augurken.png"
         size={{ w: 87, h: 71 }}
@@ -90,7 +86,7 @@ const DeskLevel: React.FC = () => {
       <ClickableImage
         path="/desk_level/Dreft.png"
         size={{ w: 39, h: 80 }}
-        location={{ x: 380, y: 450 }}
+        location={{ x: 380, y: 429 }}
         clickable={true}
         onClick={playSound} // Play sound when clicked
       />
@@ -107,6 +103,12 @@ const DeskLevel: React.FC = () => {
         clickable={true}
         onClick={() => setPopupBril(false)}
       />
+        <RaadWoordComponent
+            correctWord={"lezen"}
+            onCorrect={() => console.log("hier component hiden")}
+            visible={popupBril}
+        />
+
       <ClickableImage
         path="/desk_level/popups/Leestest.jpg"
         visible={popupProp}

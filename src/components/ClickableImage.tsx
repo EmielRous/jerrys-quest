@@ -24,6 +24,7 @@ interface ClickableImageProps {
     x: number;
     y: number;
   };
+  style: {};
 }
 const ClickableImage: React.FC<ClickableImageProps> = ({
   path,
@@ -36,6 +37,7 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
   visible = true,
   isInventoriable = false,
   redirect = "",
+  style= {},
 }) => {
   const navigate = useNavigate();
   const _onClick = (e) => {
@@ -60,6 +62,8 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
         left: location.x + "px",
         height: size.h + "px",
         width: size.w + "px",
+        transformOrigin: "50% 50%",
+        ...style,
       }}
     />
   );

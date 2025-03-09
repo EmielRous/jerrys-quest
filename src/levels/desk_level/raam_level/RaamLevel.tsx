@@ -44,8 +44,8 @@ const RaamLevel: React.FC = () => {
       />
       <ClickableImage
         path="/desk_level/raam_level/Sphinx.png"
-        size={{ w: 200, h: 200 }}
-        location={{ x: 400, y: 400 }}
+        size={{ w: 480, h: 290 }}
+        location={{ x: 28, y: 229 }}
         clickable={true}
         isInventoriable={true}
         onClick={() => setRaadselActive(true)}

@@ -4,11 +4,13 @@ import { addRuby } from "../utils.tsx";
 
 interface GuessWordProps {
   correctWord: string;
+  visible?: boolean;
 }
 
 const RaadWoordComponent: React.FC<GuessWordProps> = ({
   correctWord,
   onCorrect,
+  visible = false,
 }) => {
   const [inputValue, setInputValue] = useState("");
 
@@ -27,7 +29,7 @@ const RaadWoordComponent: React.FC<GuessWordProps> = ({
       className={
         "absolute top-[750px] left-[1024px] transform -translate-x-full -translate-y-full p-5 rounded-xl bg-green-400"
       }
-      style={{ display: "flex", alignItems: "center" }}
+      style={{ display: "flex", alignItems: "center", visibility: visible ? "visible" : "hidden" }}
     >
       <Input
         value={inputValue}
