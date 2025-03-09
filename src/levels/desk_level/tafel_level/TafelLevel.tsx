@@ -19,6 +19,11 @@ const TafelLevel: React.FC = ({}) => {
         className="relative h-[768px] w-[1024px]"
         src="/desk_level/tafel_level/TroepTafelView.png"
       />
+        <ClickableImage
+            path="/desk_level/tafel_level/Envelop.png"
+            size={{ w: 339, h: 265 }}
+            location={{ x: 433, y: 262 }}
+        />
       <ClickableImage
           visible={blik1Visible}
         path="/desk_level/tafel_level/Blikje1.png"
@@ -64,27 +69,22 @@ const TafelLevel: React.FC = ({}) => {
             onClick={() => setBlik4Visible(false)}
         />
         <ClickableImage
-            path="/desk_level/tafel_level/Envelop.png"
-            size={{ w: 142, h: 150 }}
-            location={{ x: 594, y: 166 }}
-        />
-        <ClickableImage
             path="/desk_level/tafel_level/Pillen.png"
-            size={{ w: 142, h: 150 }}
-            location={{ x: 594, y: 166 }}
+            size={{ w: 166, h: 183 }}
+            location={{ x: 480, y: 165 }}
         />
         <ClickableImage
             path="/desk_level/tafel_level/Vredespijp.png"
             onMouseEnter={() => setPipeHover(true)}
             onMouseLeave={() => setPipeHover(false)}
-            size={{ w: 142, h: 150 }}
-            location={{ x: 594, y: 166 }}
+            size={{ w: 162, h: 148 }}
+            location={{ x: 401, y: 273 }}
         />
         <ClickableImage
         visible={pipeHover}
         path="/desk_level/tafel_level/Puff.gif"
         size={{ w: 230, h: 120 }}
-        location={{ x: 100, y: 600 }}
+        location={{ x: 551, y: 220 }}
     />
       <ClickableImage
         visible={!damsetOpen}
