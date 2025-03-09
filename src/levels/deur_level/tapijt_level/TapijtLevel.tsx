@@ -10,19 +10,19 @@ const TapijtLevel: React.FC = () => {
         src="/deur_level/tapijt_level/TapijtView.png"
       />
       <ClickableImage
-        path="/deur_level/tapijt_level/Lamp.png"
-        size={{ w: 100, h: 100 }}
-        location={{ x: 300, y: 100 }}
+        path="/deur_level/tapijt_level/TapijtSolved.png"
+        size={{ w: 300, h: 420 }}
+        location={{ x: 420, y: 200 }}
       />
       <ClickableImage
         path="/deur_level/tapijt_level/TapijtQR.png"
-        size={{ w: 150, h: 150 }}
-        location={{ x: 500, y: 200 }}
+        size={{ w: 300, h: 420 }}
+        location={{ x: 420, y: 200 }}
       />
       <ClickableImage
-        path="/deur_level/tapijt_level/TapijtSolved.png"
-        size={{ w: 200, h: 200 }}
-        location={{ x: 400, y: 300 }}
+        path="/deur_level/tapijt_level/Lamp.png"
+        size={{ w: 130, h: 130 }}
+        location={{ x: 594, y: 374 }}
       />
     </div>
   );
