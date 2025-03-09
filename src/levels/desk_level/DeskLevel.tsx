@@ -97,7 +97,7 @@ const DeskLevel: React.FC = () => {
             <ClickableImage
                 path="/desk_level/popups/Leestest.jpg"
                 visible={popupBril}
-                size={{ w: 600, h: 600 }}
+                size={{ w: 601, h: 600 }}
                 location={{ x: 50, y: 50 }}
                 clickable={true}
                 onClick={() => setPopupBril(false)}
