@@ -22,6 +22,11 @@ const DeskLevel: React.FC = () => {
         clickable={true}
         redirect={DeskLevelPaths.KastLevel}
       />
+        <ClickableImage
+            path="/desk_level/Stoel.png"
+            size={{ w: 167, h: 224 }}
+            location={{ x: 582, y: 564 }}
+        />
       <ClickableImage
         path="/desk_level/Bril.png"
         size={{ w: 80, h: 50 }}
@@ -57,11 +62,6 @@ const DeskLevel: React.FC = () => {
         redirect={DeskLevelPaths.RaamLevel}
       />
       <ClickableImage
-        path="/desk_level/Stoel.png"
-        size={{ w: 167, h: 224 }}
-        location={{ x: 582, y: 564 }}
-      />
-      <ClickableImage
         path="/desk_level/Tafeltje.png"
         size={{ w: 222, h: 401 }}
         location={{ x: -10, y: 409 }}
@@ -72,8 +72,6 @@ const DeskLevel: React.FC = () => {
         path="/desk_level/Broek.png"
         size={{ w: 215, h: 150 }}
         location={{ x: 137, y: 669 }}
-        clickable={true}
-        redirect={DeskLevelPaths.TafelLevel}
       />
     </div>
   );
