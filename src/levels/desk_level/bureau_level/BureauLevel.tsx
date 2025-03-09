@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ClickableImage from "../../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../../../components/BackButton.tsx";
@@ -8,6 +8,16 @@ const BureauLevel: React.FC = ({}) => {
   const [lampOn, setLampOn] = useState(false);
   const [stackHover, setStackHover] = useState(false);
   const navigate = useNavigate();
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    // Function to play sound
+    const playSound = () => {
+        if (!audioRef.current) {
+            audioRef.current = new Audio("/desk_level/bureau_level/Snuif.mp3"); // Adjust the path to your MP3
+        }
+        audioRef.current.currentTime = 0; // Restart audio if already playing
+        audioRef.current.play();
+    };
   return (
     <div>
       <BackButton />
@@ -73,6 +83,13 @@ const BureauLevel: React.FC = ({}) => {
         clickable
         redirect={BureauLevelPaths.KaartLevel}
       />
+        <ClickableImage
+            path="/desk_level/bureau_level/Snuif.png"
+            size={{ w: 429, h: 356 }}
+            location={{ x: 119, y: 278 }}
+            clickable={true}
+            onClick{playSound}
+        />
     </div>
   );
 };
