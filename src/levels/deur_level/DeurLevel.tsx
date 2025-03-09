@@ -6,6 +6,7 @@ import { BureauLevelPaths, DeurLevelPaths } from "../../utils.tsx";
 const BureauLevel: React.FC = ({}) => {
   const [lampOn, setLampOn] = useState(false);
   const [stackHover, setStackHover] = useState(false);
+  const [bankSteal, setBankSteal] = useState(false);
   const navigate = useNavigate();
   return (
     <div>
@@ -15,15 +16,18 @@ const BureauLevel: React.FC = ({}) => {
       />
 
       <ClickableImage
-        path="/deur_level/BankAfter.png"
-        size={{ w: 400, h: 200 }}
-        location={{ x: 14, y: 600 }}
-      />
-      <ClickableImage
         path="/deur_level/BankBefore.png"
         size={{ w: 400, h: 200 }}
         location={{ x: 14, y: 600 }}
+        clickable={true}
+        onClick={() => setBankSteal(true)}
       />
+        <ClickableImage
+            visible={bankSteal}
+            path="/deur_level/BankAfter.png"
+            size={{ w: 400, h: 200 }}
+            location={{ x: 14, y: 600 }}
+        />
       <ClickableImage
         path="/deur_level/Dozen.png"
         size={{ w: 314, h: 131 }}
