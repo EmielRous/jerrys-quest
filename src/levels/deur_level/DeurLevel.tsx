@@ -7,7 +7,13 @@ const BureauLevel: React.FC = ({}) => {
   const [lampOn, setLampOn] = useState(false);
   const [stackHover, setStackHover] = useState(false);
   const [bankSteal, setBankSteal] = useState(false);
+  const [kaartVis, setKaartVis] = useState(false);
   const navigate = useNavigate();
+  const [rotation, setRotation] = useState(0);
+
+    const handleRotate = () => {
+        setRotation(prev => prev + 10); // Rotate by 10 degrees on each click
+    };
   return (
     <div>
       <img
@@ -20,7 +26,10 @@ const BureauLevel: React.FC = ({}) => {
         size={{ w: 400, h: 200 }}
         location={{ x: 14, y: 600 }}
         clickable={true}
-        onClick={() => setBankSteal(true)}
+        onClick={() => {
+            setBankSteal(true);
+            setKaartVis(true);
+        }}
       />
         <ClickableImage
             visible={bankSteal}
@@ -76,6 +85,17 @@ const BureauLevel: React.FC = ({}) => {
             path="/deur_level/Lamp.png"
             size={{ w: 100, h: 100 }}
             location={{ x: 110, y: 434 }}
+            clickable={true}
+            onClick={handleRotate} // Rotate on click
+            style={{ transform: `rotate(${rotation}deg)`, transition: "transform 0.3s ease" }}
+        />
+        <ClickableImage
+            visible={kaartVis}
+            path="/deur_level/popups/KaartKussen.gif"
+            size={{ w: 850, h: 600 }}
+            location={{ x: 100, y: 50 }}
+            clickable={true}
+            onClick={() => setKaartVis(false)}
         />
     </div>
   );
