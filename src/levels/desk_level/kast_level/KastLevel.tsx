@@ -15,13 +15,13 @@ const KastLevel: React.FC = ({}) => {
 
             <ClickableImage
                 path="/desk_level/kast_level/Augurken.png"
-                size={{ w: 400, h: 230 }}
-                location={{ x: 258, y: 256 }}
+                size={{ w: 174, h: 143 }}
+                location={{ x: 140, y: 133 }}
             />
             <ClickableImage
                 path="/desk_level/kast_level/Kast.png"
-                size={{ w: 300, h: 250 }}
-                location={{ x: 230, y: 267 }}
+                size={{ w: 1023, h: 543 }}
+                location={{ x: 0, y: 234 }}
             />
         </div>
     );

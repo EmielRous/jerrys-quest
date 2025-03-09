@@ -1,11 +1,12 @@
+import React, { useState } from "react";
 import ClickableImage from "../../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import BackButton from "../../../components/BackButton.tsx";
 
-const TafelLevel: React.FC = () => {
-  const [damsetOpen, setDamsetOpen] = useState(false);
+const TafelLevel: React.FC = ({}) => {
   const navigate = useNavigate();
+  const [damsetOpen, setDamsetOpen] = useState(false);
 
   return (
     <div>
