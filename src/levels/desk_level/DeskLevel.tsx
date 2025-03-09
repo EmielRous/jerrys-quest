@@ -30,6 +30,11 @@ const DeskLevel: React.FC = () => {
                 redirect={DeskLevelPaths.KastLevel}
             />
             <ClickableImage
+                path="/desk_level/Stoel.png"
+                size={{ w: 167, h: 224 }}
+                location={{ x: 582, y: 564 }}
+            />
+            <ClickableImage
                 path="/desk_level/Bril.png"
                 size={{ w: 80, h: 50 }}
                 location={{ x: 343, y: 682 }}
