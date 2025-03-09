@@ -53,7 +53,7 @@ const TafelLevel: React.FC = ({}) => {
             location={{ x: 594, y: 166 }}
         />
         <ClickableImage
-        visible={puffHover}
+        visible={pipeHover}
         path="/desk_level/tafel_level/Puff.gif"
         size={{ w: 230, h: 120 }}
         location={{ x: 100, y: 600 }}
