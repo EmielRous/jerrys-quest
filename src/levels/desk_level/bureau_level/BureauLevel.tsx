@@ -17,8 +17,8 @@ const BureauLevel: React.FC = ({}) => {
       />
       <ClickableImage
         path="/desk_level/bureau_level/Schilderij1.png"
-        size={{ w: 300, h: 250 }}
-        location={{ x: 203, y: 347 }}
+        size={{ w: 429, h: 356 }}
+        location={{ x: 119, y: 278 }}
         clickable={true}
         redirect={BureauLevelPaths.SchilderijLevel}
       />
