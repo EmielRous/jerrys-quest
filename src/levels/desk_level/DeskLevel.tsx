@@ -56,6 +56,8 @@ const DeskLevel: React.FC = () => {
         path="/desk_level/Prop.png"
         size={{ w: 31, h: 34 }}
         location={{ x: 438, y: 670 }}
+        clickable={true}
+        onClick={() => setPopupProp(true)}
       />
       <ClickableImage
         path="/desk_level/Sphinx.png"
@@ -83,6 +85,14 @@ const DeskLevel: React.FC = () => {
             location={{ x: 50, y: 50 }}
             clickable={true}
             onClick={() => setPopupBril(false)}
+        />
+        <ClickableImage
+            path="/desk_level/popups/Leestest.png"
+            visible={popupProp}
+            size={{ w: 600, h: 600 }}
+            location={{ x: 50, y: 50 }}
+            clickable={true}
+            onClick={() => setPopupProp(false)}
         />
     </div>
   );
