@@ -3,9 +3,9 @@ import ClickableImage from "../../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../../../components/BackButton.tsx";
 
-const TafelLevel: React.FC = () => {
-  const [damsetOpen, setDamsetOpen] = useState(false);
+const TafelLevel: React.FC = ({}) => {
   const navigate = useNavigate();
+  const [damsetOpen, setDamsetOpen] = useState(false);
 
   return (
     <div>
@@ -44,16 +44,6 @@ const TafelLevel: React.FC = () => {
         location={{ x: 609, y: 444 }}
         clickable={true}
         onClick={() => setDamsetOpen(!damsetOpen)}
-      />
-      <ClickableImage
-        path="/desk_level/tafel_level/DamsetDicht.png"
-        size={{ w: 120, h: 120 }}
-        location={{ x: 250, y: 300 }}
-      />
-      <ClickableImage
-        path="/desk_level/tafel_level/DamsetOpen.png"
-        size={{ w: 120, h: 120 }}
-        location={{ x: 350, y: 300 }}
       />
       <ClickableImage
         path="/desk_level/tafel_level/Envelop.png"
