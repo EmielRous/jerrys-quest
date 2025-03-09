@@ -83,7 +83,7 @@ const BureauLevel: React.FC = ({}) => {
         />
         <ClickableImage
             visible={kaartVis}
-            path="/deur_level/popups/KaartKussen.png"
+            path="/deur_level/popups/KaartKussen.gif"
             size={{ w: 850, h: 600 }}
             location={{ x: 100, y: 50 }}
             clickable={true}
