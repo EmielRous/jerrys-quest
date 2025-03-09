@@ -15,13 +15,6 @@ const BureauLevel: React.FC = ({}) => {
       />
 
       <ClickableImage
-        path="/deur_level/TapijtBefore.png"
-        size={{ w: 105, h: 256 }}
-        location={{ x: 109, y: 239 }}
-        clickable
-        redirect={DeurLevelPaths.TapijtLevel}
-      />
-      <ClickableImage
         path="/deur_level/BankAfter.png"
         size={{ w: 400, h: 200 }}
         location={{ x: 14, y: 600 }}
@@ -49,11 +42,6 @@ const BureauLevel: React.FC = ({}) => {
         location={{ x: 349, y: 475 }}
       />
       <ClickableImage
-        path="/deur_level/Lamp.png"
-        size={{ w: 100, h: 100 }}
-        location={{ x: 110, y: 434 }}
-      />
-      <ClickableImage
         path="/deur_level/Poef.png"
         size={{ w: 152, h: 165 }}
         location={{ x: 376, y: 647 }}
@@ -73,6 +61,18 @@ const BureauLevel: React.FC = ({}) => {
         size={{ w: 724, h: 147 }}
         location={{ x: 152, y: 210 }}
       />
+        <ClickableImage
+            path="/deur_level/TapijtBefore.png"
+            size={{ w: 93, h: 245 }}
+            location={{ x: 126, y: 239 }}
+            clickable
+            redirect={DeurLevelPaths.TapijtLevel}
+        />
+        <ClickableImage
+            path="/deur_level/Lamp.png"
+            size={{ w: 100, h: 100 }}
+            location={{ x: 110, y: 434 }}
+        />
     </div>
   );
 };
