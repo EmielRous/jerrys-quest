@@ -6,6 +6,7 @@ import BackButton from "../../../components/BackButton.tsx";
 const TafelLevel: React.FC = ({}) => {
   const navigate = useNavigate();
   const [damsetOpen, setDamsetOpen] = useState(false);
+  const [pipeHover, setPipeHover] = useState(false);
 
   return (
     <div>
@@ -16,34 +17,60 @@ const TafelLevel: React.FC = ({}) => {
       />
       <ClickableImage
         path="/desk_level/tafel_level/Blikje1.png"
-        size={{ w: 50, h: 50 }}
-        location={{ x: 100, y: 200 }}
+        size={{ w: 142, h: 150 }}
+        location={{ x: 594, y: 166 }}
       />
       <ClickableImage
         path="/desk_level/tafel_level/Blikje2.png"
-        size={{ w: 50, h: 50 }}
-        location={{ x: 150, y: 200 }}
+        size={{ w: 142, h: 150 }}
+        location={{ x: 594, y: 166 }}
       />
       <ClickableImage
         path="/desk_level/tafel_level/Blikje3.png"
-        size={{ w: 50, h: 50 }}
-        location={{ x: 200, y: 200 }}
+        size={{ w: 142, h: 150 }}
+        location={{ x: 594, y: 166 }}
       />
+        <ClickableImage
+            path="/desk_level/tafel_level/Blikje4.png"
+            size={{ w: 142, h: 150 }}
+            location={{ x: 594, y: 166 }}
+        />
+        <ClickableImage
+            path="/desk_level/tafel_level/Envelop.png"
+            size={{ w: 142, h: 150 }}
+            location={{ x: 594, y: 166 }}
+        />
+        <ClickableImage
+            path="/desk_level/tafel_level/Pillen.png"
+            size={{ w: 142, h: 150 }}
+            location={{ x: 594, y: 166 }}
+        />
+        <ClickableImage
+            path="/desk_level/tafel_level/Vredespijp.png"
+            onMouseEnter={() => setPipeHover(true)}
+            onMouseLeave={() => setPipeHover(false)}
+            size={{ w: 142, h: 150 }}
+            location={{ x: 594, y: 166 }}
+        />
+        <ClickableImage
+        visible={puffHover}
+        path="/desk_level/tafel_level/Puff.gif"
+        size={{ w: 230, h: 120 }}
+        location={{ x: 100, y: 600 }}
+    />
       <ClickableImage
         visible={!damsetOpen}
         path="/desk_level/tafel_level/DamsetDicht.png"
-        size={{ w: 152, h: 196 }}
-        location={{ x: 505, y: 255 }}
+        size={{ w: 417, h: 210 }}
+        location={{ x: 265, y: 420 }}
         clickable={true}
         onClick={() => setDamsetOpen(!damsetOpen)}
       />
       <ClickableImage
         visible={damsetOpen}
         path="/desk_level/tafel_level/DamsetOpen.png"
-        // size={{ w: 80, h: 65 }}
-        size={{ w: 120, h: 120 }}
-        // location={{ x: 609, y: 444 }}
-        location={{ x: 505, y: 255 }}
+        size={{ w: 465, h: 360 }}
+        location={{ x: 228, y: 270 }}
         clickable={true}
         onClick={() => setDamsetOpen(!damsetOpen)}
       />
