@@ -21,13 +21,6 @@ const DozenLevel: React.FC = () => {
             size={{ w: 200, h: 400 }}
             location={{ x: 33, y: 202 }}
         />
-        <ClickableImage
-            path="/deur_level/dozen_level/Paddos.png"
-            size={{ w: 152, h: 143 }}
-            location={{ x: 821, y: 455 }}
-            clickable={true}
-            onClick={() => setPaddoTrip(true)}
-        />
 
       <ClickableImage
         path="/deur_level/dozen_level/Doos1.png"
@@ -69,6 +62,13 @@ const DozenLevel: React.FC = () => {
         size={{ w: 320, h: 268 }}
         location={{ x: 158, y: 35 }}
       />
+        <ClickableImage
+            path="/deur_level/dozen_level/Paddos.png"
+            size={{ w: 152, h: 143 }}
+            location={{ x: 821, y: 455 }}
+            clickable={true}
+            onClick={() => setPaddoTrip(true)}
+        />
         {paddoTrip && (
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75">
                 <video
