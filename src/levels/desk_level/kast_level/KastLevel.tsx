@@ -13,28 +13,22 @@ const KastLevel: React.FC = ({}) => {
             size={{ w: 1024, h: 768 }}
             location={{ x: 0, y: 0 }}
         />
-      <ClickableImage
-        path="/desk_level/kast_level/Augurken.png"
-        size={{ w: 174, h: 143 }}
-        location={{ x: 140, y: 133 }}
-        isInventoriable={true}
-      />
         <ClickableImage
             path="/desk_level/kast_level/Augurk1.png"
-            size={{ w: 174, h: 143 }}
-            location={{ x: 140, y: 133 }}
+            size={{ w: 100, h: 100 }}
+            location={{ x: 305, y: 187 }}
             isInventoriable={true}
         />
         <ClickableImage
             path="/desk_level/kast_level/Augurk2.png"
-            size={{ w: 174, h: 143 }}
-            location={{ x: 140, y: 133 }}
+            size={{ w: 100, h: 100 }}
+            location={{ x: 507, y: 189 }}
             isInventoriable={true}
         />
       <ClickableImage
         path="/desk_level/kast_level/Kast.png"
-        size={{ w: 1023, h: 543 }}
-        location={{ x: 0, y: 234 }}
+        size={{ w: 1024, h: 543 }}
+        location={{ x: 0, y: 224 }}
       />
     </div>
   );
