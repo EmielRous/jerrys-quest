@@ -7,7 +7,7 @@ const DeskLevel: React.FC = () => {
   const [lampOn, setLampOn] = useState(false);
   const [stackHover, setStackHover] = useState(false);
   const [popupBril, setPopupBril] = useState(false);
-  const [popupProp, setPopupProp] = useState(fasle):
+  const [popupProp, setPopupProp] = useState(false);
   const navigate = useNavigate();
 
   return (
