@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ClickableImage from "../../../../components/ClickableImage.tsx";
 import BackButton from "../../../../components/BackButton.tsx";
+import {BureauLevelPaths} from "../../../../utils.tsx";
 
 const WikiLevel: React.FC = () => {
   const navigate = useNavigate();
   return (
     <div>
       <BackButton />
+        <ClickableImage
+            path="/desk_level/bureau_level/wiki_level/Wiki-background.png"
+            size={{ w: 1024, h: 768 }}
+            location={{ x: 0, y: 0 }}
+        />
       <video
         width="320"
         height="240"
