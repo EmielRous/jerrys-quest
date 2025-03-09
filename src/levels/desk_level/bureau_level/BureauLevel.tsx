@@ -16,7 +16,7 @@ const BureauLevel: React.FC = ({}) => {
         src={"/desk_level/bureau_level/Desk-background.png"}
       />
       <ClickableImage
-        path="/desk_level/bureau_level/Desk-painting.png"
+        path="/desk_level/bureau_level/schilderij_level/SchilderijBefore.png"
         size={{ w: 300, h: 250 }}
         location={{ x: 203, y: 347 }}
         clickable={true}
