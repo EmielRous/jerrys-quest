@@ -9,10 +9,9 @@ const WikiLevel: React.FC = () => {
   return (
     <div>
       <BackButton />
-        <ClickableImage
-            path="/desk_level/bureau_level/wiki_level/Wiki-background.png"
-            size={{ w: 1024, h: 768 }}
-            location={{ x: 0, y: 0 }}
+        <img
+            className={"relative h-[768px] w-[1024px]"}
+            src={"/desk_level/bureau_level/wiki_level/Wiki-background.png"}
         />
       <video
         width="320"
