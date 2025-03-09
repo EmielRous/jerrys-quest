@@ -12,7 +12,8 @@ const KaartLevel: React.FC = () => {
       <video
         width="320"
         height="240"
-        controls
+        controls={false}
+        autoPlay={true}
         className={" h-[768px] w-[1024px]"}
       >
         <source

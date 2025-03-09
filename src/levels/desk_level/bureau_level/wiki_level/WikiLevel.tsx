@@ -16,7 +16,8 @@ const WikiLevel: React.FC = () => {
       <video
         width="320"
         height="240"
-        controls
+        autoPlay={true}
+        controls={false}
         className={"absolute"}
         style={{
           top: 0 + "px",

@@ -74,11 +74,11 @@ const DozenLevel: React.FC = () => {
                 <video
                     ref={videoRef}
                     src="/deur_level/dozen_level/PaddoTrip.mp4"
-                    autoPlay
+                    autoPlay={true}
                     onEnded={handleTripEnd} // Hide when video ends
                     width="320"
                     height="240"
-                    controls
+                    controls={false}
                     className={"absolute"}
                     style={{
                         top: 0 + "px",
