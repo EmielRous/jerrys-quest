@@ -5,7 +5,7 @@ import BackButton from "../../../components/BackButton.tsx";
 const DozenLevel: React.FC = () => {
     const [paddoTrip, setPaddoTrip] = useState(false);
     const videoRef = useRef<HTMLVideoElement>(null);
-    const handleVideoEnd = () => {
+    const handleTripEnd = () => {
         setPaddoTrip(false);
     }
 
@@ -74,9 +74,9 @@ const DozenLevel: React.FC = () => {
                 <video
                     ref={videoRef}
                     className="w-[800px] h-auto"
-                    src="/deur_level/dozen_level/paddoTrip.mp4"
+                    src="/deur_level/dozen_level/PaddoTrip.mp4"
                     autoPlay
-                    onEnded={handleVideoEnd} // Hide when video ends
+                    onEnded={handleTripEnd} // Hide when video ends
                 />
             </div>
         )}
