@@ -12,25 +12,20 @@ const WikiLevel: React.FC = () => {
         className={`relative h-[768px] w-[1024px]`}
         src="/desk_level/bureau_level/wiki_level/Wiki-background.png"
       />
-      <ClickableImage
-        path={"/desk_level/bureau_level/wiki_level/Whoops.gif"}
-        size={{ w: 100, h: 100 }}
-        location={{ x: 200, y: 200 }}
-      />
       <video
         width="320"
         height="240"
         controls
         className={"absolute"}
         style={{
-          top: 200 + "px",
-          left: 500 + "px",
-          height: 480 + "px",
-          width: 720 + "px",
+          top: 96 + "px",
+          left: 376 + "px",
+          height: 376 + "px",
+          width: 552 + "px",
         }}
       >
         <source
-          src="/desk_level/bureau_level/wiki_level/movie.mp4"
+          src="/desk_level/bureau_level/wiki_level/Wiki-video.mp4.mp4"
           type="video/mp4"
         />
         Your browser does not support the video tag.

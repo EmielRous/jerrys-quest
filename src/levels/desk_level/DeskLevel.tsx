@@ -25,12 +25,12 @@ const DeskLevel: React.FC = () => {
       <ClickableImage
         path="/desk_level/Bril.png"
         size={{ w: 80, h: 50 }}
-        location={{ x: 317, y: 709 }}
+        location={{ x: 343, y: 682 }}
       />
       <ClickableImage
         path="/desk_level/Desk.png"
-        size={{ w: 351, h: 133 }}
-        location={{ x: 509, y: 415 }}
+        size={{ w: 301, h: 133 }}
+        location={{ x: 509, y: 395 }}
         clickable={true}
         redirect={DeskLevelPaths.BureauLevel}
       />
