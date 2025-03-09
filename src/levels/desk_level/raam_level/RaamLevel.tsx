@@ -37,14 +37,22 @@ const RaamLevel: React.FC = () => {
       </div>
       <ClickableImage
         path="/desk_level/raam_level/65.png"
-        size={{ w: 100, h: 100 }}
-        location={{ x: 200, y: 200 }}
+        size={{ w: 26, h: 27 }}
+        location={{ x: 913, y: 408 }}
+      />
+      <ClickableImage
+        visible={raadselGoedGeraaie}
+        path="/desk_level/raam_level/Sphinx.png"
+        size={{ w: 200, h: 200 }}
+        location={{ x: 400, y: 400 }}
+        clickable={true}
+        isInventoriable={true}
       />
       <ClickableImage
         visible={!raadselActive}
         path="/desk_level/raam_level/Raadsel.png"
-        size={{ w: 150, h: 150 }}
-        location={{ x: 300, y: 300 }}
+        size={{ w: 791, h: 681 }}
+        location={{ x: 126, y: 28 }}
         clickable={true}
         onClick={() => setRaadselActive(!raadselActive)}
       />
@@ -53,8 +61,8 @@ const RaamLevel: React.FC = () => {
         visible={raadselActive}
         onClick={(e) => e.stopPropagation()}
         path="/desk_level/raam_level/Raadsel.png"
-        size={{ w: 700, h: 550 }}
-        location={{ x: 150, y: 20 }}
+        size={{ w: 791, h: 681 }}
+        location={{ x: 126, y: 28 }}
       />
       <div
         className={`absolute flex gap-2  justify-center ${!raadselActive && "hidden"}`}
@@ -81,14 +89,6 @@ const RaamLevel: React.FC = () => {
           />
         ))}
       </div>
-      <ClickableImage
-        visible={raadselGoedGeraaie}
-        path="/desk_level/raam_level/Sphinx.png"
-        size={{ w: 200, h: 200 }}
-        location={{ x: 400, y: 400 }}
-        clickable={true}
-        isInventoriable={true}
-      />
     </div>
   );
 };
