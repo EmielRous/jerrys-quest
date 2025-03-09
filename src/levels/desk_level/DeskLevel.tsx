@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import ClickableImage from "../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import { DeskLevelPaths } from "../../utils.tsx";
-import "./DeskLevel.css"; // Import CSS
 
 const DeskLevel: React.FC = () => {
     const [lampOn, setLampOn] = useState(false);
     const [stackHover, setStackHover] = useState(false);
     const [popupBril, setPopupBril] = useState(false);
     const [popupProp, setPopupProp] = useState(false);
-    const [hoveringStoel, setHoveringStoel] = useState(false);
     const navigate = useNavigate();
 
     return (
@@ -23,27 +21,6 @@ const DeskLevel: React.FC = () => {
                 clickable={true}
                 redirect={DeskLevelPaths.KastLevel}
             />
-
-            {/* Wrap ClickableImage in a div for animation */}
-            <div
-                className={hoveringStoel ? "stoel-hovered" : "stoel-final"}
-                onMouseEnter={() => setHoveringStoel(true)}
-                onMouseLeave={() => setHoveringStoel(false)}
-                style={{
-                    position: "absolute",
-                    left: "582px",
-                    top: "564px",
-                    width: "167px",
-                    height: "224px",
-                }}
-            >
-                <ClickableImage
-                    path="/desk_level/Stoel.png"
-                    size={{ w: 167, h: 224 }}
-                    location={{ x: 0, y: 0 }} // Keep it at (0,0) since the parent div is already positioned
-                />
-            </div>
-
             <ClickableImage
                 path="/desk_level/Bril.png"
                 size={{ w: 80, h: 50 }}
