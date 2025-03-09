@@ -6,6 +6,7 @@ import BackButton from "../../../../components/BackButton.tsx";
 const SchilderijLevel: React.FC = () => {
   const navigate = useNavigate();
   const [vis, setVis] = useState(false);
+  const [heeftTweeAug, setHeeftTweeAug] = useState(false);
   return (
     <div>
       <BackButton />

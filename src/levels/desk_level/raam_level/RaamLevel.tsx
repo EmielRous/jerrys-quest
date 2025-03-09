@@ -12,7 +12,7 @@ const RaamLevel: React.FC = () => {
   const [raadselGoedGeraaie, setRaadselGoedGeraaie] = useState(false);
   const [guess, setGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
-  const lingoAnswer = "apple";
+  const lingoAnswer = "zevenenveertig";
   const putInGuess = (guess: string) => {
     setGuess("");
     setGuesses((prevState) => [...prevState, guess]);
@@ -59,7 +59,7 @@ const RaamLevel: React.FC = () => {
       />
       <div
         className={`absolute flex gap-2  justify-center ${!raadselActive && "hidden"}`}
-        style={{ top: 440, left: 300, width: 400 }}
+        style={{ top: 530, left: 220, width: 600 }}
       >
         <Input.OTP
           length={lingoAnswer.length}
