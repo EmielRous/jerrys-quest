@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import ClickableImage from "../../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../../../components/BackButton.tsx";
+import { addRuby, DeskLevelPaths } from "../../utils.tsx";
+import RaadWoordComponent from "../../components/RaadWoordComponent.tsx";
+
 
 const TafelLevel: React.FC = () => {
     const navigate = useNavigate();
@@ -17,6 +20,7 @@ const TafelLevel: React.FC = () => {
         <div>
             <BackButton />
             <img className="relative h-[768px] w-[1024px]" src="/desk_level/tafel_level/TroepTafelView.png" />
+            <RaadWoordComponent correctWord={"1989"} />
 
             <ClickableImage
                 path="/desk_level/tafel_level/Envelop.png"
