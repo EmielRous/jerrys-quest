@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ClickableImage from "../../components/ClickableImage.tsx";
-import { BureauLevelPaths, DeurLevelPaths } from "../../utils.tsx";
+import {DeurLevelPaths } from "../../utils.tsx";
+import { useVisibility } from "../../components/VisibilityContext";
 
-const BureauLevel: React.FC = ({}) => {
+const DeurLevel: React.FC = ({}) => {
   const [lampOn, setLampOn] = useState(false);
   const [stackHover, setStackHover] = useState(false);
   const [bankSteal, setBankSteal] = useState(false);
   const [kaartVis, setKaartVis] = useState(false);
   const navigate = useNavigate();
   const [rotation, setRotation] = useState(0);
+  const { toggleVisibility } = useVisibility();
 
     const handleRotate = () => {
         setRotation(prev => prev + 50); // Rotate by 10 degrees on each click
@@ -63,8 +65,10 @@ const BureauLevel: React.FC = ({}) => {
       />
       <ClickableImage
         path="/deur_level/Projector.png"
+        clickable={true}
         size={{ w: 154, h: 54 }}
         location={{ x: 310, y: 183 }}
+        onClick={toggleVisibility}
       />
       <ClickableImage
         path="/deur_level/Boeken.png"
@@ -106,4 +110,4 @@ const BureauLevel: React.FC = ({}) => {
   );
 };
 
-export default BureauLevel;
+export default DeurLevel;

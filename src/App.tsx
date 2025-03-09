@@ -5,6 +5,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import { VisibilityProvider } from "./components/VisibilityContext.tsx";
 import "./App.css";
 import BureauLevel from "./levels/desk_level/bureau_level/BureauLevel.tsx";
 import DeskLevel from "./levels/desk_level/DeskLevel.tsx";
@@ -30,6 +31,7 @@ import KastLevel from "./levels/desk_level/kast_level/KastLevel.tsx";
 
 function App() {
   return (
+      <VisibilityProvider>
     <Router>
       <div>
         <div className={"border border-red-100 h-[768px] w-[1024px]"}>
@@ -86,6 +88,7 @@ function App() {
         <Inventory />
       </div>
     </Router>
+      </VisibilityProvider>
   );
 }
 

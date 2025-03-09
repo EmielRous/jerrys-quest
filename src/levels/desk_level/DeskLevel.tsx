@@ -3,12 +3,14 @@ import ClickableImage from "../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import { addRuby, DeskLevelPaths } from "../../utils.tsx";
 import RaadWoordComponent from "../../components/RaadWoordComponent.tsx";
+import { useVisibility } from "../../components/VisibilityContext";
 
 const DeskLevel: React.FC = () => {
   const [popupBril, setPopupBril] = useState(false);
   const [popupProp, setPopupProp] = useState(false);
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement | null>(null);
+    const { isVisible } = useVisibility();
 
   // Function to play sound
   const playSound = () => {
@@ -117,6 +119,13 @@ const DeskLevel: React.FC = () => {
         clickable={true}
         onClick={() => setPopupProp(false)}
       />
+        <ClickableImage
+            visible={isVisible}
+            path="/desk_level/Projection.gif"
+            size={{ w: 629, h: 344 }}
+            location={{ x: 202, y: 163 }}
+            style={{ opacity: 0.5 }}
+        />
     </div>
   );
 };
