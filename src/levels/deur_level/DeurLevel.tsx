@@ -65,8 +65,8 @@ const BureauLevel: React.FC = ({}) => {
       />
       <ClickableImage
         path="/deur_level/Boeken.png"
-        size={{ w: 131, h: 73 }}
-        location={{ x: 476, y: 691 }}
+        size={{ w: 91, h: 51 }}
+        location={{ x: 412, y: 662 }}
       />
       <ClickableImage
         path="/deur_level/Plank.png"
