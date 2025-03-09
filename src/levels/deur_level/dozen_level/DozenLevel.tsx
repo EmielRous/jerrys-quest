@@ -1,109 +1,87 @@
 import React, { useState, useRef } from "react";
-import ClickableImage from "../../components/ClickableImage.tsx";
-import { useNavigate } from "react-router-dom";
-import { DeskLevelPaths } from "../../utils.tsx";
+import ClickableImage from "../../../components/ClickableImage.tsx";
+import BackButton from "../../../components/BackButton.tsx";
 
-const DeskLevel: React.FC = () => {
-    const [popupBril, setPopupBril] = useState(false);
-    const [popupProp, setPopupProp] = useState(false);
-    const navigate = useNavigate();
-    const audioRef = useRef<HTMLAudioElement | null>(null);
+const DozenLevel: React.FC = () => {
+    const [paddoTrip, setPaddoTrip] = useState(false);
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const handleTripEnd = () => {
+        setPaddoTrip(false);
+    }
 
-    // Function to play sound
-    const playSound = () => {
-        if (!audioRef.current) {
-            audioRef.current = new Audio("/desk_level/WULR.mp3"); // Adjust the path to your MP3
-        }
-        audioRef.current.currentTime = 0; // Restart audio if already playing
-        audioRef.current.play();
-    };
+  return (
+    <div>
+      <img
+        className={"relative h-[768px] w-[1024px]"}
+        src={"/deur_level/dozen_level/DozenView.png"}
+      />
+      <BackButton />
+        <ClickableImage
+            path="/deur_level/dozen_level/Koning.png"
+            size={{ w: 200, h: 400 }}
+            location={{ x: 33, y: 202 }}
+        />
 
-    return (
-        <div>
-            <img className="relative h-[768px] w-[1024px]" src="/desk_level/Desk-background.png" />
-
-            <ClickableImage
-                path="/desk_level/Augurken.png"
-                size={{ w: 87, h: 71 }}
-                location={{ x: 88, y: 193 }}
-                clickable={true}
-                redirect={DeskLevelPaths.KastLevel}
-            />
-            <ClickableImage
-                path="/desk_level/Bril.png"
-                size={{ w: 80, h: 50 }}
-                location={{ x: 343, y: 682 }}
-                clickable={true}
-                onClick={() => setPopupBril(true)}
-            />
-            <ClickableImage
-                path="/desk_level/Desk.png"
-                size={{ w: 301, h: 133 }}
-                location={{ x: 509, y: 395 }}
-                clickable={true}
-                redirect={DeskLevelPaths.BureauLevel}
-            />
-            <ClickableImage
-                path="/desk_level/MontBlanche.png"
-                size={{ w: 94, h: 124 }}
-                location={{ x: 192, y: 524 }}
-            />
-            <ClickableImage
-                path="/desk_level/Kast.png"
-                size={{ w: 157, h: 513 }}
-                location={{ x: 77, y: 248 }}
-            />
-            <ClickableImage
-                path="/desk_level/Prop.png"
-                size={{ w: 31, h: 34 }}
-                location={{ x: 438, y: 670 }}
-                clickable={true}
-                onClick={() => setPopupProp(true)}
-            />
-            <ClickableImage
-                path="/desk_level/Sphinx.png"
-                size={{ w: 120, h: 154 }}
-                location={{ x: 913, y: 401 }}
-                clickable={true}
-                redirect={DeskLevelPaths.RaamLevel}
-            />
-            <ClickableImage
-                path="/desk_level/Tafeltje.png"
-                size={{ w: 203, h: 401 }}
-                location={{ x: 8, y: 409 }}
-                clickable={true}
-                redirect={DeskLevelPaths.TafelLevel}
-            />
-            <ClickableImage
-                path="/desk_level/Dreft.png"
-                size={{ w: 39, h: 80 }}
-                location={{ x: 380, y: 450 }}
-                clickable={true}
-                onClick={playSound} // Play sound when clicked
-            />
-            <ClickableImage
-                path="/desk_level/Broek.png"
-                size={{ w: 215, h: 150 }}
-                location={{ x: 137, y: 669 }}
-            />
-            <ClickableImage
-                path="/desk_level/popups/Leestest.jpg"
-                visible={popupBril}
-                size={{ w: 600, h: 600 }}
-                location={{ x: 212, y: 84 }}
-                clickable={true}
-                onClick={() => setPopupBril(false)}
-            />
-            <ClickableImage
-                path="/desk_level/popups/Leestest.jpg"
-                visible={popupProp}
-                size={{ w: 600, h: 600 }}
-                location={{ x: 212, y: 84 }}
-                clickable={true}
-                onClick={() => setPopupProp(false)}
-            />
-        </div>
-    );
+      <ClickableImage
+        path="/deur_level/dozen_level/Doos1.png"
+        size={{ w: 400, h: 500 }}
+        location={{ x: 8, y: 100 }}
+      />
+      <ClickableImage
+        path="/deur_level/dozen_level/Doos2.png"
+        size={{ w: 500, h: 400 }}
+        location={{ x: 301, y: 211 }}
+      />
+        <ClickableImage
+            path="/deur_level/dozen_level/Slaapzak.png"
+            size={{ w: 643, h: 435 }}
+            location={{ x: 200, y: 173 }}
+        />
+      <ClickableImage
+        path="/deur_level/dozen_level/Doos3.png"
+        size={{ w: 500, h: 450 }}
+        location={{ x: 93, y: 150 }}
+      />
+      <ClickableImage
+        path="/deur_level/dozen_level/Doos4.png"
+        size={{ w: 700, h: 600 }}
+        location={{ x: 319, y: 20 }}
+      />
+      <ClickableImage
+        path="/deur_level/dozen_level/Lidl.png"
+        size={{ w: 377, h: 466 }}
+        location={{ x: 415, y: 157 }}
+      />
+      <ClickableImage
+        path="/deur_level/dozen_level/Shelf.png"
+        size={{ w: 1024, h: 199 }}
+        location={{ x: 0, y: 547 }}
+      />
+      <ClickableImage
+        path="/deur_level/dozen_level/Vraag.png"
+        size={{ w: 320, h: 268 }}
+        location={{ x: 158, y: 35 }}
+      />
+        <ClickableImage
+            path="/deur_level/dozen_level/Paddos.png"
+            size={{ w: 152, h: 143 }}
+            location={{ x: 821, y: 455 }}
+            clickable={true}
+            onClick={() => setPaddoTrip(true)}
+        />
+        {paddoTrip && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75">
+                <video
+                    ref={videoRef}
+                    className="w-[800px] h-auto"
+                    src="/deur_level/dozen_level/PaddoTrip.mp4"
+                    autoPlay
+                    onEnded={handleTripEnd} // Hide when video ends
+                />
+            </div>
+        )}
+    </div>
+  );
 };
 
-export default DeskLevel;
+export default DozenLevel;

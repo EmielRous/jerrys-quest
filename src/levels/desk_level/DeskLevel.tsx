@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ClickableImage from "../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import { DeskLevelPaths } from "../../utils.tsx";
 
 const DeskLevel: React.FC = () => {
-    const [lampOn, setLampOn] = useState(false);
-    const [stackHover, setStackHover] = useState(false);
     const [popupBril, setPopupBril] = useState(false);
     const [popupProp, setPopupProp] = useState(false);
     const navigate = useNavigate();
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    // Function to play sound
+    const playSound = () => {
+        if (!audioRef.current) {
+            audioRef.current = new Audio("/desk_level/WULR.mp3"); // Adjust the path to your MP3
+        }
+        audioRef.current.currentTime = 0; // Restart audio if already playing
+        audioRef.current.play();
+    };
 
     return (
         <div>
@@ -71,6 +79,7 @@ const DeskLevel: React.FC = () => {
                 size={{ w: 39, h: 80 }}
                 location={{ x: 380, y: 450 }}
                 clickable={true}
+                onClick={playSound} // Play sound when clicked
             />
             <ClickableImage
                 path="/desk_level/Broek.png"
