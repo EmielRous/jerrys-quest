@@ -25,7 +25,7 @@ const WikiLevel: React.FC = () => {
         }}
       >
         <source
-          src="/desk_level/bureau_level/wiki_level/Wiki-video.mp4.mp4"
+          src="/desk_level/bureau_level/wiki_level/Wiki-video.mp4"
           type="video/mp4"
         />
         Your browser does not support the video tag.
