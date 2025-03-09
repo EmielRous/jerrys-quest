@@ -68,8 +68,8 @@ const BureauLevel: React.FC = ({}) => {
 
       <ClickableImage
         path="/desk_level/bureau_level/KaartMasonFoto.png"
-        size={{ w: 200, h: 100 }}
-        location={{ x: 660, y: 290 }}
+        size={{ w: 119, h: 195 }}
+        location={{ x: 926, y: 110 }}
         clickable
         redirect={BureauLevelPaths.KaartLevel}
       />
