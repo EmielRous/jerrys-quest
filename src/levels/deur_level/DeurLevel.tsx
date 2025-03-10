@@ -4,6 +4,7 @@ import ClickableImage from "../../components/ClickableImage.tsx";
 import {DeurLevelPaths } from "../../utils.tsx";
 import { useVisibility } from "../../components/VisibilityContext";
 import { useGlobalState } from "../../components/GlobalStateContext";
+import RaadWoordComponent from "../../components/RaadWoordComponent.tsx";
 
 const audio = new Audio("/deur_level/Projector.mp3");
 
@@ -137,9 +138,10 @@ const DeurLevel: React.FC = ({}) => {
       />
       <ClickableImage
         path="/deur_level/Boeken.png"
-        clickable={true}
+        clickable={!puzzlesSolved["Boek"]}
         size={{ w: 91, h: 51 }}
         location={{ x: 412, y: 662 }}
+        onClick={!puzzlesSolved["Boek"] ? () => setPopup("popupBoek", true) : undefined}
       />
       <ClickableImage
         path="/deur_level/Plank.png"
@@ -180,6 +182,19 @@ const DeurLevel: React.FC = ({}) => {
             location={{ x: 100, y: 50 }}
             clickable={true}
             onClick={() => setPopup("popupKaart", false)}
+        />
+        <ClickableImage
+        path="/deur_level/popups/BoekDuo.gif"
+        visible={popups["popupBoek"]===true && !puzzlesSolved["Boek"]}
+        size={{ w: 1024, h: 768 }}
+        location={{ x: 0, y: 0 }}
+        clickable={true}
+        onClick={() => setPopup("popupBoek", false)}
+    />
+        <RaadWoordComponent
+            correctWord={"HOO-HOO"}
+            onCorrect={() => markPuzzleAsSolved("Boek")}
+            visible={popups["popupBoek"]===true && !puzzlesSolved["Boek"]}
         />
         {vouwIndex !== null && vouwIndex < vouwImages[currentKleding].length && (
             <ClickableImage
