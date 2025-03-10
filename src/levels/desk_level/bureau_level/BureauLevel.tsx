@@ -7,6 +7,7 @@ import { addRuby, BureauLevelPaths } from "../../../utils.tsx";
 const BureauLevel: React.FC = ({}) => {
   const [lampOn, setLampOn] = useState(false);
   const [stackHover, setStackHover] = useState(false);
+  const [snuif, setSnuif] = useState(false);
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -17,6 +18,9 @@ const BureauLevel: React.FC = ({}) => {
     }
     audioRef.current.currentTime = 0; // Restart audio if already playing
     audioRef.current.play();
+    audioRef.current.onended = () => {
+        setSnuif(false);
+    };
   };
 
   return (
@@ -90,7 +94,16 @@ const BureauLevel: React.FC = ({}) => {
             size={{ w: 106, h: 71 }}
             location={{ x: 352, y: 618 }}
             clickable={true}
-            onClick={playSound}
+            onClick={() => {
+                playSound();
+            setSnuif(true);}}
+        />
+        <ClickableImage
+            path="/desk_level/bureau_level/Snuif.gif"
+            visible={snuif}
+            size={{ w: 1024, h: 768 }}
+            location={{ x: 0, y: 0 }}
+            style={{ opacity: 0.5 }}
         />
     </div>
   );
