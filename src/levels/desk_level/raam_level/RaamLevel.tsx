@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Button, Input } from "antd";
 import LingoGame from "./LingoGame.tsx";
 import BackButton from "../../../components/BackButton.tsx";
-import { addRuby } from "../../../utils.tsx";
+import { useGlobalState } from "../../../components/GlobalStateContext.tsx";
+
 
 const RaamLevel: React.FC = () => {
   const navigate = useNavigate();
@@ -17,12 +18,20 @@ const RaamLevel: React.FC = () => {
     setGuess("");
     setGuesses((prevState) => [...prevState, guess]);
   };
+    const { addRuby, markPuzzleAsSolved, puzzlesSolved } = useGlobalState(); // ✅ Get addRuby from GlobalState
 
-  const correctGuess = () => {
-    setRaadselActive(false);
-    setRaadselGoedGeraaie(true);
-  };
-  return (
+    const correctGuess = () => {
+        if (!raadselGoedGeraaie) { // ✅ Only give Ruby if it hasn’t been solved yet
+            setRaadselActive(false);
+            setRaadselGoedGeraaie(true);
+            markPuzzleAsSolved("Sphinx");
+            addRuby();
+            alert("Good job! You deserve a ruby.");
+        }
+    };
+
+
+    return (
     <div>
       <BackButton />
         <ClickableImage
@@ -31,12 +40,6 @@ const RaamLevel: React.FC = () => {
             location={{ x: 0, y: 0 }}
             onClick={() => setRaadselActive(false)}
         />
-      <div
-        className={`absolute z-10 flex gap-2  justify-center drop-shadow-2xl ${!raadselGoedGeraaie && "hidden"} text-green-500 text-4xl font-bold`}
-        style={{ top: 250, left: 300, width: 400 }}
-      >
-        YOU HAVE IT GOED GERAAIEN!!
-      </div>
       <ClickableImage
         path="/desk_level/raam_level/65.png"
         size={{ w: 26, h: 27 }}
@@ -46,21 +49,22 @@ const RaamLevel: React.FC = () => {
         path="/desk_level/raam_level/Sphinx.png"
         size={{ w: 480, h: 290 }}
         location={{ x: 28, y: 229 }}
-        clickable={true}
+        clickable={!puzzlesSolved["Sphinx"]}
         onClick={() => setRaadselActive(true)}
       />
       <ClickableImage
-        visible={raadselActive}
+        visible={raadselActive && !puzzlesSolved["Sphinx"]}
         onClick={(e) => e.stopPropagation()}
         path="/desk_level/raam_level/Raadsel.png"
         size={{ w: 791, h: 681 }}
         location={{ x: 126, y: 28 }}
       />
-      <div
-        className={`absolute flex gap-2  justify-center ${!raadselActive && "hidden"}`}
-        style={{ top: 530, left: 220, width: 600 }}
-      >
-          <Input.OTP
+        <div
+            className={`absolute flex gap-2 justify-center ${(!raadselActive || puzzlesSolved["Sphinx"]) && "hidden"}`}
+            style={{ top: 530, left: 220, width: 600 }}
+        >
+
+        <Input.OTP
           length={lingoAnswer.length}
           rootClassName={"w-full h-full"}
           value={guess}

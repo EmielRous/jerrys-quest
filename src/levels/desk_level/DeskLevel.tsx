@@ -3,7 +3,7 @@ import ClickableImage from "../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import { addRuby, DeskLevelPaths } from "../../utils.tsx";
 import RaadWoordComponent from "../../components/RaadWoordComponent.tsx";
-import { useVisibility } from "../../components/VisibilityContext";
+import {useGlobalState} from "../../components/GlobalStateContext.tsx";
 
 const DeskLevel: React.FC = () => {
   const [popupBril, setPopupBril] = useState(false);
@@ -12,7 +12,8 @@ const DeskLevel: React.FC = () => {
     const [stoelRotation, setStoelRotation] = useState(0);
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement | null>(null);
-    const { isVisible } = useVisibility();
+    const { popups, setPopup } = useGlobalState();
+    const { isVisible, toggleVisibility, puzzlesSolved, markPuzzleAsSolved, resetPuzzles } = useGlobalState();
     const animationRef = useRef<number | null>(null);
 
   // Function to play sound
@@ -74,14 +75,16 @@ const DeskLevel: React.FC = () => {
                 transform: `rotate(${stoelRotation}deg)`, // ✅ Keeps last rotation when mouse leaves
                 transition: "transform 0.1s linear", // ✅ Ensures smooth transition
             }}
+            clickable={true}
+            onClick={() => {resetPuzzles()}}
         />
-      <ClickableImage
-        path="/desk_level/Bril.png"
-        size={{ w: 80, h: 50 }}
-        location={{ x: 343, y: 682 }}
-        clickable={true}
-        onClick={() => setPopupBril(true)}
-      />
+        <ClickableImage
+            path="/desk_level/Bril.png"
+            size={{ w: 80, h: 50 }}
+            location={{ x: 343, y: 682 }}
+            clickable={!puzzlesSolved["Bril"]}
+            onClick={!puzzlesSolved["Bril"] ? () => setPopup("popupBril", true) : undefined}
+        />
       <ClickableImage
         path="/desk_level/Desk.png"
         size={{ w: 333, h: 145 }}
@@ -103,8 +106,8 @@ const DeskLevel: React.FC = () => {
         path="/desk_level/Prop.png"
         size={{ w: 31, h: 34 }}
         location={{ x: 438, y: 670 }}
-        clickable={true}
-        onClick={() => setPopupProp(true)}
+        clickable={!puzzlesSolved["Prop"]}
+        onClick={!puzzlesSolved["Prop"] ? () => setPopup("popupProp", true) : undefined}
       />
       <ClickableImage
         path="/desk_level/Sphinx.png"
@@ -132,32 +135,32 @@ const DeskLevel: React.FC = () => {
         size={{ w: 215, h: 150 }}
         location={{ x: 137, y: 669 }}
       />
-      <ClickableImage
-        path="/desk_level/popups/Leestest.jpg"
-        visible={popupBril}
-        size={{ w: 600, h: 600 }}
-        location={{ x: 212, y: 84 }}
-        clickable={true}
-        onClick={() => setPopupBril(false)}
-      />
+        <ClickableImage
+            path="/desk_level/popups/Leestest.jpg"
+            visible={popups["popupBril"]===true && !puzzlesSolved["Bril"]}
+            size={{ w: 600, h: 600 }}
+            location={{ x: 212, y: 84 }}
+            clickable={true}
+            onClick={() => setPopup("popupBril", false)}
+        />
         <RaadWoordComponent
             correctWord={"lezen"}
-            onCorrect={() => console.log("hier component hiden")}
-            visible={popupBril}
+            onCorrect={() => markPuzzleAsSolved("Bril")}
+            visible={popups["popupBril"]===true && !puzzlesSolved["Bril"]}
         />
 
-      <ClickableImage
-        path="/desk_level/popups/Leestest.jpg"
-        visible={popupProp}
-        size={{ w: 600, h: 600 }}
-        location={{ x: 212, y: 84 }}
-        clickable={true}
-        onClick={() => setPopupProp(false)}
-      />
+        <ClickableImage
+            path="/desk_level/popups/Leestest.jpg"
+            visible={popups["popupProp"]===true && !puzzlesSolved["Prop"]}
+            size={{ w: 600, h: 600 }}
+            location={{ x: 212, y: 84 }}
+            clickable={true}
+            onClick={() => setPopup("popupProp", false)}
+        />
         <RaadWoordComponent
             correctWord={"lezen"}
-            onCorrect={() => console.log("hier component hiden")}
-            visible={popupProp}
+            onCorrect={() => markPuzzleAsSolved("Prop")}
+            visible={popups["popupProp"]===true && !puzzlesSolved["Prop"]}
         />
         <ClickableImage
             visible={isVisible}

@@ -3,10 +3,12 @@ import BackButton from "../../../components/BackButton.tsx";
 import React, {useState} from "react";
 import { addRuby, DeskLevelPaths } from "../../utils.tsx";
 import RaadWoordComponent from "../../../components/RaadWoordComponent.tsx";
+import {useGlobalState} from "../../../components/GlobalStateContext.tsx";
 
 const TapijtLevel: React.FC = () => {
 
     const [rotation, setRotation] = useState(0);
+    const { isVisible, toggleVisibility, puzzlesSolved, markPuzzleAsSolved, addRuby } = useGlobalState();
 
     const handleRotate = () => {
         setRotation(prev => prev + 50); // Rotate by 10 degrees on each click
@@ -20,11 +22,13 @@ const TapijtLevel: React.FC = () => {
             location={{ x: 0, y: 0 }}
         />
       <ClickableImage
+          visible={puzzlesSolved["Tapijt"]===true}
         path="/deur_level/tapijt_level/TapijtSolved.png"
         size={{ w: 300, h: 430 }}
         location={{ x: 420, y: 200 }}
       />
       <ClickableImage
+          visible={!puzzlesSolved["Tapijt"]}
         path="/deur_level/tapijt_level/TapijtQR.png"
         size={{ w: 300, h: 430 }}
         location={{ x: 420, y: 200 }}
@@ -42,8 +46,8 @@ const TapijtLevel: React.FC = () => {
         />s
         <RaadWoordComponent
             correctWord={"aladdin"}
-            onCorrect={() => console.log("hier component hiden")}
-            visible={true}
+            onCorrect={() => markPuzzleAsSolved("Tapijt")}
+            visible={!puzzlesSolved["Tapijt"]}
         />
     </div>
   );

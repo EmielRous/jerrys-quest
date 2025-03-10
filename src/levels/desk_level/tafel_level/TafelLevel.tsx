@@ -4,12 +4,14 @@ import { useNavigate } from "react-router-dom";
 import BackButton from "../../../components/BackButton.tsx";
 import { addRuby, DeskLevelPaths } from "../../utils.tsx";
 import RaadWoordComponent from "../../../components/RaadWoordComponent.tsx";
+import {useGlobalState} from "../../../components/GlobalStateContext.tsx";
 
 const TafelLevel: React.FC = () => {
   const navigate = useNavigate();
   const [damsetOpen, setDamsetOpen] = useState(false);
   const [pipeHover, setPipeHover] = useState(false);
   const [blikjeIndex, setBlikjeIndex] = useState(1);
+    const { isVisible, toggleVisibility, puzzlesSolved, markPuzzleAsSolved } = useGlobalState();
 
   const cycleBlikje = () => {
     setBlikjeIndex((prevIndex) => (prevIndex % 4) + 1); // Cycles from 1 → 2 → 3 → 4 → 1
@@ -25,8 +27,8 @@ const TafelLevel: React.FC = () => {
         />
       <RaadWoordComponent
         correctWord={"1989 TDDSZ/ART"}
-        onCorrect={() => console.log("doe hier dingen")}
-        visible={blikjeIndex === 3}
+        onCorrect={() => markPuzzleAsSolved("Blikje")}
+        visible={blikjeIndex === 3 && !puzzlesSolved["Blikje"]}
       />
 
       <ClickableImage
@@ -43,8 +45,8 @@ const TafelLevel: React.FC = () => {
           path={`/desk_level/tafel_level/Blikje${num}.png`}
           size={{ w: 142, h: 150 }}
           location={{ x: 594, y: 166 }}
-          clickable={true}
-          onClick={cycleBlikje} // Handles cycling through the images
+          clickable={!puzzlesSolved["Blikje"]}
+          onClick={!puzzlesSolved["Blikje"] ? () => cycleBlikje() : undefined} // Handles cycling through the images
         />
       ))}
 

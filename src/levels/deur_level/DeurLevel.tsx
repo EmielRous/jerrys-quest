@@ -3,15 +3,13 @@ import { useNavigate } from "react-router-dom";
 import ClickableImage from "../../components/ClickableImage.tsx";
 import {DeurLevelPaths } from "../../utils.tsx";
 import { useVisibility } from "../../components/VisibilityContext";
+import { useGlobalState } from "../../components/GlobalStateContext";
 
 const DeurLevel: React.FC = ({}) => {
-  const [lampOn, setLampOn] = useState(false);
-  const [stackHover, setStackHover] = useState(false);
-  const [bankSteal, setBankSteal] = useState(false);
-  const [kaartVis, setKaartVis] = useState(false);
   const navigate = useNavigate();
   const [rotation, setRotation] = useState(0);
-  const { toggleVisibility } = useVisibility();
+    const { popups, setPopup } = useGlobalState();
+    const { isVisible, toggleVisibility, puzzlesSolved, markPuzzleAsSolved } = useGlobalState();
 
     const handleRotate = () => {
         setRotation(prev => prev + 50); // Rotate by 10 degrees on each click
@@ -30,13 +28,13 @@ const DeurLevel: React.FC = ({}) => {
         location={{ x: 14, y: 600 }}
         clickable={true}
         onClick={() => {
-            setBankSteal(true);
-            setKaartVis(true);
+            setPopup("popupKaart", true);
+            markPuzzleAsSolved("Bank")
         }}
       />
         <ClickableImage
-            visible={bankSteal}
             path="/deur_level/BankAfter.png"
+            visible={puzzlesSolved["Bank"] === true} // ✅ Funziona correttamente!
             size={{ w: 400, h: 200 }}
             location={{ x: 14, y: 600 }}
         />
@@ -72,6 +70,7 @@ const DeurLevel: React.FC = ({}) => {
       />
       <ClickableImage
         path="/deur_level/Boeken.png"
+        clickable={true}
         size={{ w: 91, h: 51 }}
         location={{ x: 412, y: 662 }}
       />
@@ -84,7 +83,16 @@ const DeurLevel: React.FC = ({}) => {
             path="/deur_level/TapijtBefore.png"
             size={{ w: 93, h: 245 }}
             location={{ x: 126, y: 239 }}
-            clickable
+            visible={!puzzlesSolved["Tapijt"]}
+            clickable={true}
+            redirect={DeurLevelPaths.TapijtLevel}
+        />
+        <ClickableImage
+            path="/deur_level/TapijtAfter.png"
+            size={{ w: 93, h: 245 }}
+            location={{ x: 126, y: 239 }}
+            clickable={true}
+            visible={puzzlesSolved["Tapijt"]}
             redirect={DeurLevelPaths.TapijtLevel}
         />
         <ClickableImage
@@ -99,12 +107,12 @@ const DeurLevel: React.FC = ({}) => {
             }}
         />
         <ClickableImage
-            visible={kaartVis}
             path="/deur_level/popups/KaartKussen.gif"
+            visible={popups["popupKaart"]===true}
             size={{ w: 850, h: 600 }}
             location={{ x: 100, y: 50 }}
             clickable={true}
-            onClick={() => setKaartVis(false)}
+            onClick={() => setPopup("popupKaart", false)}
         />
     </div>
   );

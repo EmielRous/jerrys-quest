@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 const LingoGame = ({ wordLength, guessedWord, answer, onCorrect }) => {
   const renderSquares = () => {
     const squares = [];
     const answerLetterCount = {};
-    if (guessedWord === answer) {
-      onCorrect();
-    }
-    // Count occurrences of each letter in the answer
+      const [alreadyCorrect, setAlreadyCorrect] = useState(false);
+
+      if (guessedWord === answer && !alreadyCorrect) {
+          setAlreadyCorrect(true);
+          onCorrect();
+      }
+
+      // Count occurrences of each letter in the answer
     for (let i = 0; i < answer.length; i++) {
       const letter = answer[i];
       answerLetterCount[letter] = (answerLetterCount[letter] || 0) + 1;

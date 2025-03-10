@@ -3,6 +3,7 @@ import ClickableImage from "../../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../../../components/BackButton.tsx";
 import { addRuby, BureauLevelPaths } from "../../../utils.tsx";
+import {useGlobalState} from "../../../components/GlobalStateContext.tsx";
 
 const BureauLevel: React.FC = ({}) => {
   const [lampOn, setLampOn] = useState(false);
@@ -10,6 +11,7 @@ const BureauLevel: React.FC = ({}) => {
   const [snuif, setSnuif] = useState(false);
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement | null>(null);
+    const { isVisible, toggleVisibility, puzzlesSolved, markPuzzleAsSolved } = useGlobalState();
 
   // Function to play sound
   const playSound = () => {
@@ -22,6 +24,11 @@ const BureauLevel: React.FC = ({}) => {
         setSnuif(false);
     };
   };
+  const getSchilderijPath = () => {
+      if (puzzlesSolved["Schilderij3"]) return "/desk_level/bureau_level/Schilderij3.png";
+      if (puzzlesSolved["Schilderij2"]) return "/desk_level/bureau_level/Schilderij2.png";
+      return "/desk_level/bureau_level/Schilderij1.png";
+  };
 
   return (
     <div>
@@ -32,7 +39,7 @@ const BureauLevel: React.FC = ({}) => {
             location={{ x: 0, y: 0 }}
         />
       <ClickableImage
-        path="/desk_level/bureau_level/Schilderij1.png"
+          path={getSchilderijPath()}
         size={{ w: 429, h: 356 }}
         location={{ x: 119, y: 278 }}
         clickable={true}

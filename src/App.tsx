@@ -5,6 +5,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import { GlobalStateProvider } from "./components/GlobalStateContext.tsx";
 import { VisibilityProvider } from "./components/VisibilityContext.tsx";
 import "./App.css";
 import BureauLevel from "./levels/desk_level/bureau_level/BureauLevel.tsx";
@@ -31,7 +32,7 @@ import KastLevel from "./levels/desk_level/kast_level/KastLevel.tsx";
 
 function App() {
   return (
-      <VisibilityProvider>
+      <GlobalStateProvider>
     <Router>
       <div>
         <div className={"border border-red-100 h-[768px] w-[1024px]"}>
@@ -88,7 +89,7 @@ function App() {
         <Inventory />
       </div>
     </Router>
-      </VisibilityProvider>
+      </GlobalStateProvider>
   );
 }
 
