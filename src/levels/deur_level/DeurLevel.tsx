@@ -89,10 +89,10 @@ const DeurLevel: React.FC = ({}) => {
         />
         <ClickableImage
             path="/deur_level/TapijtAfter.png"
-            size={{ w: 93, h: 245 }}
-            location={{ x: 126, y: 239 }}
+            size={{ w: 80, h: 239 }}
+            location={{ x: 130, y: 234 }}
             clickable={true}
-            visible={puzzlesSolved["Tapijt"]}
+            visible={puzzlesSolved["Tapijt"]===true}
             redirect={DeurLevelPaths.TapijtLevel}
         />
         <ClickableImage
