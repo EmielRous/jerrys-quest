@@ -6,6 +6,7 @@ interface GlobalStateType {
     puzzlesSolved: { [key: string]: boolean };
     inventory: string[];
     popups: { [key: string]: boolean };
+    wikiIndex: number;
     rubys: number; // ✅ Track ruby count
     toggleVisibility: () => void;
     markPuzzleAsSolved: (puzzleId: string) => void;
@@ -16,6 +17,7 @@ interface GlobalStateType {
     resetRubies: () => void; // ✅ Reset rubies function
     setPopup: (popupName: string, value: boolean) => void;
     resetPopups: () => void;
+    setWikiIndex: (index: number) => void;
 }
 
 // Create context
@@ -32,6 +34,13 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         popupProp: false,
         popupKaart: false
     });
+    const [wikiIndex, setWikiIndex] = useState(() => {
+        return parseInt(localStorage.getItem("wikiIndex") || "0", 10); // ✅ Load from localStorage
+    });
+
+    useEffect(() => {
+        localStorage.setItem("wikiIndex", wikiIndex.toString()); // ✅ Save to localStorage
+    }, [wikiIndex]);
 
     // ✅ Function to toggle popups
     const setPopup = (popupName: string, value: boolean) => {
@@ -99,11 +108,11 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
     return (
         <GlobalStateContext.Provider value={{
-            isVisible, puzzlesSolved, inventory, popups, rubys,
+            isVisible, puzzlesSolved, inventory, popups, wikiIndex, rubys,
             toggleVisibility: () => setIsVisible((prev) => !prev),
             markPuzzleAsSolved,
             resetPuzzles, addToInventory, removeFromInventory,
-            addRuby, resetRubies, setPopup, resetPopups
+            addRuby, resetRubies, setPopup, resetPopups, setWikiIndex
         }}>
             {children}
         </GlobalStateContext.Provider>
