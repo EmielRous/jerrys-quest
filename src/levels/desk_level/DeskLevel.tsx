@@ -154,6 +154,11 @@ const DeskLevel: React.FC = () => {
         clickable={true}
         onClick={() => setPopupProp(false)}
       />
+        <RaadWoordComponent
+            correctWord={"lezen"}
+            onCorrect={() => console.log("hier component hiden")}
+            visible={popupProp}
+        />
         <ClickableImage
             visible={isVisible}
             path="/desk_level/Projection.gif"

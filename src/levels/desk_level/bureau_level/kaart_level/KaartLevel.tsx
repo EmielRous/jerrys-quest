@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ClickableImage from "../../../../components/ClickableImage.tsx";
 import BackButton from "../../../../components/BackButton.tsx";
 
 const KaartLevel: React.FC = () => {
   const navigate = useNavigate();
+    const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <div>
       <BackButton />
       <video
+          ref={videoRef}
         width="320"
         height="240"
         controls={false}
         autoPlay={true}
-        className={" h-[768px] w-[1024px]"}
+        className={"absolute"}
+          style={{
+              top: 0 + "px",
+              left: 0 + "px",
+              height: 768 + "px",
+              width: 1024 + "px",
+          }}
       >
         <source
           src="/desk_level/bureau_level/kaart_level/KaartMason.mp4"

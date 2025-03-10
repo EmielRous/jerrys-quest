@@ -16,11 +16,6 @@ const WikiLevel: React.FC = () => {
             size={{ w: 1024, h: 768 }}
             location={{ x: 0, y: 0 }}
         />
-        <RaadWoordComponent
-            correctWord={"wikiroute"}
-            onCorrect={() => console.log("doe hier dingen")}
-            visible={true}
-        />
       <video
         width="320"
         height="240"
@@ -40,6 +35,12 @@ const WikiLevel: React.FC = () => {
         />
         Your browser does not support the video tag.
       </video>
+
+        <RaadWoordComponent
+            correctWord={"wikiroute"}
+            onCorrect={() => console.log("doe hier dingen")}
+            visible={true}
+        />
     </div>
   );
 };

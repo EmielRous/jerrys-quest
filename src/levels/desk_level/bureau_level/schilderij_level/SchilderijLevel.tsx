@@ -45,21 +45,25 @@ const SchilderijLevel: React.FC = () => {
   return (
     <div>
       <BackButton />
-      <img
+      <ClickableImage
+        path="/desk_level/bureau_level/schilderij_level/Schilderij1.png"
+        size={{ w: 1024, h: 768 }} // Adjust positioning as needed
+        location={{ x: 0, y: 0 }}
         onClick={() => voegGurkieToeAanSchildreij()}
-        className={`relative h-[768px] w-[1024px] ${vis ? "hidden" : ""}`}
-        src="/desk_level/bureau_level/schilderij_level/Schilderij1.png"
-      />
+    />
       {augurenInSchilderij.map((src, index) => (
         <ClickableImage
           path={src}
           size={{ w: 70, h: 70 }} // Adjust positioning as needed
-          location={{ x: 391, y: 541 }}
+          location={{ x: 391, y: 471 }}
         />
       ))}
-      <img
-        className={`relative h-[768px] w-[1024px] ${!vis ? "hidden" : ""}`}
-        src="/desk_level/bureau_level/schilderij_level/Schilderij3.png"
+
+      <ClickableImage
+          visible={vis}
+          path="/desk_level/bureau_level/schilderij_level/Schilderij3.png"
+          size={{ w: 1024, h: 768 }} // Adjust positioning as needed
+          location={{ x: 0, y: 0 }}
       />
     </div>
   );

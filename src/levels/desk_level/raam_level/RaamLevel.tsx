@@ -47,7 +47,6 @@ const RaamLevel: React.FC = () => {
         size={{ w: 480, h: 290 }}
         location={{ x: 28, y: 229 }}
         clickable={true}
-        isInventoriable={true}
         onClick={() => setRaadselActive(true)}
       />
       <ClickableImage

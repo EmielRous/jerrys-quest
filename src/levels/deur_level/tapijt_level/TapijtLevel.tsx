@@ -39,9 +39,9 @@ const TapijtLevel: React.FC = () => {
                 transform: `rotate(${rotation}deg)`,
                 transition: "transform 0.3s ease",
             }}
-        />
+        />s
         <RaadWoordComponent
-            correctWord={"lezen"}
+            correctWord={"aladdin"}
             onCorrect={() => console.log("hier component hiden")}
             visible={true}
         />
