@@ -36,30 +36,43 @@ const LingoGame = ({ wordLength, guessedWord, answer, onCorrect }) => {
         answerLetterCount[guessedWord[i]]--;
       }
 
-      squares.push(
-        <div
-          key={i}
-          style={{
-            color: "black",
-            width: "40px",
-            height: "40px",
-            display: "inline-block",
-            margin: "5px",
-            backgroundColor: color,
-            lineHeight: "40px",
-            textAlign: "center",
-            border: "1px solid black",
-            fontSize: "20px",
-          }}
-        >
-          {guessedWord[i] || ""}
-        </div>,
-      );
+        squares.push(
+            <div
+                key={i}
+                style={{
+                    width: "30px", // ✅ Ensures they don't get too small
+                    height: "30px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    margin: "4px", // ✅ Adjusts spacing to align with input boxes
+                    backgroundColor: color,
+                    fontSize: "20px", // ✅ Adjusts font size dynamically
+                    fontWeight: "bold",
+                    textTransform: "uppercase",
+                    boxSizing: "border-box",
+                }}
+            >
+                {guessedWord[i] || ""}
+            </div>
+        );
     }
     return squares;
   };
 
-  return <div>{renderSquares()}</div>;
+    return (
+        <div style={{
+            display: "flex",
+            flexDirection: "row",  // ✅ Ensure they stay in a row
+            gap: "1px",
+            justifyContent: "center",
+            flexWrap: "nowrap",  // ✅ Prevents wrapping
+            overflowX: "auto",  // ✅ Allows scrolling if needed
+            maxWidth: "100%"  // ✅ Prevents unnecessary wrapping
+        }}>
+            {renderSquares()}
+        </div>
+    );
 };
 
 export default LingoGame;

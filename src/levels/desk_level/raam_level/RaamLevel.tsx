@@ -50,7 +50,6 @@ const RaamLevel: React.FC = () => {
         isInventoriable={true}
         onClick={() => setRaadselActive(true)}
       />
-      {/*Grote versie*/}
       <ClickableImage
         visible={raadselActive}
         onClick={(e) => e.stopPropagation()}
@@ -62,7 +61,7 @@ const RaamLevel: React.FC = () => {
         className={`absolute flex gap-2  justify-center ${!raadselActive && "hidden"}`}
         style={{ top: 530, left: 220, width: 600 }}
       >
-        <Input.OTP
+          <Input.OTP
           length={lingoAnswer.length}
           rootClassName={"w-full h-full"}
           value={guess}
@@ -70,19 +69,32 @@ const RaamLevel: React.FC = () => {
         />
         <Button onClick={() => putInGuess(guess)}>Guess!</Button>
       </div>
-      <div
-        className={`absolute flex flex-col gap-2 ${!raadselActive && "hidden"}`}
-        style={{ top: 500, left: 375, width: 400 }}
-      >
-        {guesses.map((g) => (
-          <LingoGame
-            guessedWord={g}
-            wordLength={lingoAnswer.length}
-            answer={lingoAnswer}
-            onCorrect={() => correctGuess()}
-          />
-        ))}
-      </div>
+        <div
+            className={`absolute ${!raadselActive && "hidden"}`}
+            style={{
+                top: 500, // ✅ Align with input squares
+                left: 220, // ✅ Start closer to the left
+                width: 600,
+                position: "relative", // ✅ Allow absolute positioning inside
+            }}
+        >
+            {guesses.map((g, index) => (
+                <div
+                    key={index}
+                    style={{
+                        position: "absolute", // ✅ Forces guesses to overwrite each other
+                        top: 0, // ✅ All rows are positioned at the same top position
+                        left: 0, // ✅ Aligns all guesses to the left
+                        width: "100%", // ✅ Ensures the squares take up the full width
+                        display: "flex",
+                        justifyContent: "flex-start",
+                        gap: "5px",
+                    }}
+                >
+                    <LingoGame guessedWord={g} wordLength={lingoAnswer.length} answer={lingoAnswer} onCorrect={() => correctGuess()} />
+                </div>
+            ))}
+        </div>
     </div>
   );
 };

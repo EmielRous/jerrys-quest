@@ -8,9 +8,12 @@ import { useVisibility } from "../../components/VisibilityContext";
 const DeskLevel: React.FC = () => {
   const [popupBril, setPopupBril] = useState(false);
   const [popupProp, setPopupProp] = useState(false);
+  const [stoelHover, setStoelHover] = useState(false);
+    const [stoelRotation, setStoelRotation] = useState(0);
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement | null>(null);
     const { isVisible } = useVisibility();
+    const animationRef = useRef<number | null>(null);
 
   // Function to play sound
   const playSound = () => {
@@ -20,6 +23,26 @@ const DeskLevel: React.FC = () => {
     audioRef.current.currentTime = 0; // Restart audio if already playing
     audioRef.current.play();
   };
+    const startRocking = () => {
+        let direction = stoelRotation >= 0 ? 1 : -1;
+        const animate = () => {
+            setStoelRotation((prev) => {
+                if (prev >= 10) direction = -1;
+                if (prev <= -10) direction = 1;
+                return prev + direction * 0.2; // ✅ Adjusts rotation increment smoothly
+            });
+            animationRef.current = requestAnimationFrame(animate);
+        };
+        animationRef.current = requestAnimationFrame(animate);
+    };
+
+    // Stops rocking and cancels animation frame
+    const stopRocking = () => {
+        if (animationRef.current) {
+            cancelAnimationFrame(animationRef.current);
+            animationRef.current = null;
+        }
+    };
 
   return (
     <div>
@@ -35,11 +58,23 @@ const DeskLevel: React.FC = () => {
         clickable={true}
         redirect={DeskLevelPaths.KastLevel}
       />
-      <ClickableImage
-        path="/desk_level/Stoel.png"
-        size={{ w: 167, h: 224 }}
-        location={{ x: 582, y: 564 }}
-      />
+        <ClickableImage
+            path="/desk_level/Stoel.png"
+            size={{ w: 167, h: 224 }}
+            location={{ x: 600, y: 550 }}
+            onMouseEnter={() => {
+                setStoelHover(true);
+                startRocking(); // ✅ Starts smooth rocking animation
+            }}
+            onMouseLeave={() => {
+                setStoelHover(false);
+                stopRocking(); // ✅ Stops animation but keeps last rotation
+            }}
+            style={{
+                transform: `rotate(${stoelRotation}deg)`, // ✅ Keeps last rotation when mouse leaves
+                transition: "transform 0.1s linear", // ✅ Ensures smooth transition
+            }}
+        />
       <ClickableImage
         path="/desk_level/Bril.png"
         size={{ w: 80, h: 50 }}
@@ -49,8 +84,8 @@ const DeskLevel: React.FC = () => {
       />
       <ClickableImage
         path="/desk_level/Desk.png"
-        size={{ w: 301, h: 133 }}
-        location={{ x: 509, y: 395 }}
+        size={{ w: 333, h: 145 }}
+        location={{ x: 509, y: 380 }}
         clickable={true}
         redirect={DeskLevelPaths.BureauLevel}
       />
@@ -126,6 +161,15 @@ const DeskLevel: React.FC = () => {
             location={{ x: 202, y: 163 }}
             style={{ opacity: 0.5 }}
         />
+
+        <style>
+            {`
+          @keyframes stoelRock {
+            0% { transform: rotate(-10deg); }
+            100% { transform: rotate(10deg); }
+          }
+        `}
+        </style>
     </div>
   );
 };
