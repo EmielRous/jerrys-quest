@@ -7,17 +7,22 @@ interface GlobalStateType {
     inventory: string[];
     popups: { [key: string]: boolean };
     wikiIndex: number;
-    rubys: number; // ✅ Track ruby count
+    rubys: number;
+    kledingIndex: number;
+    vouwIndex: number | null;
     toggleVisibility: () => void;
     markPuzzleAsSolved: (puzzleId: string) => void;
     resetPuzzles: () => void;
     addToInventory: (item: string) => void;
     removeFromInventory: (item: string) => void;
-    addRuby: () => void;  // ✅ Add rubies function
-    resetRubies: () => void; // ✅ Reset rubies function
+    addRuby: () => void;
+    resetRubies: () => void;
     setPopup: (popupName: string, value: boolean) => void;
     resetPopups: () => void;
-    setWikiIndex: (index: number) => void;
+    updateWikiIndex: (index: number) => void;
+    cycleKleding: () => void;
+    cycleVouw: () => void;
+    resetVouwSequence: () => void;
 }
 
 // Create context
@@ -28,40 +33,58 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
     const [isVisible, setIsVisible] = useState(() => JSON.parse(localStorage.getItem("isVisible") || "false"));
     const [puzzlesSolved, setPuzzlesSolved] = useState<{ [key: string]: boolean }>(() => JSON.parse(localStorage.getItem("puzzlesSolved") || "{}"));
     const [inventory, setInventory] = useState<string[]>(() => JSON.parse(localStorage.getItem("inventory") || "[]"));
-    const [rubys, setRubys] = useState(() => JSON.parse(localStorage.getItem("rubys") || "0")); // ✅ Load rubies
-    const [popups, setPopups] = useState<{ [key: string]: boolean }>({
-        popupBril: false,
-        popupProp: false,
-        popupKaart: false
-    });
-    const [wikiIndex, setWikiIndex] = useState(() => {
-        return parseInt(localStorage.getItem("wikiIndex") || "0", 10); // ✅ Load from localStorage
-    });
+    const [rubys, setRubys] = useState(() => JSON.parse(localStorage.getItem("rubys") || "0"));
+    const [popups, setPopups] = useState<{ [key: string]: boolean }>(JSON.parse(localStorage.getItem("popups") || "{}"));
+    const [wikiIndex, setWikiIndex] = useState(() => parseInt(localStorage.getItem("wikiIndex") || "0", 10));
+    const [kledingIndex, setKledingIndex] = useState(0);
+    const [vouwIndex, setVouwIndex] = useState<number | null>(null);
 
     useEffect(() => {
-        localStorage.setItem("wikiIndex", wikiIndex.toString()); // ✅ Save to localStorage
+        localStorage.setItem("wikiIndex", wikiIndex.toString());
     }, [wikiIndex]);
+
+    // ✅ Function to cycle through clothing folders
+    const cycleKleding = () => {
+        setKledingIndex((prev) => (prev + 1) % 4); // ✅ Cycle through 4 folders
+        setVouwIndex(0); // ✅ Start new folder from first image
+    };
+
+    // ✅ Function to cycle through images in a folder
+    const cycleVouw = () => {
+        setVouwIndex((prev) => (prev === null ? 0 : prev + 1));
+    };
+
+
+    // ✅ Function to reset image sequence
+    const resetVouwSequence = () => {
+        setVouwIndex(null);
+    };
+
 
     // ✅ Function to toggle popups
     const setPopup = (popupName: string, value: boolean) => {
-        setPopups((prev) => ({ ...prev, [popupName]: value }));
+        setPopups((prev) => {
+            const newPopups = { ...prev, [popupName]: value };
+            localStorage.setItem("popups", JSON.stringify(newPopups));
+            return newPopups;
+        });
     };
 
-    // ✅ Reset all popups
+    // ✅ Function to reset all popups
     const resetPopups = () => {
-        setPopups({ popupBril: false, popupProp: false, popupKaart: false });
+        setPopups({});
+        localStorage.setItem("popups", JSON.stringify({}));
     };
 
-    // ✅ Reset puzzles, inventory, rubies, and popups together
+    // ✅ Function to reset puzzles, inventory, rubies, and popups together
     const resetPuzzles = () => {
         setPuzzlesSolved({});
         setInventory([]);
-        setRubys(0); // ✅ Reset rubies too
+        setRubys(0);
         resetPopups();
         localStorage.setItem("puzzlesSolved", JSON.stringify({}));
         localStorage.setItem("inventory", JSON.stringify([]));
-        localStorage.setItem("rubys", JSON.stringify(0)); // ✅ Store reset rubies
-        localStorage.setItem("popups", JSON.stringify([]));
+        localStorage.setItem("rubys", JSON.stringify(0));
     };
 
     // ✅ Function to mark a puzzle as solved
@@ -73,7 +96,7 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         });
     };
 
-    // ✅ Add item to inventory
+    // ✅ Function to add an item to inventory
     const addToInventory = (item: string) => {
         setInventory((prev) => {
             const newInventory = [...prev, item];
@@ -82,7 +105,7 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         });
     };
 
-    // ✅ Remove item from inventory
+    // ✅ Function to remove an item from inventory
     const removeFromInventory = (item: string) => {
         setInventory((prev) => {
             const newInventory = prev.filter((i) => i !== item);
@@ -100,19 +123,25 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         });
     };
 
-    // ✅ Function to reset Rubies
+    // ✅ Function to reset rubies
     const resetRubies = () => {
         setRubys(0);
         localStorage.setItem("rubys", JSON.stringify(0));
     };
 
+    // ✅ Function to update wiki index
+    const updateWikiIndex = (index: number) => {
+        setWikiIndex(index);
+        localStorage.setItem("wikiIndex", index.toString());
+    };
+
     return (
         <GlobalStateContext.Provider value={{
-            isVisible, puzzlesSolved, inventory, popups, wikiIndex, rubys,
+            isVisible, puzzlesSolved, inventory, popups, wikiIndex, rubys, kledingIndex, vouwIndex,
             toggleVisibility: () => setIsVisible((prev) => !prev),
-            markPuzzleAsSolved,
-            resetPuzzles, addToInventory, removeFromInventory,
-            addRuby, resetRubies, setPopup, resetPopups, setWikiIndex
+            markPuzzleAsSolved, resetPuzzles, addToInventory, removeFromInventory,
+            addRuby, resetRubies, setPopup, resetPopups, updateWikiIndex,
+            cycleKleding, cycleVouw, resetVouwSequence
         }}>
             {children}
         </GlobalStateContext.Provider>

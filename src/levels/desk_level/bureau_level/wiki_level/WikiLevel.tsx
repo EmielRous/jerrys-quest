@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ClickableImage from "../../../../components/ClickableImage.tsx";
 import BackButton from "../../../../components/BackButton.tsx";
@@ -20,6 +20,9 @@ const WikiLevel: React.FC = () => {
         "wetvanuitstelgedrag.html",
         "brasoorlog.html",
     ];
+    useEffect(() => {
+        setIsWikiOpen(false);
+    }, []);
 
     // Function to cycle through wiki pages
     const loadNextWiki = () => {
@@ -41,6 +44,14 @@ const WikiLevel: React.FC = () => {
                 size={{ w: 1024, h: 768 }}
                 location={{ x: 0, y: 0 }}
             />
+            {/* Clickable PC Screen */}
+            <ClickableImage
+                path="/desk_level/bureau_level/wiki_level/Desk-PCscreen.gif"
+                size={{ w: 568, h: 395 }}
+                location={{ x: 366, y: 78 }}
+                clickable
+                onClick={loadNextWiki} // ✅ Open wiki on first click, cycle on next clicks
+            />
 
             {/* Video - Only Visible if Wiki is NOT solved */}
             {!puzzlesSolved["Wiki"] && (
@@ -59,14 +70,6 @@ const WikiLevel: React.FC = () => {
                 </video>
             )}
 
-            {/* Clickable PC Screen */}
-            <ClickableImage
-                path="/desk_level/bureau_level/wiki_level/Desk-PCscreen.gif"
-                size={{ w: 568, h: 395 }}
-                location={{ x: 366, y: 78 }}
-                clickable
-                onClick={loadNextWiki} // ✅ Open wiki on first click, cycle on next clicks
-            />
 
             {/* Word Puzzle Component */}
             <RaadWoordComponent

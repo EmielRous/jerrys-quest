@@ -99,7 +99,7 @@ const BureauLevel: React.FC = ({}) => {
         <ClickableImage
             path="/desk_level/bureau_level/Snuif.png"
             size={{ w: 106, h: 71 }}
-            location={{ x: 352, y: 618 }}
+            location={{ x: 352, y: 590 }}
             clickable={true}
             onClick={() => {
                 playSound();

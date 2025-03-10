@@ -150,7 +150,7 @@ const DeskLevel: React.FC = () => {
         />
 
         <ClickableImage
-            path="/desk_level/popups/Leestest.jpg"
+            path="/desk_level/popups/PropOpen.png"
             visible={popups["popupProp"]===true && !puzzlesSolved["Prop"]}
             size={{ w: 600, h: 600 }}
             location={{ x: 212, y: 84 }}
@@ -158,7 +158,7 @@ const DeskLevel: React.FC = () => {
             onClick={() => setPopup("popupProp", false)}
         />
         <RaadWoordComponent
-            correctWord={"lezen"}
+            correctWord={"BOOM"}
             onCorrect={() => markPuzzleAsSolved("Prop")}
             visible={popups["popupProp"]===true && !puzzlesSolved["Prop"]}
         />

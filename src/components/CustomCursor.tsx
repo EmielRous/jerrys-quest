@@ -5,7 +5,7 @@
 //     <AnimatedCursor
 //       innerSize={0} // Hide the default inner cursor
 //       outerSize={30} // Adjust based on your PNG size
-//       outerScale={1}
+//       outerScale={band}
 //       outerStyle={{
 //         backgroundImage: 'url("/Cursor.png")', // Path to your PNG file
 //         backgroundSize: "contain",

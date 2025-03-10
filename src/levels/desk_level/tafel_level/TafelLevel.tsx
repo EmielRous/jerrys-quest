@@ -14,7 +14,7 @@ const TafelLevel: React.FC = () => {
     const { isVisible, toggleVisibility, puzzlesSolved, markPuzzleAsSolved } = useGlobalState();
 
   const cycleBlikje = () => {
-    setBlikjeIndex((prevIndex) => (prevIndex % 4) + 1); // Cycles from 1 → 2 → 3 → 4 → 1
+    setBlikjeIndex((prevIndex) => (prevIndex % 4) + 1); // Cycles from band → 2 → 3 → 4 → band
   };
 
   return (
