@@ -104,14 +104,6 @@ const WikiLevel: React.FC = () => {
             overflow: "hidden",
           }}
         >
-          {/* Close Button */}
-          <button
-            onClick={() => setIsWikiOpen(false)} // ✅ Close iframe
-            className="absolute top-2 right-2 bg-red-600 text-white font-bold px-3 py-1 rounded"
-          >
-            ✖
-          </button>
-
                     {/* Wiki Iframe */}
                     <iframe
                         src={`/desk_level/bureau_level/wiki_level/htmls/${wikiPages[wikiIndex]}`}
