@@ -1,64 +1,121 @@
 import React, { useState, useEffect } from "react";
-import { Input } from "antd";
-import { DiRuby } from "react-icons/di"; // 🔥 Import Ruby Icon
-import { useGlobalState } from "../components/GlobalStateContext.tsx";
+import { useNavigate } from "react-router-dom";
+import ClickableImage from "../../../../components/ClickableImage.tsx";
+import BackButton from "../../../../components/BackButton.tsx";
+import RaadWoordComponent from "../../../../components/RaadWoordComponent.tsx";
+import { useGlobalState } from "../../../../components/GlobalStateContext.tsx";
 
-interface GuessWordProps {
-    correctWord: string;
-    visible?: boolean;
-    onCorrect: () => void;
-}
+const WikiLevel: React.FC = () => {
+    const navigate = useNavigate();
+    const { puzzlesSolved, markPuzzleAsSolved, wikiIndex, setWikiIndex } = useGlobalState();
+    const [isWikiOpen, setIsWikiOpen] = useState(false);
 
-const RaadWoordComponent: React.FC<GuessWordProps> = ({
-                                                          correctWord,
-                                                          onCorrect,
-                                                          visible = false,
-                                                      }) => {
-    const [inputValue, setInputValue] = useState("");
-    const { addRuby, getNextNegativeMessage, getNextPositiveMessage } = useGlobalState(); // ✅ Use global state
+    const wikiPages = [
+        "campusgeheimen.html",
+        "koffieparadox.html",
+        "procrastinatiesyndroom.html",
+        "studentenhuishouden.html",
+        "tabbladenuniversum.html",
+        "wetvanuitstelgedrag.html",
+        "brasoorlog.html",
+    ];
 
-    // ✅ Reset input when visibility changes
+    // ✅ Ensure a random wiki page is assigned before rendering
     useEffect(() => {
-        if (visible) setInputValue("");
-    }, [visible]);
+        if (wikiIndex === null || wikiIndex === undefined) {
+            const randomIndex = Math.floor(Math.random() * wikiPages.length);
+            setWikiIndex(randomIndex);
+        }
+        setIsWikiOpen(false); // Ensure it's closed on entry
+    }, []); // ✅ Runs only once on mount
 
-    const handleGuess = () => {
-        if (inputValue.trim().toLowerCase() === correctWord.toLowerCase()) {
-            addRuby();
-            alert(getNextPositiveMessage()); // ✅ Cycle through positive messages
-            onCorrect();
+    // ✅ Function to cycle through wiki pages when clicking PC screen
+    const loadNextWiki = () => {
+        if (!isWikiOpen) {
+            setIsWikiOpen(true);
         } else {
-            alert(getNextNegativeMessage()); // ✅ Cycle through negative messages
+            const nextIndex = ((wikiIndex ?? 0) + 1) % wikiPages.length;
+            setWikiIndex(nextIndex);
         }
     };
 
+    // 🚨 **Wait until `wikiIndex` is set before rendering**
+    if (wikiIndex === null || wikiIndex === undefined) {
+        return <div>Loading Wiki...</div>; // ✅ Shows temporary loading message
+    }
+
     return (
-        <div
-            className={`absolute top-[750px] left-[1024px] transform -translate-x-full -translate-y-full p-3 rounded-xl transition-all ${
-                visible ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-            } flex items-center`}
-            style={{
-                background: "rgba(0, 0, 0, 0)", // ✅ Fully Transparent Background
-                borderColor: "rgba(0, 0, 0, 0)", // ✅ Fully Transparent Border
-                boxShadow: "none", // ✅ Remove outer glow
-                gap: "10px", // ✅ Adds space between text box and button
-            }}
-        >
-            <Input
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Enter your guess"
-                className="bg-transparent text-white placeholder-gray-400 border border-gray-500 focus:border-red-500 focus:ring-2 focus:ring-red-500 rounded-lg p-2 w-[180px]"
+        <div>
+            <BackButton />
+
+            {/* Background Image */}
+            <ClickableImage
+                path="/desk_level/bureau_level/wiki_level/Wiki-background.png"
+                size={{ w: 1024, h: 768 }}
+                location={{ x: 0, y: 0 }}
             />
-            {/* ✅ Vibrant Ruby Icon Button with Spacing */}
-            <button
-                onClick={handleGuess}
-                className="px-3 py-2 rounded-lg transition-all flex items-center justify-center"
-            >
-                <DiRuby className="size-6 text-[#ff1a1a] drop-shadow-[0_0_15px_rgba(255,50,50,0.9)] brightness-150 contrast-200 saturate-200" />
-            </button>
+
+            {/* Clickable PC Screen */}
+            <ClickableImage
+                path="/desk_level/bureau_level/wiki_level/Desk-PCscreen.gif"
+                size={{ w: 568, h: 395 }}
+                location={{ x: 366, y: 78 }}
+                clickable
+                onClick={loadNextWiki}
+            />
+
+            {/* Video - Only Visible if Wiki is NOT solved */}
+            {!puzzlesSolved["Wiki"] && (
+                <video
+                    width="1024"
+                    height="768"
+                    autoPlay
+                    controls={false}
+                    className="absolute top-0 left-0"
+                >
+                    <source
+                        src="/desk_level/bureau_level/wiki_level/Wiki-video.mp4"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
+            )}
+
+            {/* Word Puzzle Component */}
+            <RaadWoordComponent
+                correctWord={"wikiroute"}
+                onCorrect={() => markPuzzleAsSolved("Wiki")}
+                visible={!puzzlesSolved["Wiki"]}
+            />
+
+            {/* Wiki Page Overlay - Only Visible After Click */}
+            {isWikiOpen && wikiIndex !== null && (
+                <div
+                    className="absolute"
+                    style={{
+                        top: "78px",
+                        left: "366px",
+                        width: "568px",
+                        height: "395px",
+                        background: "black",
+                        overflow: "hidden",
+                    }}
+                >
+                    {/* Wiki Iframe */}
+                    <iframe
+                        src={`/desk_level/bureau_level/wiki_level/htmls/${wikiPages[wikiIndex]}`}
+                        width="1000px"
+                        height="695px"
+                        className="border-none"
+                        style={{
+                            transform: "scale(0.568)",
+                            transformOrigin: "0 0",
+                        }}
+                    ></iframe>
+                </div>
+            )}
         </div>
     );
 };
 
-export default RaadWoordComponent;
+export default WikiLevel;
