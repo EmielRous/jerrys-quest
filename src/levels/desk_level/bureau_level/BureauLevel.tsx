@@ -41,7 +41,7 @@ const BureauLevel: React.FC = ({}) => {
       <ClickableImage
           path={getSchilderijPath()}
         size={{ w: 429, h: 356 }}
-        location={{ x: 119, y: 278 }}
+        location={{ x: 119, y: 242 }}
         clickable={true}
         redirect={BureauLevelPaths.SchilderijLevel}
       />
@@ -50,18 +50,18 @@ const BureauLevel: React.FC = ({}) => {
         visible={lampOn}
         path="/desk_level/bureau_level/Desk-lampON.png"
         size={{ w: 400, h: 230 }}
-        location={{ x: 141, y: 383 }}
+        location={{ x: 141, y: 341 }}
       />
       <ClickableImage
         visible={!lampOn}
         path="/desk_level/bureau_level/Desk-lampOFF.png"
         size={{ w: 152, h: 196 }}
-        location={{ x: 387, y: 381 }}
+        location={{ x: 387, y: 339 }}
       />
       <ClickableImage
         path="/desk_level/bureau_level/Desk-lampToggle.png"
         size={{ w: 80, h: 65 }}
-        location={{ x: 495, y: 563 }}
+        location={{ x: 495, y: 528 }}
         clickable={true}
         onClick={() => setLampOn(!lampOn)}
       />
@@ -71,20 +71,20 @@ const BureauLevel: React.FC = ({}) => {
         path="/desk_level/bureau_level/Desk-papers.gif"
         onMouseLeave={() => setStackHover(false)}
         size={{ w: 230, h: 300 }}
-        location={{ x: 100, y: 410 }}
+        location={{ x: 100, y: 390 }}
       />
       <ClickableImage
         visible={!stackHover}
         path="/desk_level/bureau_level/Desk-papers.png"
         onMouseEnter={() => setStackHover(true)}
         size={{ w: 230, h: 120 }}
-        location={{ x: 100, y: 600 }}
+        location={{ x: 100, y: 580 }}
       />
 
       <ClickableImage
         path="/desk_level/bureau_level/Desk-PC.png"
         size={{ w: 387, h: 344 }}
-        location={{ x: 588, y: 313 }}
+        location={{ x: 568, y: 287 }}
         clickable
         redirect={BureauLevelPaths.WikiLevel}
       />
@@ -99,11 +99,16 @@ const BureauLevel: React.FC = ({}) => {
         <ClickableImage
             path="/desk_level/bureau_level/Snuif.png"
             size={{ w: 106, h: 71 }}
-            location={{ x: 352, y: 590 }}
+            location={{ x: 321, y: 570 }}
             clickable={true}
             onClick={() => {
                 playSound();
             setSnuif(true);}}
+        />
+        <ClickableImage
+            path="/desk_level/bureau_level/Koffie.png"
+            size={{ w: 134, h: 106 }}
+            location={{ x: 422, y: 584 }}
         />
         <ClickableImage
             path="/desk_level/bureau_level/Snuif.gif"

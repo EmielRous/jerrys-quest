@@ -11,7 +11,7 @@ const TafelLevel: React.FC = () => {
   const [damsetOpen, setDamsetOpen] = useState(false);
   const [pipeHover, setPipeHover] = useState(false);
   const [blikjeIndex, setBlikjeIndex] = useState(1);
-    const { isVisible, toggleVisibility, puzzlesSolved, markPuzzleAsSolved } = useGlobalState();
+    const { isVisible, toggleVisibility, puzzlesSolved, markPuzzleAsSolved, addRuby } = useGlobalState();
 
   const cycleBlikje = () => {
     setBlikjeIndex((prevIndex) => (prevIndex % 4) + 1); // Cycles from band → 2 → 3 → 4 → band
@@ -35,6 +35,12 @@ const TafelLevel: React.FC = () => {
         path="/desk_level/tafel_level/Envelop.png"
         size={{ w: 339, h: 265 }}
         location={{ x: 433, y: 262 }}
+        clickable={!puzzlesSolved["Envelop"]}
+        onClick={!puzzlesSolved["Envelop"] ? () => {
+            addRuby();
+            alert("Oh, er zat er eentje nog gewoon in de envelop.");
+            markPuzzleAsSolved("Envelop");
+        } : undefined}
       />
 
       {/* Blikje Images - Only One Visible at a Time */}
