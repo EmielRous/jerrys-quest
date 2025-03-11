@@ -12,6 +12,7 @@ const RaamLevel: React.FC = () => {
   const navigate = useNavigate();
   const [raadselActive, setRaadselActive] = useState(false);
   const [raadselGoedGeraaie, setRaadselGoedGeraaie] = useState(false);
+
   const [guess, setGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
   const lingoAnswer = "zevenenveertig";
@@ -27,10 +28,7 @@ const RaamLevel: React.FC = () => {
             setRaadselGoedGeraaie(true);
             markPuzzleAsSolved("Sphinx");
             addRuby();
-            alert("Aaah! Je bent de eerste in duizend jaar die mijn raadsel weet te beantwoorden. Hier, je verdient hem.");
-            setTimeout(() => {
-                alert("Ohja, en: VO!");
-            }, 100);
+            alert("Aaah! \n Je bent de eerste in duizend jaar die mijn raadsel weet te beantwoorden. \n Hier, je verdient hem. \n \n Oh, en: VO");
         }
     };
 
