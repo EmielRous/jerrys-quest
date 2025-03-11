@@ -115,7 +115,30 @@
             padding: 15px;
             border-radius: 5px;
             display: flex;
-            12px;
+            gap: 15px;
+        }
+        .sidebar {
+            width: 180px;
+            background-color: white;
+            padding: 0px;
+            border-radius: 5px;
+
+        }
+        .main-content {
+            flex-grow: 1;
+        }
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .buttons {
+            display: flex;
+            gap: 12px;
+        }
+        button, select {
+            padding: 8px 12px;
             border: 1px solid #ccc;
             background: #e0e0e0;
             cursor: pointer;
@@ -153,8 +176,8 @@
         .fake-link:hover {
             color: #3366cc;
         }
-        a:visited {
-            color:black;
+        .fake-link.visited {
+            color:purple;
         }
     </style>
 </head>
