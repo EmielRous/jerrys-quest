@@ -4,10 +4,19 @@ import { Link } from "react-router-dom";
 const NavigationBar = () => {
     return (
         <div className="absolute top-[768px] left-0">
-            <div className="flex gap-4
-                        bg-gradient-to-br from-blue-900/80 to-red-900/80
 
-                        backdrop-blur-xl p-4 border border-gray-700 rounded-xl shadow-xl">
+            <div className="p-[4px] rounded-xl"
+                 style={{
+                     background: "linear-gradient(to right, #232d70, #ff0000)", // 🎨 Gradient border
+                     padding: "2px", // Border thickness
+                     borderRadius: "12px", // Match inner border-radius
+                     opacity: "0.8",
+                 }}
+            >
+            <div className="flex gap-4
+
+                            bg-black/50
+                            backdrop-blur-xl p-4 border border-transparent rounded-xl shadow-2xl">
 
                 {/* Desk Level */}
                 <Link to="/desk-level">
@@ -30,6 +39,7 @@ const NavigationBar = () => {
                 </Link>
 
             </div>
+        </div>
         </div>
     );
 };

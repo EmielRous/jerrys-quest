@@ -117,6 +117,11 @@ const BureauLevel: React.FC = ({}) => {
             location={{ x: 0, y: 0 }}
             style={{ opacity: 0.5 }}
         />
+        <ClickableImage
+            path="/JerrysQuest.png"
+            size={{ w: 469, h: 73 }}
+            location={{ x: 267, y: 0 }}
+        />
     </div>
   );
 };

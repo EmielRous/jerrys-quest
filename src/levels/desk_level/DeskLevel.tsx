@@ -169,6 +169,12 @@ const DeskLevel: React.FC = () => {
             location={{ x: 202, y: 163 }}
             style={{ opacity: 0.5 }}
         />
+        <ClickableImage
+            path="/JerrysQuest.png"
+            size={{ w: 469, h: 73 }}
+            location={{ x: 267, y: 0 }}
+        />
+
 
         <style>
             {`

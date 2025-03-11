@@ -28,7 +28,7 @@ import SchilderijLevel from "./levels/desk_level/bureau_level/schilderij_level/S
 import DeurLevel from "./levels/deur_level/DeurLevel.tsx";
 import DozenLevel from "./levels/deur_level/dozen_level/DozenLevel.tsx";
 import KastLevel from "./levels/desk_level/kast_level/KastLevel.tsx";
-
+import GameTitle from "./components/GameTitle";
 const GlobalAlertOverride = () => {
   const { showAlert } = useAlert(); // ✅ Access custom alert system
 
@@ -39,7 +39,7 @@ const GlobalAlertOverride = () => {
   return (
       <Router>
         <div>
-          <div className="border border-red-100 h-[768px] w-[1024px]">
+          <div>
             <Routes>
               <Route path="/" element={<Navigate to={`/${Levels.DeskLevel}`} />} />
               {/**DESK LEVEL**/}

@@ -30,6 +30,11 @@ const KaartLevel: React.FC = () => {
         />
         Your browser does not support the video tag.
       </video>
+        <ClickableImage
+            path="/JerrysQuest.png"
+            size={{ w: 469, h: 73 }}
+            location={{ x: 267, y: 0 }}
+        />
     </div>
   );
 };

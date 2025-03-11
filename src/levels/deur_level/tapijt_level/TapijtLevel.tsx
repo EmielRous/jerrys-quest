@@ -49,6 +49,11 @@ const TapijtLevel: React.FC = () => {
             onCorrect={() => markPuzzleAsSolved("Tapijt")}
             visible={!puzzlesSolved["Tapijt"]}
         />
+        <ClickableImage
+            path="/JerrysQuest.png"
+            size={{ w: 469, h: 73 }}
+            location={{ x: 267, y: 0 }}
+        />
     </div>
   );
 };

@@ -112,6 +112,11 @@ const WikiLevel: React.FC = () => {
                     ></iframe>
                 </div>
             )}
+            <ClickableImage
+                path="/JerrysQuest.png"
+                size={{ w: 469, h: 73 }}
+                location={{ x: 267, y: 0 }}
+            />
         </div>
     );
 };

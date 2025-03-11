@@ -39,6 +39,11 @@ const KastLevel: React.FC = ({}) => {
         size={{ w: 1024, h: 543 }}
         location={{ x: 0, y: 224 }}
       />
+        <ClickableImage
+            path="/JerrysQuest.png"
+            size={{ w: 469, h: 73 }}
+            location={{ x: 267, y: 0 }}
+        />
     </div>
   );
 };
