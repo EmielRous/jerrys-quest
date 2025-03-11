@@ -16,9 +16,9 @@ const DozenLevel: React.FC = () => {
 
     // Define initial positions and **hardcoded directions**
     const initialObjects = {
-        doos1: { x: 8, directionX: 1, width: 400 },     // Start moving RIGHT
-        doos2: { x: 301, directionX: -1, width: 500 },  // Start moving LEFT
-        doos3: { x: 93, directionX: 1, width: 500 },    // Start moving RIGHT
+        doos1: { x: 8, directionX: -1, width: 400 },     // Start moving RIGHT
+        doos2: { x: 301, directionX: 1, width: 500 },  // Start moving LEFT
+        doos3: { x: 93, directionX: -1, width: 500 },    // Start moving RIGHT
         doos4: { x: 319, directionX: -1, width: 700 },  // Start moving LEFT
         slaapzak: { x: 200, directionX: 1, width: 643 },// Start moving RIGHT
         lidl: { x: 415, directionX: -1, width: 377 }    // Start moving LEFT
