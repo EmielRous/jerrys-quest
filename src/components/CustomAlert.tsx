@@ -21,7 +21,7 @@ export const AlertProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             {alertMessage && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md">
                     <div
-                        className="text-white p-6 rounded-lg shadow-xl border border-red-500 backdrop-blur-xl flex flex-col items-center text-center"
+                        className="text-white left-[200px] p-6 rounded-lg shadow-xl border border-red-500 backdrop-blur-xl flex flex-col items-center text-center"
                         style={{
                             background: "linear-gradient(135deg, #070a26 0%, #1a0b38 40%, #1a0b38 55%, #070a26 100%)"
                         }}

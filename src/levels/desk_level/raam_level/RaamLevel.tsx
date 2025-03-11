@@ -28,7 +28,7 @@ const RaamLevel: React.FC = () => {
             setRaadselGoedGeraaie(true);
             markPuzzleAsSolved("Sphinx");
             addRuby();
-            alert("Aaah! \n Je bent de eerste in duizend jaar die mijn raadsel weet te beantwoorden. \n Hier, je verdient hem. \n \n Oh, en: VO");
+            alert("Aaah! Je bent de eerste in duizend jaar die mijn raadsel weet te beantwoorden. Hier, je verdient hem.");
         }
     };
 

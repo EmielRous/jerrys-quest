@@ -60,7 +60,6 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         "Oke maar deze was makkelijk", "Professor in wording!",
         "Dit is genieten, kijk toch eens wat een robijnen",
         "Met elke robijn krijg je meer persoonlijkheid",
-        "Dit spel is net zo bevredigend als je thesis afmaken!",
         "RUBY RUBY RUBY RUBY (AAAAAAAAH)",
     ];
 

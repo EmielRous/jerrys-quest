@@ -4,7 +4,7 @@ import ClickableImage from "../../../../components/ClickableImage.tsx";
 import BackButton from "../../../../components/BackButton.tsx";
 import RaadWoordComponent from "../../../../components/RaadWoordComponent.tsx";
 import { useGlobalState } from "../../../../components/GlobalStateContext.tsx";
-import BasOorlogHtml from "./BrasOorlogHtml.tsx";
+import BasOorlogHtml from "./BasOorlogHtml.tsx";
 import { Button } from "antd";
 
 const WikiLevel: React.FC = () => {
