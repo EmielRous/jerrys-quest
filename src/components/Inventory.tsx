@@ -28,7 +28,7 @@ const Inventory: React.FC = () => {
                     <div className="relative size-24 border border-red-400 bg-black/30
                           flex flex-col items-center justify-center text-white font-semibold rounded-lg shadow-md">
                         <p className="absolute -top-2 text-md bg-red-500 px-2 py-1 rounded-full">{rubys}/10</p>
-                        <DiRuby className="size-16 text-red-400 drop-shadow-lg mt-4" />
+                        <DiRuby className="size-16 text-red-900 drop-shadow-lg mt-4" />
                     </div>
 
                     <div className="flex flex-row space-x-2">
