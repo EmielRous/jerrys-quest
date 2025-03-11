@@ -17,7 +17,7 @@ const WikiLevel: React.FC = () => {
   useEffect(() => {
     function handleMessage(event) {
       if (event.data && event.data.allLinksVisited) {
-        alert("GOED ZOO");
+        alert("Dat was ZO interessant! Wacht, hoe laat is het? Shit ik moet echt verder met die robijnen...");
         setHideBackButton(false);
         setIsWikiOpen(false);
       }
