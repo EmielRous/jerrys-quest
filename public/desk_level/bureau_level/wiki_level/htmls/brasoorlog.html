@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const fakeLinkTexts = [
+          "Kamp47",
+          "Villa65",
+          "de Heilige Bierkrat",
+          "de gezamenlijke koelkast",
+          "gestolen tuinbank",
+          "De Slag om de Wasmachine",
+          "onderbroekensabotage",
+          "De Nacht van de Verborgen Urineflessen",
+          "Poep-aan-de-Deur Actie",
+          "meter bier",
+          "de Vestingbar",
+          "de Heilige Bierkrat",
+          "Brasrevival",
+          "De Mythe van de Verdwenen Bierkratten",
+          "Strategieën voor effectieve brasoorlogvoering",
+          "De meest absurde studentenstreken ooit",
+          "Overlevingsgids: Hoe herken je een verborgen brasactie?"
+        ];
+        // Load visited links from localStorage
+        const visitedLinks = JSON.parse(localStorage.getItem('visitedLinks') || '{}');
+        // Mark visited links
+        document.querySelectorAll('a').forEach(link => {
+          if (visitedLinks[link.textContent]) {
+            link.classList.add('visited');
+          }
+        });
+
+        document.addEventListener('click', function(event) {
+          if (event.target.tagName === 'A') {
+            alert('LINKIEEE')
+            const linkText = event.target.textContent || event.target.innerText;
+            // Mark the link as visited
+            event.target.classList.add('visited');
+            // Update the visited links in localStorage
+            visitedLinks[linkText] = true;
+            localStorage.setItem('visitedLinks', JSON.stringify(visitedLinks));
+            // Post message to parent window
+            const allVisited = fakeLinkTexts.every(text => visitedLinks[text]);
+            if (allVisited) {
+              window.parent.postMessage({ allLinksVisited: true }, '*');
+            }
+          }
+        });
+      });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WikiParodie</title>
@@ -66,30 +114,7 @@
             padding: 15px;
             border-radius: 5px;
             display: flex;
-            gap: 15px;
-        }
-        .sidebar {
-            width: 180px;
-            background-color: white;
-            padding: 0px;
-            border-radius: 5px;
-            
-        }
-        .main-content {
-            flex-grow: 1;
-        }
-        .top-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        .buttons {
-            display: flex;
-            gap: 12px;
-        }
-        button, select {
-            padding: 8px 12px;
+            12px;
             border: 1px solid #ccc;
             background: #e0e0e0;
             cursor: pointer;
@@ -128,129 +153,126 @@
             color: #3366cc;
         }
         a:visited {
-    color:black;
-}
+            color:black;
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="menu-button">☰</div>
-        <div class="logo">
-            <img src="wikipedia%20logo.png" >
-             
-        
-        
-        </div>
-        <div class="search-bar"><input type="text" placeholder="Zoeken..."></div>
-        <div class="nav-links">
-            <a>Donate</a>
-            <a>Create Account</a>
-            <a>Log in</a>
-        </div>
+<div class="header">
+    <div class="menu-button">☰</div>
+    <div class="logo">
+        <img src="wikipedia%20logo.png" >
+
+
+
     </div>
-    <div class="container">
-        <div class="sidebar">
-            <h3>Inhoud</h3>
-            <ul>
-                <li><a>Overzicht</a></li>
-                <li><a>Symptomen</a></li>
-                <li><a>Oorzaken</a></li>
-                <li><a>Behandelmethoden</a></li>
-                <li><a>Zie ook</a></li>
-            </ul>
-        </div>
-        <div class="main-content">
-            <h1>De grote brasoorlog van 2017 <select style="float: right;"><option>10 languages</option></select></h1>
-            <hr>
-            <div class="top-controls">
-                <div class="buttons">
-                    <button>Article</button>
-                    <button>Talk</button>
-                </div>
-                <div class="buttons">
-                    <button>Read</button>
-                    <button>Edit</button>
-                    <button>View history</button>
-                    <button>Tools</button>
-                </div>
+    <div class="search-bar"><input type="text" placeholder="Zoeken..."></div>
+    <div class="nav-links">
+        <a>Donate</a>
+        <a>Create Account</a>
+        <a>Log in</a>
+    </div>
+</div>
+<div class="container">
+    <div class="sidebar">
+        <h3>Inhoud</h3>
+        <ul>
+            <li><a>Overzicht</a></li>
+            <li><a>Symptomen</a></li>
+            <li><a>Oorzaken</a></li>
+            <li><a>Behandelmethoden</a></li>
+            <li><a>Zie ook</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h1>De grote brasoorlog van 2017 <select style="float: right;"><option>10 languages</option></select></h1>
+        <hr>
+        <div class="top-controls">
+            <div class="buttons">
+                <button>Article</button>
+                <button>Talk</button>
             </div>
-            <hr>
-
-
-            <!-- CONTENT -->
-
-
-            <h2>De Grote Brasoorlog van 2017</h2>
-<p><em>"Een geschiedenis van heldenmoed, verraad en studentikoze sabotage."</em></p>
-
-<h2>Overzicht</h2>
-<p>De <strong>Grote Brasoorlog van 2017</strong> was een langdurig en intens conflict tussen de studentenhuizen <a class="fake-link">Kamp47</a> en <a class="fake-link">Villa65</a> op de campus van Enschede. Wat begon als een onschuldige grap groeide al snel uit tot een escalatie van strategische ontvoeringen, clandestiene operaties en een reeks schokkende vergeldingsacties. Hoewel de oorlog inmiddels officieel is beëindigd, beweren sommigen dat de wrok nog steeds voortleeft.</p>
-
-<h2>Oorzaken van het Conflict</h2>
-<p>De exacte oorsprong van de <strong>Grote Brasoorlog</strong> blijft onderwerp van discussie, maar historici wijzen op enkele mogelijke oorzaken:</p>
-<ul>
-    <li>De mysterieuze verdwijning van <a class="fake-link">de Heilige Bierkrat</a>, een symbool van ongekende studentikoze macht.</li>
-    <li>De bezetting van <a class="fake-link">de gezamenlijke koelkast</a> door Kamp47, waardoor Villa65 maandenlang zonder koude biervoorraad zat.</li>
-    <li>Een incident met een <a class="fake-link">gestolen tuinbank</a>, die in de nacht werd verplaatst naar het dak van de Zilverling.</li>
-</ul>
-
-<h2>Escalatie: De Slag om de Wasmachine</h2>
-<p>De eerste escalatie vond plaats tijdens wat later bekend werd als <a class="fake-link">De Slag om de Wasmachine</a>. In een geniale strategische zet wist Villa 65 de enige functionerende wasmachine van Kampf47 te ontvoeren. In een poging tot wraak werd er een grootschalige <a class="fake-link">onderbroekensabotage</a> opgezet: alle kleding werd teruggebracht, maar volledig omgekeerd en nat opgehangen in de gemeenschappelijke ruimte.</p>
-
-<h2>De Nacht van de Verborgen Urineflessen</h2>
-<p>Op een duistere avond, bekend als <a class="fake-link">De Nacht van de Verborgen Urineflessen</a>, sloeg Kampf47 terug door strategisch grote beugelflessen met urine te verstoppen in Villa 65. Tot op de dag van vandaag worden er nog steeds verdachte flessen gevonden.</p>
-
-<h2>De Poep-aan-de-Deur Actie</h2>
-<p>Het dieptepunt (of hoogtepunt, afhankelijk van wie je het vraagt) van de oorlog werd bereikt met de beruchte <a class="fake-link">Poep-aan-de-Deur Actie</a>. Niemand weet precies wie de dader was, maar op een koude decemberochtend werd de voordeur van Kamp47 besmeurd met wat slechts als "biologische oorlogsvoering" kan worden omschreven. De afzender liet geen boodschap achter, behalve de geur van absolute overwinning. </p>
-<p>In een vlaag van verstandsverbijstering beweerde de nestor van Kampf 47 dat hij dit een dusdanig buitensporige wraakactie vond, dat hij niet geloofde dat het echt was. De nestor was er heilig van overtuigd dat het om een ludieke grap met ontbijtkoek ging. Om zijn punt te bewijzen aan de rest van het huis, at hij daarom moedig een flink stuk op, alvorens er achter te komen dat het geen ontbijtkoek was. </p>
-
-<h2>Vredesonderhandelingen</h2>
-<p>Na maanden van intensieve braspraktijken werd een vredesovereenkomst voorgesteld. De onderhandelingen vonden plaats onder het genot van een gezamenlijke <a class="fake-link">meter bier</a> in de plaatselijke kroeg, <a class="fake-link">de Vestingbar</a>, waarbij de partijen overeenkwamen elkaars huisraad niet langer te verplaatsen naar onlogische plekken. Dit bestand werd echter binnen een week geschonden toen Kamp47 een compleet bankstel van Villa65 ontvoerde en het midden op de Campuslaan achterliet.</p>
-
-<h2>Nalatenschap</h2>
-<p>Hoewel de oorlog officieel voorbij is, blijven de sporen van het conflict zichtbaar:</p>
-<ul>
-    <li>De exacte locatie van <a class="fake-link">de Heilige Bierkrat</a> is nog steeds onbekend.</li>
-    <li>De geur van mysterieuze urineflessen blijft een terugkerend fenomeen in Villa 65.</li>
-    <li>Jaarlijks herdenken nieuwe bewoners de oorlog met de rituele <a class="fake-link">Brasrevival</a>, een avond waarbij historische diefstallen worden nagespeeld.</li>
-</ul>
-
-<h2>Zie ook</h2>
-<ul>
-    <li><a class="fake-link">De Mythe van de Verdwenen Bierkratten</a></li>
-    <li><a class="fake-link">Strategieën voor effectieve brasoorlogvoering</a></li>
-    <li><a class="fake-link">De meest absurde studentenstreken ooit</a></li>
-    <li><a class="fake-link">Overlevingsgids: Hoe herken je een verborgen brasactie?</a></li>
-</ul>
-
-            
-        
-        
-        
-        
-        
-        
-        
+            <div class="buttons">
+                <button>Read</button>
+                <button>Edit</button>
+                <button>View history</button>
+                <button>Tools</button>
+            </div>
         </div>
+        <hr>
+
+
+        <!-- CONTENT -->
+
+
+        <h2>De Grote Brasoorlog van 2017</h2>
+        <p><em>"Een geschiedenis van heldenmoed, verraad en studentikoze sabotage."</em></p>
+
+        <h2>Overzicht</h2>
+        <p>De <strong>Grote Brasoorlog van 2017</strong> was een langdurig en intens conflict tussen de studentenhuizen <a class="fake-link">Kamp47</a> en <a class="fake-link">Villa65</a> op de campus van Enschede. Wat begon als een onschuldige grap groeide al snel uit tot een escalatie van strategische ontvoeringen, clandestiene operaties en een reeks schokkende vergeldingsacties. Hoewel de oorlog inmiddels officieel is beëindigd, beweren sommigen dat de wrok nog steeds voortleeft.</p>
+
+        <h2>Oorzaken van het Conflict</h2>
+        <p>De exacte oorsprong van de <strong>Grote Brasoorlog</strong> blijft onderwerp van discussie, maar historici wijzen op enkele mogelijke oorzaken:</p>
+        <ul>
+            <li>De mysterieuze verdwijning van <a class="fake-link">de Heilige Bierkrat</a>, een symbool van ongekende studentikoze macht.</li>
+            <li>De bezetting van <a class="fake-link">de gezamenlijke koelkast</a> door Kamp47, waardoor Villa65 maandenlang zonder koude biervoorraad zat.</li>
+            <li>Een incident met een <a class="fake-link">gestolen tuinbank</a>, die in de nacht werd verplaatst naar het dak van de Zilverling.</li>
+        </ul>
+
+        <h2>Escalatie: De Slag om de Wasmachine</h2>
+        <p>De eerste escalatie vond plaats tijdens wat later bekend werd als <a class="fake-link">De Slag om de Wasmachine</a>. In een geniale strategische zet wist Villa 65 de enige functionerende wasmachine van Kampf47 te ontvoeren. In een poging tot wraak werd er een grootschalige <a class="fake-link">onderbroekensabotage</a> opgezet: alle kleding werd teruggebracht, maar volledig omgekeerd en nat opgehangen in de gemeenschappelijke ruimte.</p>
+
+        <h2>De Nacht van de Verborgen Urineflessen</h2>
+        <p>Op een duistere avond, bekend als <a class="fake-link">De Nacht van de Verborgen Urineflessen</a>, sloeg Kampf47 terug door strategisch "voering" kan worden omschreven. De afzender liet geen boodschap achter, behalve de geur van absolute overwinning. </p>
+        <p>In een vlaag van verstandsverbijstering beweerde de nestor van Kampf 47 dat hij dit een dusdanig buitensporige wraakactie vond, dat hij niet geloofde dat het echt was. De nestor was er heilig van overtuigd dat het om een ludieke grap met ontbijtkoek ging. Om zijn punt te bewijzen aan de rest van het huis, at hij daarom moedig een flink stuk op, alvorens er achter te komen dat het geen ontbijtkoek was. </p>
+
+        <h2>Vredesonderhandelingen</h2>
+        <p>Na maanden van intensieve braspraktijken werd een vredesovereenkomst voorgesteld. De onderhandelingen vonden plaats onder het genot van een gezamenlijke <a class="fake-link">meter bier</a> in de plaatselijke kroeg, <a class="fake-link">de Vestingbar</a>, waarbij de partijen overeenkwamen elkaars huisraad niet langer te verplaatsen naar onlogische plekken. Dit bestand werd echter binnen een week geschonden toen Kamp47 een compleet bankstel van Villa65 ontvoerde en het midden op de Campuslaan achterliet.</p>
+
+        <h2>Nalatenschap</h2>
+        <p>Hoewel de oorlog officieel voorbij is, blijven de sporen van het conflict zichtbaar:</p>
+        <ul>
+            <li>De exacte locatie van <a class="fake-link">de Heilige Bierkrat</a> is nog steeds onbekend.</li>
+            <li>De geur van mysterieuze urineflessen blijft een terugkerend fenomeen in Villa 65.</li>
+            <li>Jaarlijks herdenken nieuwe bewoners de oorlog met de rituele <a class="fake-link">Brasrevival</a>, een avond waarbij historische diefstallen worden nagespeeld.</li>
+        </ul>
+
+        <h2>Zie ook</h2>
+        <ul>
+            <li><a class="fake-link">De Mythe van de Verdwenen Bierkratten</a></li>
+            <li><a class="fake-link">Strategieën voor effectieve brasoorlogvoering</a></li>
+            <li><a class="fake-link">De meest absurde studentenstreken ooit</a></li>
+            <li><a class="fake-link">Overlevingsgids: Hoe herken je een verborgen brasactie?</a></li>
+        </ul>
 
 
 
-        <div class="sidebar">
-            <h3>Uiterlijk instellingen</h3>
-            <label>Tekstgrootte:</label><br>
-            <input type="radio" name="text-size" value="small"> Klein <br>
-            <input type="radio" name="text-size" value="medium" checked> Normaal <br>
-            <input type="radio" name="text-size" value="large"> Groot <br>
-            <br>
-            <label>Breedte:</label><br>
-            <input type="radio" name="width" value="narrow"> Smal <br>
-            <input type="radio" name="width" value="medium" checked> Normaal <br>
-            <input type="radio" name="width" value="wide"> Breed <br>
-            <br>
-            <label>Kleur:</label><br>
-            <input type="radio" name="color" value="light" checked> Licht <br>
-            <input type="radio" name="color" value="dark"> Donker <br>
-        </div>
+
+
+
+
+
+
     </div>
+
+
+
+    <div class="sidebar">
+        <h3>Uiterlijk instellingen</h3>
+        <label>Tekstgrootte:</label><br>
+        <input type="radio" name="text-size" value="small"> Klein <br>
+        <input type="radio" name="text-size" value="medium" checked> Normaal <br>
+        <input type="radio" name="text-size" value="large"> Groot <br>
+        <br>
+        <label>Breedte:</label><br>
+        <input type="radio" name="width" value="narrow"> Smal <br>
+        <input type="radio" name="width" value="medium" checked> Normaal <br>
+        <input type="radio" name="width" value="wide"> Breed <br>
+        <br>
+        <label>Kleur:</label><br>
+        <input type="radio" name="color" value="light" checked> Licht <br>
+        <input type="radio" name="color" value="dark"> Donker <br>
+    </div>
+</div>
 </body>
 </html>
