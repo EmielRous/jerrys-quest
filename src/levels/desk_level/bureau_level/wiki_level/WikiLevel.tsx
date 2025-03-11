@@ -63,6 +63,7 @@ const WikiLevel: React.FC = () => {
         path="/desk_level/bureau_level/wiki_level/Desk-PCscreen.gif"
         size={{ w: 568, h: 395 }}
         location={{ x: 366, y: 78 }}
+        visible={!isWikiOpen}
         clickable
         onClick={loadNextWiki} // ✅ Open wiki on first click, cycle on next clicks
       />
