@@ -29,7 +29,7 @@ export const AlertProvider: React.FC<{ children: React.ReactNode }> = ({ childre
                         <p className="text-lg mb-4">{alertMessage}</p>
                         <button
                             onClick={() => setAlertMessage(null)}
-                            className="px-6 py-3 bg-red-500 hover:bg-red-600 rounded-lg transition-all shadow-md font-bold"
+                            className="px-6 py-3 !bg-red-500 rounded-lg transition-all shadow-md font-bold"
                         >
                             OK
                         </button>
