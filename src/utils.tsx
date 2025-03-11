@@ -78,6 +78,7 @@ export const addRuby = () => {
 export enum Levels {
   DeskLevel = "desk-level",
   DeurLevel = "deur-level",
+  FinishLevel = "finish-level",
 }
 
 export enum DeskLevelPaths {

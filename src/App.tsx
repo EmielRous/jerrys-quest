@@ -11,6 +11,7 @@ import { AlertProvider, useAlert } from "./components/CustomAlert"; // ✅ Impor
 import "./App.css";
 import BureauLevel from "./levels/desk_level/bureau_level/BureauLevel.tsx";
 import DeskLevel from "./levels/desk_level/DeskLevel.tsx";
+import FinishLevel from "./levels/finish_level/FinishLevel.tsx";
 import RaamLevel from "./levels/desk_level/raam_level/RaamLevel.tsx";
 import TafelLevel from "./levels/desk_level/tafel_level/TafelLevel.tsx";
 import TapijtLevel from "./levels/deur_level/tapijt_level/TapijtLevel.tsx";
@@ -28,7 +29,6 @@ import SchilderijLevel from "./levels/desk_level/bureau_level/schilderij_level/S
 import DeurLevel from "./levels/deur_level/DeurLevel.tsx";
 import DozenLevel from "./levels/deur_level/dozen_level/DozenLevel.tsx";
 import KastLevel from "./levels/desk_level/kast_level/KastLevel.tsx";
-import GameTitle from "./components/GameTitle";
 const GlobalAlertOverride = () => {
   const { showAlert } = useAlert(); // ✅ Access custom alert system
 
@@ -42,6 +42,8 @@ const GlobalAlertOverride = () => {
           <div>
             <Routes>
               <Route path="/" element={<Navigate to={`/${Levels.DeskLevel}`} />} />
+              {/**FINISH LEVEL**/}
+              <Route path={`/${Levels.FinishLevel}`} element={<FinishLevel />} />
               {/**DESK LEVEL**/}
               <Route path={`/${Levels.DeskLevel}`} element={<DeskLevel />} />
               <Route path={`/${Levels.DeskLevel}/${DeskLevelPaths.BureauLevel}`} element={<BureauLevel />} />
