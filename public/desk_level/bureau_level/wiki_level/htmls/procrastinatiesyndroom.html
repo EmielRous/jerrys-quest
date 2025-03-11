@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('click', function(event) {
+          if (event.target.tagName === 'A') {
+            const linkText = event.target.textContent || event.target.innerText;
+            window.parent.postMessage({ linkClicked: linkText }, '*');
+          }
+        });
+      });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WikiParodie</title>
