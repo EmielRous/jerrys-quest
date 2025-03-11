@@ -1,6 +1,6 @@
 import ClickableImage from "../../../components/ClickableImage.tsx";
 import BackButton from "../../../components/BackButton.tsx";
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import { addRuby, DeskLevelPaths } from "../../utils.tsx";
 import RaadWoordComponent from "../../../components/RaadWoordComponent.tsx";
 import {useGlobalState} from "../../../components/GlobalStateContext.tsx";
@@ -9,6 +9,16 @@ const TapijtLevel: React.FC = () => {
 
     const [rotation, setRotation] = useState(0);
     const { isVisible, toggleVisibility, puzzlesSolved, markPuzzleAsSolved, addRuby } = useGlobalState();
+
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    const playSound = () => {
+        if (!audioRef.current) {
+            audioRef.current = new Audio("/deur_level/tapijt_level/Justin.opus");
+        }
+        audioRef.current.currentTime = 0; // Restart audio if already playing
+        audioRef.current.play();
+    };
 
     const handleRotate = () => {
         setRotation(prev => prev + 50); // Rotate by 10 degrees on each click
@@ -43,7 +53,14 @@ const TapijtLevel: React.FC = () => {
                 transform: `rotate(${rotation}deg)`,
                 transition: "transform 0.3s ease",
             }}
-        />s
+        />
+        <ClickableImage
+            path="/deur_level/tapijt_level/MaleSymb.png"
+            size={{ w: 100, h: 100 }}
+            location={{ x: 300, y: 550 }}
+            clickable={true}
+            onClick={playSound}
+        />
         <RaadWoordComponent
             correctWord={"aladdin"}
             onCorrect={() => markPuzzleAsSolved("Tapijt")}
