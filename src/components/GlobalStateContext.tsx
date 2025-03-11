@@ -23,6 +23,8 @@ interface GlobalStateType {
     cycleKleding: () => void;
     cycleVouw: () => void;
     resetVouwSequence: () => void;
+    getNextNegativeMessage: () => string;
+    getNextPositiveMessage: () => string;
 }
 
 // Create context
@@ -38,30 +40,55 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
     const [wikiIndex, setWikiIndex] = useState(() => parseInt(localStorage.getItem("wikiIndex") || "0", 10));
     const [kledingIndex, setKledingIndex] = useState(0);
     const [vouwIndex, setVouwIndex] = useState<number | null>(null);
+    const [negativeIndex, setNegativeIndex] = useState(0);
+    const [positiveIndex, setPositiveIndex] = useState(0);
 
     useEffect(() => {
         localStorage.setItem("wikiIndex", wikiIndex.toString());
     }, [wikiIndex]);
 
-    // ✅ Function to cycle through clothing folders
-    const cycleKleding = () => {
-        setKledingIndex((prev) => (prev + 1) % 4); // ✅ Cycle through 4 folders
-        setVouwIndex(0); // ✅ Start new folder from first image
+    const negativeMessages = [
+        "Nope", "Helaas", "Jammer dan", "Homoooooo!", "Pff, dat noemt zich een MSc",
+        "Nee man", "Echt niet!", "Nein Nein Nein Nein", "Lever je papiertje maar weer in",
+        "Helaas pindakaas", "Ha! je moeder!", "Loser!", "Jammer man", "Allemaal onvoldoende!",
+        "MAND!!!!", "Nice try", "Probeer opnieuw", "Goed bezig", "Geef niet op!",
+        "Is dit spel ondertussen al frustrerender dan je thesis?"
+    ];
+
+    const positiveMessages = [
+        "Cum Laude! Hier is een robijn", "Je moeder zou trots zijn", "Alles onder controle",
+        "Oke maar deze was makkelijk", "Professor in wording!",
+        "Dit is genieten, kijk toch eens wat een robijnen",
+        "Met elke robijn krijg je meer persoonlijkheid",
+        "Dit spel is net zo bevredigend als je thesis afmaken!",
+        "RUBY RUBY RUBY RUBY (AAAAAAAAH)",
+    ];
+
+    const getNextNegativeMessage = () => {
+        const message = negativeMessages[negativeIndex];
+        setNegativeIndex((prev) => (prev + 1) % negativeMessages.length);
+        return message;
     };
 
-    // ✅ Function to cycle through images in a folder
+    const getNextPositiveMessage = () => {
+        const message = positiveMessages[positiveIndex];
+        setPositiveIndex((prev) => (prev + 1) % positiveMessages.length);
+        return message;
+    };
+
+    const cycleKleding = () => {
+        setKledingIndex((prev) => (prev + 1) % 4);
+        setVouwIndex(0);
+    };
+
     const cycleVouw = () => {
         setVouwIndex((prev) => (prev === null ? 0 : prev + 1));
     };
 
-
-    // ✅ Function to reset image sequence
     const resetVouwSequence = () => {
         setVouwIndex(null);
     };
 
-
-    // ✅ Function to toggle popups
     const setPopup = (popupName: string, value: boolean) => {
         setPopups((prev) => {
             const newPopups = { ...prev, [popupName]: value };
@@ -70,13 +97,11 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         });
     };
 
-    // ✅ Function to reset all popups
     const resetPopups = () => {
         setPopups({});
         localStorage.setItem("popups", JSON.stringify({}));
     };
 
-    // ✅ Function to reset puzzles, inventory, rubies, and popups together
     const resetPuzzles = () => {
         setPuzzlesSolved({});
         setInventory([]);
@@ -87,7 +112,6 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         localStorage.setItem("rubys", JSON.stringify(0));
     };
 
-    // ✅ Function to mark a puzzle as solved
     const markPuzzleAsSolved = (puzzleId: string) => {
         setPuzzlesSolved((prev) => {
             const newState = { ...prev, [puzzleId]: true };
@@ -96,7 +120,6 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         });
     };
 
-    // ✅ Function to add an item to inventory
     const addToInventory = (item: string) => {
         setInventory((prev) => {
             const newInventory = [...prev, item];
@@ -105,7 +128,6 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         });
     };
 
-    // ✅ Function to remove an item from inventory
     const removeFromInventory = (item: string) => {
         setInventory((prev) => {
             const newInventory = prev.filter((i) => i !== item);
@@ -114,7 +136,6 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         });
     };
 
-    // ✅ Function to add a Ruby
     const addRuby = () => {
         setRubys((prev) => {
             const newCount = prev + 1;
@@ -123,13 +144,11 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         });
     };
 
-    // ✅ Function to reset rubies
     const resetRubies = () => {
         setRubys(0);
         localStorage.setItem("rubys", JSON.stringify(0));
     };
 
-    // ✅ Function to update wiki index
     const updateWikiIndex = (index: number) => {
         setWikiIndex(index);
         localStorage.setItem("wikiIndex", index.toString());
@@ -141,7 +160,8 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
             toggleVisibility: () => setIsVisible((prev) => !prev),
             markPuzzleAsSolved, resetPuzzles, addToInventory, removeFromInventory,
             addRuby, resetRubies, setPopup, resetPopups, updateWikiIndex,
-            cycleKleding, cycleVouw, resetVouwSequence
+            cycleKleding, cycleVouw, resetVouwSequence,
+            getNextNegativeMessage, getNextPositiveMessage
         }}>
             {children}
         </GlobalStateContext.Provider>
