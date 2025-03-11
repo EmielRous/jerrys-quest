@@ -9,7 +9,7 @@ import { Button } from "antd";
 
 const WikiLevel: React.FC = () => {
   const navigate = useNavigate();
-  const { puzzlesSolved, markPuzzleAsSolved, wikiIndex, setWikiIndex } =
+  const { puzzlesSolved, markPuzzleAsSolved, wikiIndex, updateWikiIndex } =
     useGlobalState();
   const [hideBackButton, setHideBackButton] = useState(false);
   const [isWikiOpen, setIsWikiOpen] = useState(false); // ✅ Controls visibility
@@ -19,6 +19,7 @@ const WikiLevel: React.FC = () => {
       if (event.data && event.data.allLinksVisited) {
         alert("GOED ZOO");
         setHideBackButton(false);
+        setIsWikiOpen(false);
       }
     }
     window.addEventListener("message", handleMessage);
@@ -32,7 +33,6 @@ const WikiLevel: React.FC = () => {
     "campusgeheimen.html",
     "koffieparadox.html",
     "procrastinatiesyndroom.html",
-    "studentenhuishouden.html",
     "tabbladenuniversum.html",
     "wetvanuitstelgedrag.html",
     "brasoorlog.html",
@@ -43,12 +43,9 @@ const WikiLevel: React.FC = () => {
 
   // Function to cycle through wiki pages
   const loadNextWiki = () => {
-    if (!isWikiOpen) {
-      setIsWikiOpen(true); // ✅ Show iframe only after clicking
-    } else {
-      const nextIndex = (wikiIndex + 1) % wikiPages.length; // ✅ Cycles through pages
-      setWikiIndex(nextIndex);
-    }
+    setIsWikiOpen(true);
+    const nextIndex = (wikiIndex + 1) % wikiPages.length; // ✅ Cycles through pages
+    updateWikiIndex(nextIndex);
     setHideBackButton(true);
   };
 

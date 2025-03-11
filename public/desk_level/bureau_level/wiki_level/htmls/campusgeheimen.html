@@ -41,6 +41,7 @@
             const allVisited = fakeLinkTexts.every(text => visitedLinks[text]);
             if (allVisited) {
               window.parent.postMessage({ allLinksVisited: true }, '*');
+                localStorage.setItem('visitedLinks', JSON.stringify({}));
             }
           }
         });

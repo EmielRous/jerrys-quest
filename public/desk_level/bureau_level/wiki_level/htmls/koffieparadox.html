@@ -2,14 +2,50 @@
 <html lang="nl">
 <head>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        document.addEventListener('click', function(event) {
-          if (event.target.tagName === 'A') {
-            const linkText = event.target.textContent || event.target.innerText;
-            window.parent.postMessage({ linkClicked: linkText }, '*');
-          }
+        document.addEventListener('DOMContentLoaded', function() {
+            const fakeLinkTexts = [
+                "nieuw productiviteitsysteem te Googelen",
+                "cryptografie",
+                "adat men eerst nog vijf extra tabbladen heeft geopend",
+                "werkplek",
+                "een takenlijst die je negeert",
+                "Koffietolerantie",
+                "Koffie-afkickverschijnselen",
+                "Koffie-alternatieven",
+                "Het Procrastinatiesyndroom",
+                "De Wet van Uitstelgedrag",
+                "Het Verborgen Universum van Tabbladen",
+                "Slaapschuld en de illusie van herstel",
+                "Cafeïne als levensstijl",
+                "De koffiebreak die een uur duurde"
+            ];
+            // Load visited links from localStorage
+            const visitedLinks = JSON.parse(localStorage.getItem('visitedLinks') || '{}');
+            // Mark visited links
+            document.querySelectorAll('a').forEach(link => {
+                if (visitedLinks[link.textContent]) {
+                    link.classList.add('visited');
+                }
+            });
+
+            document.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                    alert('LINKIEEE')
+                    const linkText = event.target.textContent || event.target.innerText;
+                    // Mark the link as visited
+                    event.target.classList.add('visited');
+                    // Update the visited links in localStorage
+                    visitedLinks[linkText] = true;
+                    localStorage.setItem('visitedLinks', JSON.stringify(visitedLinks));
+                    // Post message to parent window
+                    const allVisited = fakeLinkTexts.every(text => visitedLinks[text]);
+                    if (allVisited) {
+                        window.parent.postMessage({ allLinksVisited: true }, '*');
+                        localStorage.setItem('visitedLinks', JSON.stringify({}));
+                    }
+                }
+            });
         });
-      });
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
