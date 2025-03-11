@@ -110,6 +110,7 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         localStorage.setItem("puzzlesSolved", JSON.stringify({}));
         localStorage.setItem("inventory", JSON.stringify([]));
         localStorage.setItem("rubys", JSON.stringify(0));
+
     };
 
     const markPuzzleAsSolved = (puzzleId: string) => {
