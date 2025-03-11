@@ -60,6 +60,9 @@ const DeurLevel: React.FC = ({}) => {
         band: [
             "/deur_level/band/band-1.png",
             "/deur_level/band/band-2.png",
+            "/deur_level/band/band-3.png",
+            "/deur_level/band/band-4.png",
+            "/deur_level/band/band-5.png",
         ]
     };
     const currentKleding = kledingFolders[kledingIndex]; // ✅ Get Current Folder
@@ -199,8 +202,8 @@ const DeurLevel: React.FC = ({}) => {
         {vouwIndex !== null && vouwIndex < vouwImages[currentKleding].length && (
             <ClickableImage
                 path={vouwImages[currentKleding][vouwIndex]}
-                size={{ w: 400, h: 400 }}
-                location={{ x: 312, y: 184 }}
+                size={{ w: 1024, h: 768 }}
+                location={{ x: 0, y: 0 }}
                 clickable={true}
                 onClick={() => {
                     const maxVouwIndex = vouwImages[currentKleding].length - 1;

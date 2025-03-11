@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const NavigationBar = () => {
     return (
         <div className="absolute top-[768px] left-0">
-            <div className="flex gap-10 bg-blue-100 p-4 border-2 border-red-100 rounded-2xl w-fit shadow-md">
+            <div className="flex gap-4 bg-blue-100 p-4 border-2 border-red-100 rounded-2xl w-fit shadow-md">
                 <Link to="/desk-level">
                     <img
                         src="/desk_level/Desk-background.png"
