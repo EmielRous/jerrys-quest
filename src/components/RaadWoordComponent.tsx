@@ -45,7 +45,7 @@ const RaadWoordComponent: React.FC<GuessWordProps> = ({ correctWord, onCorrect, 
                 className="bg-transparent text-white placeholder-gray-400 border border-gray-500 focus:border-red-500 focus:ring-2 focus:ring-red-500 rounded-lg p-2 w-[180px]"
             />
             <button
-                onClick={() => putInGuess(guess)}
+                onClick={handleGuess}
                 className="transition-all flex items-center justify-center hover:scale-110"
                 style={{
                     background: "transparent", // ✅ Fully transparent background

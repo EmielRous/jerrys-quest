@@ -44,7 +44,7 @@ const Inventory: React.FC = () => {
 
                     <button
                         onClick={resetPuzzles}
-                        className="text-white font-semibold px-4 py-2 bg-red-500 hover:bg-red-600 rounded-lg transition-all shadow-md"
+                        className="text-red font-semibold px-4 py-2 bg-red-500 hover:bg-red-600 rounded-lg transition-all shadow-md"
                     >
                         RESTART
                     </button>
