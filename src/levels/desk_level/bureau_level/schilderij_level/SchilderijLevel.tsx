@@ -33,6 +33,11 @@ const SchilderijLevel: React.FC = () => {
             location={{ x: 0, y: 0 }}
             onClick={handleClick}
         />
+          <ClickableImage
+              path="/JerrysQuest.png"
+              size={{ w: 469, h: 73 }}
+              location={{ x: 267, y: 0 }}
+          />
       </div>
   );
 };

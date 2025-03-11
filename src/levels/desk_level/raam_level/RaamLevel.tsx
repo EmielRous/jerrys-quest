@@ -5,12 +5,14 @@ import { Button, Input } from "antd";
 import LingoGame from "./LingoGame.tsx";
 import BackButton from "../../../components/BackButton.tsx";
 import { useGlobalState } from "../../../components/GlobalStateContext.tsx";
+import {DiRuby} from "react-icons/di";
 
 
 const RaamLevel: React.FC = () => {
   const navigate = useNavigate();
   const [raadselActive, setRaadselActive] = useState(false);
   const [raadselGoedGeraaie, setRaadselGoedGeraaie] = useState(false);
+
   const [guess, setGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
   const lingoAnswer = "zevenenveertig";
@@ -26,7 +28,7 @@ const RaamLevel: React.FC = () => {
             setRaadselGoedGeraaie(true);
             markPuzzleAsSolved("Sphinx");
             addRuby();
-            alert("Good job! You deserve a ruby.");
+            alert("Aaah! \n Je bent de eerste in duizend jaar die mijn raadsel weet te beantwoorden. \n Hier, je verdient hem. \n \n Oh, en: VO");
         }
     };
 
@@ -60,25 +62,38 @@ const RaamLevel: React.FC = () => {
         location={{ x: 126, y: 28 }}
       />
         <div
-            className={`absolute flex gap-2 justify-center ${(!raadselActive || puzzlesSolved["Sphinx"]) && "hidden"}`}
-            style={{ top: 530, left: 220, width: 600 }}
+            className={`absolute flex gap-4 justify-center ${(!raadselActive || puzzlesSolved["Sphinx"]) && "hidden"}`}
+            style={{ top: 530, left: 240, width: 550 }}
         >
 
-        <Input.OTP
-          length={lingoAnswer.length}
-          rootClassName={"w-full h-full"}
-          value={guess}
-          onChange={(e) => setGuess(e)}
-        />
-        <Button onClick={() => putInGuess(guess)}>Guess!</Button>
+            <Input.OTP
+                length={lingoAnswer.length}
+                rootClassName={"w-full h-full flex gap-2"} // ✅ Add gap between boxes
+                value={guess}
+                onChange={(e) => setGuess(e)}
+                style={{ display: "flex", justifyContent: "center", gap: "2px" }} // ✅ Ensures consistent spacing
+            />
+            <button
+                onClick={() => putInGuess(guess)}
+                className="transition-all flex items-center justify-center hover:scale-110"
+                style={{
+                    background: "transparent", // ✅ Fully transparent background
+                    border: "none", // ✅ No border at all
+                    outline: "none", // ✅ Prevent any focus outline
+                    padding: "0", // ✅ Remove button padding to avoid extra clickable space
+                    cursor: "pointer", // ✅ Ensure the ruby icon is still clickable
+                }}
+            >
+                <DiRuby className="size-8 text-[#ff1a1a] drop-shadow-[0_0_15px_rgba(255,50,50,0.9)] brightness-150 contrast-200 saturate-200" />
+            </button>
       </div>
         <div
             className={`absolute ${!raadselActive && "hidden"}`}
             style={{
-                top: 500, // ✅ Align with input squares
-                left: 220, // ✅ Start closer to the left
-                width: 600,
-                position: "relative", // ✅ Allow absolute positioning inside
+                top: 570, // ✅ Align with input squares
+                left: 240, // ✅ Start closer to the left
+                width: 510,
+                position: "absolute", // ✅ Allow absolute positioning inside
             }}
         >
             {guesses.map((g, index) => (
@@ -91,13 +106,18 @@ const RaamLevel: React.FC = () => {
                         width: "100%", // ✅ Ensures the squares take up the full width
                         display: "flex",
                         justifyContent: "flex-start",
-                        gap: "5px",
+                        gap: "2px",
                     }}
                 >
                     <LingoGame guessedWord={g} wordLength={lingoAnswer.length} answer={lingoAnswer} onCorrect={() => correctGuess()} />
                 </div>
             ))}
         </div>
+        <ClickableImage
+            path="/JerrysQuest.png"
+            size={{ w: 469, h: 73 }}
+            location={{ x: 267, y: 0 }}
+        />
     </div>
   );
 };

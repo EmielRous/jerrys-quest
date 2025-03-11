@@ -17,6 +17,7 @@ const DeurLevel: React.FC = ({}) => {
         setRotation(prev => prev + 50); // Rotate by 10 degrees on each click
     };
     const kledingFolders = ["blouse", "jas", "hose", "band"];
+    const audioRef = useRef<HTMLAudioElement | null>(null);
 
     const toggleSound = () => {
         if (isVisible) {
@@ -25,6 +26,13 @@ const DeurLevel: React.FC = ({}) => {
             playSound();
         }
     }
+    const playHarp = () => {
+        if (!audioRef.current) {
+            audioRef.current = new Audio("/deur_level/Mondharp.opus"); // Adjust the path to your MP3
+        }
+        audioRef.current.currentTime = 0; // Restart audio if already playing
+        audioRef.current.play();
+    };
 
     const playSound = () => {
         audio.currentTime = 0; // Restart audio if already playing
@@ -83,7 +91,8 @@ const DeurLevel: React.FC = ({}) => {
         clickable={true}
         onClick={() => {
             setPopup("popupKaart", true);
-            markPuzzleAsSolved("Bank")
+            markPuzzleAsSolved("Bank");
+            playHarp();
         }}
       />
         <ClickableImage
@@ -91,6 +100,13 @@ const DeurLevel: React.FC = ({}) => {
             visible={puzzlesSolved["Bank"] === true} // ✅ Funziona correttamente!
             size={{ w: 400, h: 200 }}
             location={{ x: 14, y: 600 }}
+        />
+        <ClickableImage
+            path="/deur_level/Mobiel.png"
+            clickable={true}
+            size={{ w: 66, h: 50 }}
+            location={{ x: 136, y: 661 }}
+            onClick={() => {setPopup("popupMobiel", true);}}
         />
       <ClickableImage
         path="/deur_level/Dozen.png"
@@ -100,7 +116,7 @@ const DeurLevel: React.FC = ({}) => {
         redirect={DeurLevelPaths.DozenLevel}
       />
       <ClickableImage
-        path="/deur_level/Gordijn.png"
+        path="/deur_level/Gordijn.png"q
         size={{ w: 230, h: 583 }}
         location={{ x: -24, y: 52 }}
       />
@@ -194,6 +210,14 @@ const DeurLevel: React.FC = ({}) => {
         clickable={true}
         onClick={() => setPopup("popupBoek", false)}
     />
+        <ClickableImage
+            path="/deur_level/popups/Tiktok.gif"
+            visible={popups["popupMobiel"]===true}
+            size={{ w: 1024, h: 768 }}
+            location={{ x: 0, y: 0 }}
+            clickable={true}
+            onClick={() => setPopup("popupMobiel", false)}
+        />
         <RaadWoordComponent
             correctWord={"HOO-HOO"}
             onCorrect={() => markPuzzleAsSolved("Boek")}
@@ -216,6 +240,11 @@ const DeurLevel: React.FC = ({}) => {
                 }}
             />
         )}
+        <ClickableImage
+            path="/JerrysQuest.png"
+            size={{ w: 469, h: 73 }}
+            location={{ x: 267, y: 0 }}
+        />
 
 
     </div>

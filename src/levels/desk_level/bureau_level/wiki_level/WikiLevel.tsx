@@ -116,21 +116,26 @@ const WikiLevel: React.FC = () => {
             ✖
           </button>
 
-          {/* Wiki Iframe */}
-          <iframe
-            src={`/desk_level/bureau_level/wiki_level/htmls/${wikiPages[wikiIndex]}`}
-            width="1000px"
-            height="695px"
-            className="border-none"
-            style={{
-              transform: "scale(0.568)",
-              transformOrigin: "0 0",
-            }}
-          ></iframe>
+                    {/* Wiki Iframe */}
+                    <iframe
+                        src={`/desk_level/bureau_level/wiki_level/htmls/${wikiPages[wikiIndex]}`}
+                        width="1000px"
+                        height="695px"
+                        className="border-none"
+                        style={{
+                            transform: "scale(0.568)",
+                            transformOrigin: "0 0",
+                        }}
+                    ></iframe>
+                </div>
+            )}
+            <ClickableImage
+                path="/JerrysQuest.png"
+                size={{ w: 469, h: 73 }}
+                location={{ x: 267, y: 0 }}
+            />
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 export default WikiLevel;
