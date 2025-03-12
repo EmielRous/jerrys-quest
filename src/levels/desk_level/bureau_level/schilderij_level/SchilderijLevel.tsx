@@ -20,7 +20,7 @@ const SchilderijLevel: React.FC = () => {
       markPuzzleAsSolved("Schilderij3");
       removeFromInventory("/desk_level/kast_level/Augurk2.png");
       addRuby();
-      alert("Good job! You deserve a ruby.");
+      alert("Yeah I guess here's a ruby, but who cares about riches and rubies, Morty? I turned myself into a pickle, Morty! Boom! Big reveal! I'm a pickle! What do you think about that? I turned myself into a pickle! W-w-what are you just staring at me for, bro, I turned myself into a pickle, Morty. I'M A PICKLE! I'm pickle Riiiiiick!");
     }
   };
 

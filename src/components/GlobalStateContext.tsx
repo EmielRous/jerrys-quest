@@ -61,7 +61,7 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
     const positiveMessages = [
         "Cum Laude! Hier is een robijn", "Je moeder zou trots zijn", "Alles onder controle",
-        "Oke maar deze was makkelijk", "Professor in wording!",
+        "Oke maar deze was makkelijk",
         "Dit is genieten, kijk toch eens wat een robijnen",
         "Met elke robijn krijg je meer persoonlijkheid",
         "RUBY RUBY RUBY RUBY (AAAAAAAAH)",

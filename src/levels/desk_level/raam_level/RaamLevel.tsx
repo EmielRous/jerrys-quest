@@ -28,7 +28,7 @@ const RaamLevel: React.FC = () => {
             setRaadselGoedGeraaie(true);
             markPuzzleAsSolved("Sphinx");
             addRuby();
-            alert("Aaah! Je bent de eerste in duizend jaar die mijn raadsel weet te beantwoorden. Hier, je verdient hem.");
+            alert("Duizend jaren wachtte ik op een sterveling die mijn katachtige raadsel wist te temmen... en eindelijk is die dag aangebroken. Wijsheid en moed hebben je geleid naar het juiste antwoord. De robijn straalt nu in jouw hand! 47 fluistert zijn geheimen enkel aan de meest waardige, en de uitverkorene ben jij, o Onbetwiste Denker, ik buig voor u... Ohja, en: VO!");
         }
     };
 
