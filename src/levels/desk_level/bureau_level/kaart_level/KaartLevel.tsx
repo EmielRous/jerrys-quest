@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ClickableImage from "../../../../components/ClickableImage.tsx";
 import BackButton from "../../../../components/BackButton.tsx";
+import BackgroundImage from "../../../../components/Background.tsx";
 
 const KaartLevel: React.FC = () => {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ const KaartLevel: React.FC = () => {
 
   return (
     <div>
+        <BackgroundImage />
       <BackButton />
       <video
           ref={videoRef}

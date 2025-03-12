@@ -4,6 +4,7 @@ import React, {useRef, useState} from "react";
 import { addRuby, DeskLevelPaths } from "../../utils.tsx";
 import RaadWoordComponent from "../../../components/RaadWoordComponent.tsx";
 import {useGlobalState} from "../../../components/GlobalStateContext.tsx";
+import BackgroundImage from "../../../components/Background.tsx";
 
 const TapijtLevel: React.FC = () => {
 
@@ -25,6 +26,7 @@ const TapijtLevel: React.FC = () => {
     };
   return (
     <div>
+        <BackgroundImage />
       <BackButton />
         <ClickableImage
             path="/deur_level/tapijt_level/TapijtView.png"

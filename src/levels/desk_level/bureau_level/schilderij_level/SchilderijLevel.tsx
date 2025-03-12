@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import ClickableImage from "../../../../components/ClickableImage.tsx";
 import { useGlobalState } from "../../../../components/GlobalStateContext.tsx";
 import BackButton from "../../../../components/BackButton.tsx";
+import BackgroundImage from "../../../../components/Background.tsx";
 
 const SchilderijLevel: React.FC = () => {
   const { puzzlesSolved, markPuzzleAsSolved, inventory, removeFromInventory, addRuby } = useGlobalState();
@@ -26,6 +27,7 @@ const SchilderijLevel: React.FC = () => {
 
   return (
       <div>
+        <BackgroundImage />
         <BackButton />
         <ClickableImage
             path={getSchilderijPath()}

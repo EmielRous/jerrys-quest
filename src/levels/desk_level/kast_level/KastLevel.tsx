@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ClickableImage from "../../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../../../components/BackButton.tsx";
+import BackgroundImage from "../../../components/Background.tsx";
 
 import {useGlobalState} from "../../../components/GlobalStateContext.tsx";
 
@@ -10,6 +11,7 @@ const KastLevel: React.FC = ({}) => {
     const { isVisible, toggleVisibility, puzzlesSolved, markPuzzleAsSolved } = useGlobalState();
   return (
     <div>
+        <BackgroundImage />
       <BackButton />
         <ClickableImage
             path="/desk_level/kast_level/KastView.png"

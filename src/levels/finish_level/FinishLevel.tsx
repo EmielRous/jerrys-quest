@@ -3,6 +3,7 @@ import ClickableImage from "../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../../components/GlobalStateContext.tsx";
 import { Levels } from "../../utils.tsx";
+import BackgroundImage from "../../components/Background.tsx";
 
 const FinishLevel: React.FC = () => {
     const navigate = useNavigate();
@@ -17,6 +18,7 @@ const FinishLevel: React.FC = () => {
 
     return (
         <div>
+            <BackgroundImage />
             {/* ✅ Background Image */}
             <ClickableImage
                 path="/finish_level/Eindscherm.png"

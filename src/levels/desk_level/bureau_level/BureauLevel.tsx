@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import BackButton from "../../../components/BackButton.tsx";
 import { addRuby, BureauLevelPaths } from "../../../utils.tsx";
 import {useGlobalState} from "../../../components/GlobalStateContext.tsx";
+import BackgroundImage from "../../../components/Background.tsx";
 
 const BureauLevel: React.FC = ({}) => {
   const [lampOn, setLampOn] = useState(false);
@@ -32,6 +33,7 @@ const BureauLevel: React.FC = ({}) => {
 
   return (
     <div>
+        <BackgroundImage />
       <BackButton />
         <ClickableImage
             path="/desk_level/bureau_level/Desk-background.png"

@@ -3,6 +3,7 @@ import ClickableImage from "../../../components/ClickableImage.tsx";
 import BackButton from "../../../components/BackButton.tsx";
 import {useGlobalState} from "../../../components/GlobalStateContext.tsx";
 import RaadWoordComponent from "../../../components/RaadWoordComponent.tsx";
+import BackgroundImage from "../../../components/Background.tsx";
 
 const DozenLevel: React.FC = () => {
     const [paddoTrip, setPaddoTrip] = useState(false);
@@ -46,6 +47,7 @@ const DozenLevel: React.FC = () => {
 
     return (
         <div>
+            <BackgroundImage />
             <ClickableImage
                 path="/deur_level/dozen_level/DozenView.png"
                 size={{ w: 1024, h: 768 }}

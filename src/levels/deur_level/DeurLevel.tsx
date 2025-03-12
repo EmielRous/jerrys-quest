@@ -5,6 +5,7 @@ import {DeurLevelPaths } from "../../utils.tsx";
 import { useVisibility } from "../../components/VisibilityContext";
 import { useGlobalState } from "../../components/GlobalStateContext";
 import RaadWoordComponent from "../../components/RaadWoordComponent.tsx";
+import BackgroundImage from "../../components/Background.tsx";
 
 const audio = new Audio("/deur_level/Projector.mp3");
 
@@ -78,6 +79,7 @@ const DeurLevel: React.FC = ({}) => {
 
   return (
     <div>
+        <BackgroundImage />
         <ClickableImage
             path="/deur_level/DeurView.png"
             size={{ w: 1024, h: 768 }}

@@ -4,6 +4,7 @@ import ClickableImage from "../../../../components/ClickableImage.tsx";
 import BackButton from "../../../../components/BackButton.tsx";
 import RaadWoordComponent from "../../../../components/RaadWoordComponent.tsx";
 import { useGlobalState } from "../../../../components/GlobalStateContext.tsx";
+import BackgroundImage from "../../../../components/Background.tsx";
 
 const WikiLevel: React.FC = () => {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ const WikiLevel: React.FC = () => {
 
   return (
     <div>
+      <BackgroundImage />
       {!isWikiOpen && <BackButton />}
       {/* Background Image */}
       <ClickableImage

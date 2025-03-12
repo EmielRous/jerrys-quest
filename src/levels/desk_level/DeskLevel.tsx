@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { addRuby, DeskLevelPaths } from "../../utils.tsx";
 import RaadWoordComponent from "../../components/RaadWoordComponent.tsx";
 import {useGlobalState} from "../../components/GlobalStateContext.tsx";
+import BackgroundImage from "../../components/Background.tsx"; // Adjust path as needed
+
 
 const DeskLevel: React.FC = () => {
   const [popupBril, setPopupBril] = useState(false);
@@ -47,6 +49,7 @@ const DeskLevel: React.FC = () => {
 
   return (
     <div>
+        <BackgroundImage />
         <ClickableImage
             path="/desk_level/Desk-background.png"
             size={{ w: 1024, h: 768 }}

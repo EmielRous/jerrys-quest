@@ -6,6 +6,7 @@ import LingoGame from "./LingoGame.tsx";
 import BackButton from "../../../components/BackButton.tsx";
 import { useGlobalState } from "../../../components/GlobalStateContext.tsx";
 import {DiRuby} from "react-icons/di";
+import BackgroundImage from "../../../components/Background.tsx";
 
 
 const RaamLevel: React.FC = () => {
@@ -35,6 +36,7 @@ const RaamLevel: React.FC = () => {
 
     return (
     <div>
+        <BackgroundImage />
       <BackButton />
         <ClickableImage
             path="/desk_level/raam_level/RaamView.png"
