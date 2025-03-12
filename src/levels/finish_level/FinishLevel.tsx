@@ -21,7 +21,7 @@ const FinishLevel: React.FC = () => {
             <BackgroundImage />
             {/* ✅ Background Image */}
             <ClickableImage
-                path="/finish_level/Eindscherm.png"
+                path="/finish_level/Eindscherm.gif"
                 size={{ w: 1024, h: 768 }}
                 location={{ x: 0, y: 0 }}
             />
