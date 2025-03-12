@@ -4,22 +4,16 @@ import ClickableImage from "../../../../components/ClickableImage.tsx";
 import BackButton from "../../../../components/BackButton.tsx";
 import RaadWoordComponent from "../../../../components/RaadWoordComponent.tsx";
 import { useGlobalState } from "../../../../components/GlobalStateContext.tsx";
-import BasOorlogHtml from "./BasOorlogHtml.tsx";
-import { Button } from "antd";
 
 const WikiLevel: React.FC = () => {
   const navigate = useNavigate();
-  const { puzzlesSolved, markPuzzleAsSolved, wikiIndex, updateWikiIndex } =
-    useGlobalState();
-  const [hideBackButton, setHideBackButton] = useState(false);
-  const [isWikiOpen, setIsWikiOpen] = useState(false); // ✅ Controls visibility
+  const { puzzlesSolved, markPuzzleAsSolved, wikiIndex, setWikiIndex, isWikiOpen, setWikiOpen } = useGlobalState(); // ✅ Add isWikiOpen, setWikiOpen
 
   useEffect(() => {
     function handleMessage(event) {
       if (event.data && event.data.allLinksVisited) {
         alert("Dat was ZO interessant! Wacht, hoe laat is het? Shit ik moet echt verder met die robijnen...");
-        setHideBackButton(false);
-        setIsWikiOpen(false);
+        setWikiOpen(false);
       }
     }
     window.addEventListener("message", handleMessage);
@@ -38,20 +32,20 @@ const WikiLevel: React.FC = () => {
     "brasoorlog.html",
   ];
   useEffect(() => {
-    setIsWikiOpen(false);
+    setWikiOpen(false);
   }, []);
 
   // Function to cycle through wiki pages
   const loadNextWiki = () => {
-    setIsWikiOpen(true);
+    setWikiOpen(true);
+    markPuzzleAsSolved("WikiOpen");
     const nextIndex = (wikiIndex + 1) % wikiPages.length; // ✅ Cycles through pages
-    updateWikiIndex(nextIndex);
-    setHideBackButton(true);
+    setWikiIndex(nextIndex);
   };
 
   return (
     <div>
-      {!hideBackButton && <BackButton />}
+      {!isWikiOpen && <BackButton />}
       {/* Background Image */}
       <ClickableImage
         path="/desk_level/bureau_level/wiki_level/Wiki-background.png"

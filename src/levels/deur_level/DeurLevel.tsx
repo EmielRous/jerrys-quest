@@ -116,7 +116,7 @@ const DeurLevel: React.FC = ({}) => {
         redirect={DeurLevelPaths.DozenLevel}
       />
       <ClickableImage
-        path="/deur_level/Gordijn.png"q
+        path="/deur_level/Gordijn.png"
         size={{ w: 230, h: 583 }}
         location={{ x: -24, y: 52 }}
       />
@@ -240,12 +240,12 @@ const DeurLevel: React.FC = ({}) => {
                 }}
             />
         )}
+
         <ClickableImage
             path="/JerrysQuest.png"
             size={{ w: 469, h: 73 }}
             location={{ x: 267, y: 0 }}
         />
-
 
     </div>
   );

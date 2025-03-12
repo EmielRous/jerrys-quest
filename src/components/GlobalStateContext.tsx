@@ -10,6 +10,8 @@ interface GlobalStateType {
     rubys: number;
     kledingIndex: number;
     vouwIndex: number | null;
+    isWikiOpen: boolean; // ✅ New global state
+    setWikiOpen: (value: boolean) => void; // ✅ Function to update it
     toggleVisibility: () => void;
     markPuzzleAsSolved: (puzzleId: string) => void;
     resetPuzzles: () => void;
@@ -42,6 +44,8 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
     const [vouwIndex, setVouwIndex] = useState<number | null>(null);
     const [negativeIndex, setNegativeIndex] = useState(0);
     const [positiveIndex, setPositiveIndex] = useState(0);
+    const [isWikiOpen, setWikiOpen] = useState(false); // ✅ Add this state
+
 
     useEffect(() => {
         localStorage.setItem("wikiIndex", wikiIndex.toString());
@@ -156,7 +160,7 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
     return (
         <GlobalStateContext.Provider value={{
-            isVisible, puzzlesSolved, inventory, popups, wikiIndex, rubys, kledingIndex, vouwIndex,
+            isVisible, puzzlesSolved, inventory, popups, wikiIndex, rubys, kledingIndex, vouwIndex, isWikiOpen, setWikiOpen,
             toggleVisibility: () => setIsVisible((prev) => !prev),
             markPuzzleAsSolved, resetPuzzles, addToInventory, removeFromInventory,
             addRuby, resetRubies, setPopup, resetPopups, updateWikiIndex,
