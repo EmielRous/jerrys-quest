@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ClickableImage from "../../components/ClickableImage.tsx";
 import { useNavigate } from "react-router-dom";
 import { addRuby, DeskLevelPaths } from "../../utils.tsx";
@@ -17,6 +17,18 @@ const DeskLevel: React.FC = () => {
     const { popups, setPopup } = useGlobalState();
     const { isVisible, toggleVisibility, puzzlesSolved, markPuzzleAsSolved, resetPuzzles } = useGlobalState();
     const animationRef = useRef<number | null>(null);
+
+    useEffect(() => {
+        // Get the referrer
+        const referrer = document.referrer;
+        const currentDomain = window.location.origin;
+
+        // If referrer is empty (direct visit) or from a different site, reset puzzles
+        if (!referrer || !referrer.startsWith(currentDomain)) {
+            alert("Welcome")
+            resetPuzzles();
+        }
+    }, []);
 
   // Function to play sound
   const playSound = () => {
