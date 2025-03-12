@@ -25,7 +25,9 @@ const DeskLevel: React.FC = () => {
 
         // Check if coming from an external site
         if (referrer && !referrer.startsWith(currentDomain)) {
-            alert("Welcome!");
+            setTimeout(() => {
+                alert("Welcome!");
+            }, 1500);
             resetPuzzles();
         }
     }, []);
