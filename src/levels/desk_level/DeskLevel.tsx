@@ -19,12 +19,13 @@ const DeskLevel: React.FC = () => {
     const animationRef = useRef<number | null>(null);
 
     useEffect(() => {
-        // Get the referrer
+        // Get the referrer and current domain
         const referrer = document.referrer;
         const currentDomain = window.location.origin;
 
-        // If referrer is empty (direct visit) or from a different site, reset puzzles
-        if (!referrer || !referrer.startsWith(currentDomain)) {
+        // Check if coming from an external site
+        if (referrer && !referrer.startsWith(currentDomain)) {
+            alert("Welcome!");
             resetPuzzles();
         }
     }, []);
