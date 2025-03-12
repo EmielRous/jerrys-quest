@@ -25,7 +25,6 @@ const DeskLevel: React.FC = () => {
 
         // If referrer is empty (direct visit) or from a different site, reset puzzles
         if (!referrer || !referrer.startsWith(currentDomain)) {
-            alert("Welcome")
             resetPuzzles();
         }
     }, []);
