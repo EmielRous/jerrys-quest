@@ -16,6 +16,7 @@ const RaamLevel: React.FC = () => {
 
   const [guess, setGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
+  const [glep, setGlep] = useState(false);
   const lingoAnswer = "zevenenveertig";
   const putInGuess = (guess: string) => {
     setGuess("");
@@ -39,16 +40,48 @@ const RaamLevel: React.FC = () => {
         <BackgroundImage />
       <BackButton />
         <ClickableImage
-            path="/desk_level/raam_level/RaamView.png"
+            path="/desk_level/raam_level/RaamBackground.png"
             size={{ w: 1024, h: 768 }}
             location={{ x: 0, y: 0 }}
             onClick={() => setRaadselActive(false)}
+        />
+        <ClickableImage
+            path="/desk_level/raam_level/Zaadhuis1.png"
+            size={{ w: 543, h: 717 }}
+            location={{ x: 504, y: -62 }}
         />
       <ClickableImage
         path="/desk_level/raam_level/65.png"
         size={{ w: 26, h: 27 }}
         location={{ x: 913, y: 408 }}
       />
+        <ClickableImage
+            path="/desk_level/raam_level/Glep1.png"
+            visible={glep}
+            clickable={true}
+            onClick={() => setGlep(false)}
+            size={{ w: 159, h: 174 }}
+            location={{ x: 635, y: 182 }}
+        />
+        <ClickableImage
+            path="/desk_level/raam_level/Glep2.png"
+            visible={!glep}
+            clickable={true}
+            onClick={() => setGlep(true)}
+            size={{ w: 159, h: 174 }}
+            location={{ x: 635, y: 182 }}
+        />
+        <ClickableImage
+            path="/desk_level/raam_level/Zaadhuis2.png"
+            size={{ w: 543, h: 717 }}
+            location={{ x: 504, y: -62 }}
+            style={{ pointerEvents: "none" }}
+        />
+        <ClickableImage
+            path="/desk_level/raam_level/65.png"
+            size={{ w: 26, h: 27 }}
+            location={{ x: 913, y: 408 }}
+        />
       <ClickableImage
         path="/desk_level/raam_level/Sphinx.png"
         size={{ w: 480, h: 290 }}
