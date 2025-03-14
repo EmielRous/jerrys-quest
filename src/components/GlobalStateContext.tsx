@@ -110,9 +110,11 @@ export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ c
         setInventory([]);
         setRubys(0);
         resetPopups();
+        setWikiIndex(1);
         localStorage.setItem("puzzlesSolved", JSON.stringify({}));
         localStorage.setItem("inventory", JSON.stringify([]));
         localStorage.setItem("rubys", JSON.stringify(0));
+        localStorage.setItem("wikiIndex", JSON.stringify(0));
 
     };
 

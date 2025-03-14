@@ -8,7 +8,7 @@ import BackgroundImage from "../../../../components/Background.tsx";
 
 const WikiLevel: React.FC = () => {
   const navigate = useNavigate();
-  const { puzzlesSolved, markPuzzleAsSolved, wikiIndex, setWikiIndex, isWikiOpen, setWikiOpen } = useGlobalState(); // ✅ Add isWikiOpen, setWikiOpen
+  const { puzzlesSolved, markPuzzleAsSolved, wikiIndex, updateWikiIndex, isWikiOpen, setWikiOpen } = useGlobalState(); // ✅ Add isWikiOpen, setWikiOpen
 
   useEffect(() => {
     function handleMessage(event) {
@@ -36,15 +36,14 @@ const WikiLevel: React.FC = () => {
     setWikiOpen(false);
   }, []);
 
-  // Function to cycle through wiki pages
-  const loadNextWiki = () => {
-    setWikiOpen(true);
-    markPuzzleAsSolved("WikiOpen");
-    const nextIndex = (wikiIndex + 1) % wikiPages.length; // ✅ Cycles through pages
-    setWikiIndex(nextIndex);
-  };
+    const loadNextWiki = () => {
+        setWikiOpen(true);
+        markPuzzleAsSolved("WikiOpen");
+        updateWikiIndex((wikiIndex + 1) % wikiPages.length); // ✅ Ensures proper update
+    };
 
-  return (
+
+    return (
     <div>
       <BackgroundImage />
       {!isWikiOpen && <BackButton />}
