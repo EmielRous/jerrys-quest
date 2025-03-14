@@ -5,6 +5,7 @@ import BackButton from "../../../components/BackButton.tsx";
 import { addRuby, DeskLevelPaths } from "../../utils.tsx";
 import RaadWoordComponent from "../../../components/RaadWoordComponent.tsx";
 import {useGlobalState} from "../../../components/GlobalStateContext.tsx";
+import BackgroundImage from "../../../components/Background.tsx";
 
 const TafelLevel: React.FC = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const TafelLevel: React.FC = () => {
 
   return (
     <div>
+        <BackgroundImage />
       <BackButton />
         <ClickableImage
             path="/desk_level/tafel_level/TroepTafelView.png"

@@ -82,6 +82,33 @@ const RaamLevel: React.FC = () => {
             size={{ w: 26, h: 27 }}
             location={{ x: 913, y: 408 }}
         />
+        <ClickableImage
+            path="/desk_level/raam_level/spit.gif"
+            size={{ w: 273, h: 287 }}
+            location={{ x: 465, y: 114 }}
+            visible={!glep}
+        />
+        <ClickableImage
+            path="/desk_level/raam_level/Glep1.gif"
+            size={{ w: 314, h: 142 }}
+            location={{ x: 765, y: 153 }}
+            visible={glep}
+        />
+        {glep && (
+            <p style={{ position: "absolute", top: "180px", left: "808px", color: "green" }}>
+                BHAABBA-GHA
+            </p>
+        )}
+        {glep && (
+            <p style={{ position: "absolute", top: "220px", left: "808px", color: "green" }}>
+                NAB-BHBSHUH
+            </p>
+        )}
+        {glep && (
+            <p style={{ position: "absolute", top: "200px", left: "808px", color: "green" }}>
+                DIDIBAJA
+            </p>
+        )}
       <ClickableImage
         path="/desk_level/raam_level/Sphinx.png"
         size={{ w: 480, h: 290 }}

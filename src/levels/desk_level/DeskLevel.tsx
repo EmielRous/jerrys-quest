@@ -99,6 +99,8 @@ const DeskLevel: React.FC = () => {
         path="/desk_level/MontBlanche.png"
         size={{ w: 94, h: 124 }}
         location={{ x: 192, y: 524 }}
+        clickable={true}
+        onClick={() => alert("aaaaaaaaa gatver niet hier aan zitten")}
       />
       <ClickableImage
         path="/desk_level/Kast.png"
