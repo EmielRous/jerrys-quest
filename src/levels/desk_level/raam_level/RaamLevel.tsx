@@ -87,12 +87,14 @@ const RaamLevel: React.FC = () => {
             size={{ w: 273, h: 287 }}
             location={{ x: 465, y: 114 }}
             visible={!glep}
+            style={{ pointerEvents: "none" }}
         />
         <ClickableImage
             path="/desk_level/raam_level/Glep1.gif"
             size={{ w: 314, h: 142 }}
             location={{ x: 765, y: 153 }}
             visible={glep}
+            style={{ pointerEvents: "none" }}
         />
         {glep && (
             <p style={{ position: "absolute", top: "180px", left: "808px", color: "green" }}>
