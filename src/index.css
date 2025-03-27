@@ -36,7 +36,7 @@ h1 {
 }
 
 html, body, *, a, button, img, div {
-  cursor: url("/Cursor.png") 0 0, auto !important;
+  cursor: url("/SchaamPointer.png") 0 0, auto !important;
 }
 
 
