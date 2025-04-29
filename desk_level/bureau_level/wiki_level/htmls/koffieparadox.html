@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fakeLinkTexts = [
+                "paniekaanvallen",
+                "oncontroleerbare trillingen",
+                "existentiële crisis",
+                "nieuw productiviteitsysteem te Googelen",
+                "cryptografie",
+                "nadat men eerst nog vijf extra tabbladen heeft geopend",
+                "werkplek",
+                "een takenlijst die je negeert",
+                "Koffietolerantie",
+                "Koffie-afkickverschijnselen",
+                "Koffie-alternatieven",
+                "Het Procrastinatiesyndroom",
+                "De Wet van Uitstelgedrag",
+                "Het Verborgen Universum van Tabbladen",
+                "Slaapschuld en de illusie van herstel",
+                "Cafeïne als levensstijl",
+                "De koffiebreak die een uur duurde"
+            ];
+            // Load visited links from localStorage
+            const visitedLinks = JSON.parse(localStorage.getItem('visitedLinks') || '{}');
+            // Mark visited links
+            document.querySelectorAll('a').forEach(link => {
+                if (visitedLinks[link.textContent]) {
+                    link.classList.add('visited');
+                }
+            });
+
+            document.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                    const linkText = event.target.textContent || event.target.innerText;
+                    // Mark the link as visited
+                    event.target.classList.add('visited');
+                    // Update the visited links in localStorage
+                    visitedLinks[linkText] = true;
+                    localStorage.setItem('visitedLinks', JSON.stringify(visitedLinks));
+                    // Post message to parent window
+                    const allVisited = fakeLinkTexts.every(text => visitedLinks[text]);
+                    if (allVisited) {
+                        window.parent.postMessage({ allLinksVisited: true }, '*');
+                        localStorage.setItem('visitedLinks', JSON.stringify({}));
+                    }
+                }
+            });
+        });
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WikiParodie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color:white;
+
+            /* background-color: #ddd; */
+            padding: 10px 15px;
+            color: black;
+            /* width: 100%; */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        .menu-button {
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+            max-width: 600px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #0645ad;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 95%;
+            margin: 50px auto;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            gap: 15px;
+        }
+        .sidebar {
+            width: 180px;
+            background-color: white;
+            padding: 0px;
+            border-radius: 5px;
+
+        }
+        .main-content {
+            flex-grow: 1;
+        }
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .buttons {
+            display: flex;
+            gap: 12px;
+        }
+        button, select {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            background: #e0e0e0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.2s ease;
+        }
+        button:hover, select:hover {
+            background: #d0d0d0;
+        }
+        h1 {
+            color: black;
+            font-family: 'Times New Roman', serif;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+        h2 {
+            color: black;
+            font-family: 'Arial', sans-serif;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid black;
+            margin: 15px 0;
+        }
+        .fake-link {
+            color: #0645ad;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        a:active{
+            color:#0645ad;
+        }
+        .fake-link:hover {
+            color: #3366cc;
+        }
+        .fake-link.visited {
+            color:purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu-button">☰</div>
+        <div class="logo">
+            <img src="wikipedia%20logo.png" >
+             
+        
+        
+        </div>
+        <div class="search-bar"><input type="text" placeholder="Zoeken..."></div>
+        <div class="nav-links">
+            <a>Donate</a>
+            <a>Create Account</a>
+            <a>Log in</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Inhoud</h3>
+            <ul>
+                <li><a>Overzicht</a></li>
+                <li><a>Kopjes</a></li>
+                <li><a>Effecten</a></li>
+                <li><a>Afkicken</a></li>
+                <li><a>Zie ook</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1>Het Koffieparadox <select style="float: right;"><option>10 languages</option></select></h1>
+            <hr>
+            <div class="top-controls">
+                <div class="buttons">
+                    <button>Article</button>
+                    <button>Talk</button>
+                </div>
+                <div class="buttons">
+                    <button>Read</button>
+                    <button>Edit</button>
+                    <button>View history</button>
+                    <button>Tools</button>
+                </div>
+            </div>
+            <hr>
+
+
+            <!-- CONTENT -->
+
+
+            <h2>Het Koffieparadox</h2>
+<p><em>"Meer koffie leidt tot meer productiviteit... tot het tegendeel bewezen is."</em></p>
+
+<h2>Overzicht</h2>
+<p>Het <strong>Koffieparadox</strong> is een fenomeen dat beschrijft hoe koffie zowel een reddingsboei als een vloek kan zijn voor studenten, academici en chronisch uitstellende individuen. De paradox stelt dat een matige hoeveelheid koffie de concentratie verhoogt, maar dat overmatig gebruik leidt tot <a class="fake-link">paniekaanvallen</a>, <a class="fake-link">oncontroleerbare trillingen</a>, en een diepe <a class="fake-link">existentiële crisis</a> over waarom men ooit aan deze taak begonnen is.</p>
+
+<h2>Fasen van koffiedrinken</h2>
+<p>De effecten van koffie worden meestal doorlopen in de volgende fasen:</p>
+<ul>
+    <li><strong>De Hoopvolle Start</strong> – De eerste slok wekt de illusie dat men vandaag productief zal zijn.</li>
+    <li><strong>De Hyperfocusfase</strong> – Een korte periode van verhoogde efficiëntie waarin men besluit een <a class="fake-link">nieuw productiviteitsysteem te Googelen</a> in plaats van daadwerkelijk te werken.</li>
+    <li><strong>De Trillende Handen</strong> – De motoriek neemt af, maar de motivatie blijft hoog. Typen lijkt nu op een vorm van <a class="fake-link">cryptografie</a>.</li>
+    <li><strong>De Paniekaanval</strong> – Een fase waarin men plotseling het bestaan van de deadline beseft en alles tegelijk probeert te doen, zonder enig logisch plan.</li>
+    <li><strong>De Existentiële Crisis</strong> – Men vraagt zich af waarom alles altijd op het laatste moment moet. Gedachten als <em>"Waarom ben ik zo?"</em> en <em>"Is dit mijn leven nu?"</em> overheersen.</li>
+    <li><strong>De Ineenstorting</strong> – Na een paar uur stort het cafeïne-effect volledig in en wordt men fysiek één met de bank, <a class="fake-link">nadat men eerst nog vijf extra tabbladen heeft geopend</a>.</li>
+</ul>
+
+<h2>De Juiste Dosering</h2>
+<p>Onderzoek naar het <strong>Koffieparadox</strong> wijst uit dat er een precieze balans bestaat tussen productiviteit en chaos.</p>
+<ul>
+    <li><strong>0-1 kopjes</strong>: Geen effect, behalve het placebo-idee dat je nu echt gaat beginnen.</li>
+    <li><strong>2-3 kopjes</strong>: Optimale focus, mits vergezeld door een goede <a class="fake-link">werkplek</a> en <a class="fake-link">een takenlijst die je negeert</a>.</li>
+    <li><strong>4-5 kopjes</strong>: De grens tussen productiviteit en hartkloppingen begint te vervagen.</li>
+    <li><strong>6+ kopjes</strong>: Je bent niet langer een persoon, maar een levend manifest van stress.</li>
+</ul>
+
+<h2>Koffiecultuur onder studenten</h2>
+<p>In de studentengemeenschap is koffie een onofficiële valuta. Gangbare gebruiken zijn onder andere:</p>
+<ul>
+    <li><strong>Koffie als excuus</strong>: “Ik ga even koffie halen, dan begin ik echt.”</li>
+    <li><strong>Koffie als sociaal ritueel</strong>: “Zullen we samen koffie halen en daarna productief doen?”</li>
+    <li><strong>De Koffie-Roulette</strong>: Een fenomeen waarbij de laatste restjes van willekeurige koffiebekers uit de gezamenlijke keuken worden gecombineerd tot één twijfelachtige mix.</li>
+</ul>
+
+<h2>Gevaar van overmatig gebruik</h2>
+<p>Langdurige blootstelling aan het <strong>Koffieparadox</strong> kan leiden tot:</p>
+<ul>
+    <li><a class="fake-link">Koffietolerantie</a>, waarbij men espresso’s drinkt alsof het water is.</li>
+    <li><a class="fake-link">Koffie-afkickverschijnselen</a>, inclusief ochtendhumeur en de behoefte om mensen neer te kijken die “liever thee drinken.”</li>
+    <li><a class="fake-link">Koffie-alternatieven</a>, zoals energiedrankjes, die het probleem alleen maar verergeren.</li>
+</ul>
+
+<h2>Zie ook</h2>
+<ul>
+    <li><a class="fake-link">Het Procrastinatiesyndroom</a></li>
+    <li><a class="fake-link">De Wet van Uitstelgedrag</a></li>
+    <li><a class="fake-link">Het Verborgen Universum van Tabbladen</a></li>
+    <li><a class="fake-link">Slaapschuld en de illusie van herstel</a></li>
+    <li><a class="fake-link">Cafeïne als levensstijl</a></li>
+    <li><a class="fake-link">De koffiebreak die een uur duurde</a></li>
+</ul>
+
+            
+        
+        
+        
+        
+        
+        
+        
+        </div>
+
+
+
+        <div class="sidebar">
+            <h3>Uiterlijk instellingen</h3>
+            <label>Tekstgrootte:</label><br>
+            <input type="radio" name="text-size" value="small"> Klein <br>
+            <input type="radio" name="text-size" value="medium" checked> Normaal <br>
+            <input type="radio" name="text-size" value="large"> Groot <br>
+            <br>
+            <label>Breedte:</label><br>
+            <input type="radio" name="width" value="narrow"> Smal <br>
+            <input type="radio" name="width" value="medium" checked> Normaal <br>
+            <input type="radio" name="width" value="wide"> Breed <br>
+            <br>
+            <label>Kleur:</label><br>
+            <input type="radio" name="color" value="light" checked> Licht <br>
+            <input type="radio" name="color" value="dark"> Donker <br>
+        </div>
+    </div>
+</body>
+</html>
