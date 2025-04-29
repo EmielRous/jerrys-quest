@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - *  # Change this to your default branch if it's not 'main'
+      - '*'  # Change this to your default branch if it's not 'main'
 
 permissions:
   contents: write
