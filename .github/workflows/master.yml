@@ -5,6 +5,7 @@ on:
     branches:
       - master  # Change this to your default branch if it's not 'main'
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
