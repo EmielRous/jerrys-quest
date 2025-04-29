@@ -8,12 +8,21 @@ import BackgroundImage from "../../../../components/Background.tsx";
 
 const WikiLevel: React.FC = () => {
   const navigate = useNavigate();
-  const { puzzlesSolved, markPuzzleAsSolved, wikiIndex, updateWikiIndex, isWikiOpen, setWikiOpen } = useGlobalState(); // ✅ Add isWikiOpen, setWikiOpen
+  const {
+    puzzlesSolved,
+    markPuzzleAsSolved,
+    wikiIndex,
+    updateWikiIndex,
+    isWikiOpen,
+    setWikiOpen,
+  } = useGlobalState(); // ✅ Add isWikiOpen, setWikiOpen
 
   useEffect(() => {
     function handleMessage(event) {
       if (event.data && event.data.allLinksVisited) {
-        alert("Dat was ZO interessant! Wacht, hoe laat is het? Shit ik moet echt verder met die robijnen...");
+        alert(
+          "Dat was ZO interessant! Wacht, hoe laat is het? Shit ik moet echt verder met die robijnen...",
+        );
         setWikiOpen(false);
       }
     }
@@ -23,7 +32,7 @@ const WikiLevel: React.FC = () => {
       window.removeEventListener("message", handleMessage);
     };
   }, []);
-
+  //
   const wikiPages = [
     "campusgeheimen.html",
     "koffieparadox.html",
@@ -36,14 +45,13 @@ const WikiLevel: React.FC = () => {
     setWikiOpen(false);
   }, []);
 
-    const loadNextWiki = () => {
-        setWikiOpen(true);
-        markPuzzleAsSolved("WikiOpen");
-        updateWikiIndex((wikiIndex + 1) % wikiPages.length); // ✅ Ensures proper update
-    };
+  const loadNextWiki = () => {
+    setWikiOpen(true);
+    markPuzzleAsSolved("WikiOpen");
+    updateWikiIndex((wikiIndex + 1) % wikiPages.length); // ✅ Ensures proper update
+  };
 
-
-    return (
+  return (
     <div>
       <BackgroundImage />
       {!isWikiOpen && <BackButton />}
@@ -100,26 +108,26 @@ const WikiLevel: React.FC = () => {
             overflow: "hidden",
           }}
         >
-                    {/* Wiki Iframe */}
-                    <iframe
-                        src={`/desk_level/bureau_level/wiki_level/htmls/${wikiPages[wikiIndex]}`}
-                        width="1000px"
-                        height="695px"
-                        className="border-none"
-                        style={{
-                            transform: "scale(0.568)",
-                            transformOrigin: "0 0",
-                        }}
-                    ></iframe>
-                </div>
-            )}
-            <ClickableImage
-                path="/JerrysQuest.png"
-                size={{ w: 469, h: 73 }}
-                location={{ x: 267, y: 0 }}
-            />
+          {/* Wiki Iframe */}
+          <iframe
+            src={`/desk_level/bureau_level/wiki_level/htmls/${wikiPages[wikiIndex]}`}
+            width="1000px"
+            height="695px"
+            className="border-none"
+            style={{
+              transform: "scale(0.568)",
+              transformOrigin: "0 0",
+            }}
+          ></iframe>
         </div>
-    );
+      )}
+      <ClickableImage
+        path="/JerrysQuest.png"
+        size={{ w: 469, h: 73 }}
+        location={{ x: 267, y: 0 }}
+      />
+    </div>
+  );
 };
 
 export default WikiLevel;
