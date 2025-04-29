@@ -32,7 +32,7 @@ export const addItemToStorage = (key: STORAGE_KEY, item: string): void => {
   saveArrayToStorage(key, array);
   update(key);
 };
-
+//
 // Function to remove an item from the array
 export const removeItemFromStorage = (key: STORAGE_KEY, item: string): void => {
   let array = getArrayFromStorage(key);
